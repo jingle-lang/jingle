@@ -2,6 +2,7 @@
 
 # Contents
 - [What is Jingle?](https://github.com/jingle-lang/jingle/blob/master/README.md#what-is-jingle)
+- [Examples](https://github.com/jingle-lang/jingle/blob/master/README.md#examples)
 
 ## What is Jingle?
 Jingle is a (very) high-level general-purpose programming language created using Java & Xtext. It is a statically-typed, inferred, nominal programming language. *"So how is it different to Java? Just more syntax I have to learn?"*, I hear you ask. Well, Jingle is written in almost plain English. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also completely JVM compatible. Being JVM compatible means that, effectively, Jingle code can be compiled to Java, Kotlin, Scala & more!
