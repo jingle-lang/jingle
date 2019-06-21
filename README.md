@@ -1,4 +1,4 @@
-# Jingle
+# Jingle, the humanized programming language. 
 
 # Contents
 - [What is Jingle?](https://github.com/jingle-lang/jingle/blob/master/README.md#what-is-jingle)
