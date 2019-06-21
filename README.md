@@ -19,4 +19,3 @@ public class HelloWorld {
 / Hello World in Java
 say "Hello World"
 `
-^ Hello World in Jingle
