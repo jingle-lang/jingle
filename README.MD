@@ -1,3 +1,8 @@
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="https://i.imgur.com/s0wkleV.png" alt="Jingle Lang"></a>
+</p>
+
 <h3 align="center">Jingle Lang 2019.00.0-rc1</h3>
 
 <div align="center">
