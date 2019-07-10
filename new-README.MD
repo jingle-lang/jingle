@@ -1,4 +1,4 @@
-<h3 align="center">Jingle Lang v0.01</h3>
+<h3 align="center">Jingle Lang 2019.00.0-rc1</h3>
 
 <div align="center">
 
