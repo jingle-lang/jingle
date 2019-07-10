@@ -1,3 +1,4 @@
+# Jingle is still in development. This repository is intended for people to learn about Jingle before it's released.
 # Jingle, the humanized programming language. 
 
 # Contents
