@@ -21,11 +21,12 @@
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Usage](#usage)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgement)
 - [Coming Soon](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Changelog](../CHANGELOG.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- [Code of Conduct]()../)
 
 ## 📜 About <a name = "about"></a>
 Jingle is a (very) high-level general-purpose programming language based off of Java. It is statically-typed, inferred and nominal. "So why would I use this instead of Java?", I hear you ask. Well, Jingle is written in almost plain English. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
