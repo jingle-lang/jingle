@@ -23,9 +23,9 @@
 - [Usage](#usage)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
-- [Coming Soon](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Changelog](../CHANGELOG.md)
+- [Coming Soon](../master/COMING_SOON.md)
+- [Contributing](../master/CONTRIBUTING.md)
+- [Changelog](../master/CHANGELOG.md)
 - [Code of Conduct](../master/CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
