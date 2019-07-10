@@ -24,6 +24,7 @@
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
+- [Changelog](../CHANGELOG.md)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
@@ -43,7 +44,7 @@ public class HelloWorld {
   
 }
 ```
-`say "Hello World"`
+`say ("Hello World")`
 
 As you can see, Jingle is a lot simpler and in this case, just makes more sense. Its syntax is more similar to scripting languages and lines that you would enter into a command prompt, rather than convoluted solutions to incredibly simple tasks.
 
@@ -52,9 +53,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-```
-
-```
+We recommend usage of a IDE or text editor that supports Jingle. Main ones that are supported are:
+* Eclipse 
+* IntelliJ IDEA
+* Visual Studio Code
+* Sublime Text *(Coming Soon)*
+* Atom *(Coming Soon)*
 
 ### Installing
 
@@ -64,25 +68,8 @@ Jingle Lang v1.x - (c) Exedys Digital/ Millo Evers 2019
 run "jingle help" for commands
 ``` 
 
-## 🔧 Running the tests <a name = "tests"></a>
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## 🎈 Usage <a name="usage"></a>
-Add notes about how to use the system.
+As Jingle is a general-purpose programming language, its intended usage is to be up to the user and for them to use it for whatever they need it for. However, because it is still a very new language, Jingle cannot be used for as many things other languages can be used for. This is mostly because other languages have a lot of frameworks, libraries, plugins, extensions, etc... that allow developers do what they want. However for most plain/raw usage it should suffice.
 
 ## 🚀 Deployment <a name = "deployment"></a>
 Add additional notes about how to deploy this on a live system.
@@ -94,9 +81,9 @@ Add additional notes about how to deploy this on a live system.
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
 ## ✍️ Authors <a name = "authors"></a>
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+- [@exedys/Millo Evers](https://github.com/exedys) - Creator of Jingle
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/exedys/jingle-lang/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 - Hat tip to anyone whose code was used
