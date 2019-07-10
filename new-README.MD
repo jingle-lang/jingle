@@ -21,7 +21,7 @@
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Usage](#usage)
-- [To do](../TODO.md)
+- [Coming Soon](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Changelog](../CHANGELOG.md)
 - [Authors](#authors)
