@@ -58,9 +58,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-You can get Jingle through our Jingle Packs at jingle-lang.org. These will include the binaries, offline documentation, examples and Jingle's package manager, Toll. The Jingle Pack will also create a PATH variable so you can use Jingle straight from the Command Prompt straight away. Check if your installation succeeded by running the following:
-`jingle`
-This should show the following:
+You can get Jingle through our Jingle Packs at jingle-lang.org. These will include the binaries, offline documentation, examples and Jingle's package manager, Toll. The Jingle Pack will also create a PATH variable so you can use Jingle straight from the Command Prompt straight away. Check if your installation succeeded by running `jingle` into the console. This should show the following:
 ```
 Jingle Lang v1.x - (c) Exedys Digital/ Millo Evers 2019
 run "jingle help" for commands
