@@ -11,7 +11,7 @@
 
 ---
 
-<p align="center"> Jingle is the humanized programming language with syntax written in English.
+<p align="center"> Jingle is the humanized programming language with English-like syntax.
     <br> 
 </p>
 
