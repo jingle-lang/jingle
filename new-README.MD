@@ -72,7 +72,7 @@ run "jingle help" for commands
 As Jingle is a general-purpose programming language, its intended usage is to be up to the user and for them to use it for whatever they need it for. However, because it is still a very new language, Jingle cannot be used for as many things other languages can be used for. This is mostly because other languages have a lot of frameworks, libraries, plugins, extensions, etc... that allow developers do what they want. However for most plain/raw usage it should suffice.
 
 ## 🚀 Deployment <a name = "deployment"></a>
-Add additional notes about how to deploy this on a live system.
+Please read the Jingle documentation for information about deployment & compiliation.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [MongoDB](https://www.mongodb.com/) - Database
@@ -86,6 +86,6 @@ Add additional notes about how to deploy this on a live system.
 See also the list of [contributors](https://github.com/exedys/jingle-lang/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+* *Millo's Acknowledgements*
+⋅⋅⋅ - My fellow computer science students for helping me test the language out
+⋅⋅⋅ - Marc-André Cournoyer for his [excellent book](http://createyourproglang.com/) that started off Coral which led to Jingle.
