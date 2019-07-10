@@ -3,8 +3,8 @@
 <div align="center">
 
   [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
-  [![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/exedys/jingle-lang/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/exedys/jingle-lang/pulls)
+  [![GitHub Issues](https://img.shields.io/github/issues/exedys/jingle-lang.svg)](https://github.com/exedys/jingle-lang/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/exedys/jingle-lang.svg)](https://github.com/exedys/jingle-lang/pulls)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
