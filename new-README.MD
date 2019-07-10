@@ -1,4 +1,4 @@
-<h3 align="center">Jingle Lang</h3>
+<h3 align="center">Jingle Lang v0.01</h3>
 
 <div align="center">
 
