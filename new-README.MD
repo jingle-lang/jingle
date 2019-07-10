@@ -21,7 +21,6 @@
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Usage](#usage)
-- [Built Using](#built_using)
 - [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Changelog](../CHANGELOG.md)
@@ -74,18 +73,11 @@ As Jingle is a general-purpose programming language, its intended usage is to be
 ## 🚀 Deployment <a name = "deployment"></a>
 Please read the Jingle documentation for information about deployment & compiliation.
 
-## ⛏️ Built Using <a name = "built_using"></a>
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-
 ## ✍️ Authors <a name = "authors"></a>
 - [@exedys/Millo Evers](https://github.com/exedys) - Creator of Jingle
 
 See also the list of [contributors](https://github.com/exedys/jingle-lang/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-* *Millo's Acknowledgements*
-⋅⋅⋅ - My fellow computer science students for helping me test the language out
-⋅⋅⋅ - Marc-André Cournoyer for his [excellent book](http://createyourproglang.com/) that started off Coral which led to Jingle.
+*  My fellow computer science students for helping me test the language out
+* Marc-André Cournoyer for his [excellent book](http://createyourproglang.com/) that started off Coral which led to Jingle.
