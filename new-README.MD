@@ -11,7 +11,7 @@
 
 ---
 
-<p align="center"> Few lines describing your project.
+<p align="center"> Jingle is the humanized programming language with syntax written in English.
     <br> 
 </p>
 
