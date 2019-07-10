@@ -26,7 +26,7 @@
 - [Coming Soon](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Changelog](../CHANGELOG.md)
-- [Code of Conduct](../CODE_OF_CONDUCT.MD)
+- [Code of Conduct](../CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
 Jingle is a (very) high-level general-purpose programming language based off of Java. It is statically-typed, inferred and nominal. "So why would I use this instead of Java?", I hear you ask. Well, Jingle is written in almost plain English. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
