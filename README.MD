@@ -82,7 +82,7 @@ Please read the Jingle documentation for information about deployment & compilia
 ## ✍️ Authors <a name = "authors"></a>
 - [@exedys/Millo Evers](https://github.com/exedys) - Creator of Jingle
 
-See also the list of [contributors](https://github.com/exedys/jingle-lang/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/getjingle/jingle-lang/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 *  My fellow computer science students for helping me test the language out
