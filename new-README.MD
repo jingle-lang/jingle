@@ -27,7 +27,7 @@
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
-## 🧐 About <a name = "about"></a>
+## 📜 About <a name = "about"></a>
 Jingle is a (very) high-level general-purpose programming language based off of Java. It is statically-typed, inferred and nominal. "So why would I use this instead of Java?", I hear you ask. Well, Jingle is written in almost plain English. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
 
 ## 📔 Examples <a name = "examples"></a>
@@ -51,28 +51,20 @@ As you can see, Jingle is a lot simpler and in this case, just makes more sense.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-What things you need to install the software and how to install them.
 
 ```
-Give examples
+
 ```
 
 ### Installing
-A step by step series of examples that tell you how to get a development env running.
 
-Say what the step will be
-
+You can get Jingle through our Jingle Packs at jingle-lang.org. These will include the binaries, offline documentation, examples and Jingle's package manager, Toll. The Jingle Pack will also create a PATH variable so you can use Jingle straight from the Command Prompt straight away. Check if your installation succeeded by running the following:
+`jingle`
+This should show the following:
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
+Jingle Lang v1.x - (c) Exedys Digital/ Millo Evers 2019
+run "jingle help" for commands
+``` 
 
 ## 🔧 Running the tests <a name = "tests"></a>
 Explain how to run the automated tests for this system.
