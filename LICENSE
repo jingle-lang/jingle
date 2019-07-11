@@ -1,6 +1,10 @@
 The Jingle License
 
+The Jingle License is a combination of the MIT license and the GNU GPLv3 license. It is, in most parts, the same as the MIT license except changes made to the software itself must be made opensource under a pre-existing license if made public, with the changes being clearly stated. This license was created to provide a large amount of freedom to developers while still supporting opensource. You are still allowed to change the license if you make public changes to the software so you do not have to use The Jingle License if your changes are made opensource.
+
 Copyright (c) 2019 The Jingle Organization
+
+---MIT SECTION---
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +23,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---GNU GPLv3 (slightly modified to make more sense)---
+
+ You may convey a work based on the Program, or the modifications to
+produce it from the Program; provided that you also meet all of these conditions:
+
+    a) The work must carry prominent notices stating that you modified
+    it, and giving a relevant date.
+
+    b) You must make any modifications of the software publicly available
+    under any opensource license. Your chosen license will apply to your
+    modifications of the software, however you may choose to use multiple
+    licenses in your software.
