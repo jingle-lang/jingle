@@ -10,7 +10,6 @@
   [![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/getjingle/jingle-lang/blob/master/CHANGELOG.md)
   [![GitHub Issues](https://img.shields.io/github/issues/getjingle/jingle-lang.svg)](https://github.com/getjingle/jingle-lang/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/getjingle/jingle-lang.svg)](https://github.com/getjingle/jingle-lang/pulls)
-  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
 
