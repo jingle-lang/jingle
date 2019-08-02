@@ -50,7 +50,7 @@ public class HelloWorld {
   
 }
 ```
-`say ("Hello World")`
+`display: ("Hello World")`
 
 As you can see, Jingle is a lot simpler and in this case, just makes more sense. Its syntax is more similar to scripting languages and lines that you would enter into a command prompt, rather than convoluted solutions to incredibly simple tasks.
 
