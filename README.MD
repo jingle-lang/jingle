@@ -10,8 +10,6 @@
   [![Status](https://img.shields.io/badge/status-active-success.svg?style=for-the-badge)](https://github.com/exedys/jingle-lang/blob/master/CHANGELOG.md)
   [![GitHub Issues](https://img.shields.io/github/issues/exedys/jingle-lang?style=for-the-badge)](https://github.com/exedys/jingle-lang/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/exedys/jingle-lang?style=for-the-badge)](https://github.com/exedys/jingle-lang/pulls)
-  [![Coverage Status](https://img.shields.io/coveralls/github/exedys/jingle-lang?style=for-the-badge)](https://coveralls.io/github/exedys/jingle-lang?branch=master)
-  [![Build Status](https://img.shields.io/travis/com/exedys/jingle-lang?style=for-the-badge)](https://travis-ci.com/exedys/jingle-lang)
 
 </div>
 
