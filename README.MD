@@ -33,7 +33,7 @@
 - [Code of Conduct](../master/CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
-Jingle is a (very) high-level general-purpose programming language based off of Java. It is statically-typed, inferred and nominal. "So why would I use this instead of Java?", I hear you ask. Well, Jingle is written in very simple, English-like syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
+Jingle is a high-level general-purpose programming language based off of Java. It is statically-typed, inferred and nominal. "So why would I use this instead of Java?", I hear you ask. Well, Jingle is written in very simple, English-like syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
 
 ## 📔 Examples <a name = "examples"></a>
 Alright, let's look at how this all works. Here are 2 Hello World applications written in both Java & Jingle, with Java being on top and Jingle being on bottom.
