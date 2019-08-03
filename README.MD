@@ -15,7 +15,7 @@
 
 ---
 
-<p align="center"> Jingle is the humanized programming language written in English.
+<p align="center"> Jingle is the humanized programming language written in simplistic syntax.
     <br> 
 </p>
 
@@ -33,10 +33,10 @@
 - [Code of Conduct](../master/CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
-Jingle is a (very) high-level general-purpose programming language based off of Java. It is statically-typed, inferred and nominal. "So why would I use this instead of Java?", I hear you ask. Well, Jingle is written in almost plain English. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
+Jingle is a (very) high-level general-purpose programming language based off of Java. It is statically-typed, inferred and nominal. "So why would I use this instead of Java?", I hear you ask. Well, Jingle is written in very simple, English-like syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
 
 ## 📔 Examples <a name = "examples"></a>
-Alright, let's look at how this whole "written in English" thing works. Here are 2 Hello World applications written in both Java & Jingle, with Java being on top and Jingle being on bottom.
+Alright, let's look at how this all works. Here are 2 Hello World applications written in both Java & Jingle, with Java being on top and Jingle being on bottom.
 
 ```java
 
@@ -68,7 +68,7 @@ We recommend usage of a IDE or text editor that supports Jingle. Main ones that 
 
 You can get Jingle through our Jingle Packs at getjingle.org. These will include the binaries, offline documentation, examples and Jingle's package manager, Toll for Jingle. The Jingle Pack will also create a PATH variable so you can use Jingle straight from the Command Prompt straight away. Check if your installation succeeded by running `jingle` into the console. This should show the following:
 ```
-Jingle Lang v1.x - (c) Jingle Organization/ Millo Evers 2019
+Jingle Lang v1.x - (c) Exedys Synergies/ Millo Evers 2019
 run "jingle help" for commands
 ``` 
 
