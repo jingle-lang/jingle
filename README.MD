@@ -50,7 +50,7 @@ public class HelloWorld {
 ```
 `display: ("Hello World")`
 
-As you can see, Jingle is a lot simpler and in this case, just makes more sense. Its syntax is more similar to scripting languages and lines that you would enter into a command prompt, rather than convoluted solutions to incredibly simple tasks.
+As you can see, Jingle is a lot simpler and in this case, just makes more sense. Its syntax is more similar to scripting languages and lines that you would enter into a command prompt, rather than convoluted solutions to incredibly simple tasks. View more examples [here](https://github.com/exedys/jingle-lang/wiki/Syntax-Examples-and-Reference).
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
