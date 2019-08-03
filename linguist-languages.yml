@@ -1,0 +1,10 @@
+Jingle:
+  type: programming
+  color: "#6b09ec"
+  extensions:
+  - ".jn"
+  - ".jingle"
+  - ".jngl"
+  tm_scope: source.jn
+  ace_mode: text
+  language_id: 4027
