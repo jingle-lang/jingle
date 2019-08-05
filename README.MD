@@ -33,7 +33,7 @@
 - [Code of Conduct](../master/CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
-Jingle is a high-level general-purpose programming language based off of Java. It is statically-typed, inferred and structural. "So why would I use this instead of Java?", I hear you ask. Well, Jingle is written in very simple, English-like syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
+Jingle is a high-level general-purpose programming language currently in development. It is statically-typed, inferred and structural. "So why would I use this?", I hear you ask. Well, Jingle is written in very simple, English-like syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
 
 ## 📔 Examples <a name = "examples"></a>
 Alright, let's look at how this all works. Here are 2 Hello World applications written in both Java & Jingle, with Java being on top and Jingle being on bottom.
@@ -73,7 +73,7 @@ run "jingle help" for commands
 ``` 
 
 ## 🎈 Usage <a name="usage"></a>
-As Jingle is a general-purpose programming language, its intended usage is to be up to the user and for them to use it for whatever they need it for. However, because it is still a very new language, Jingle cannot be used for as many things other languages can be used for. This is mostly because other languages have a lot of frameworks, libraries, plugins, extensions, etc... that allow developers do what they want. However for most plain/raw usage it should suffice.
+As Jingle is a general-purpose programming language, its intended usage is to be up to the user and for them to use it for whatever they need it for. However, because it is still a very new language, Jingle cannot be used for as many things other languages can be used for. This is mostly because other languages have a lot of frameworks, libraries, plugins, extensions, etc... that allow developers do what they want. However for most plain/raw usage it should suffice. The language targets the JVM however which will help it support pre-existing libraries.
 
 ## 🚀 Deployment <a name = "deployment"></a>
 Please read the Jingle documentation for information about deployment & compiliation.
