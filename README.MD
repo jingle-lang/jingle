@@ -85,4 +85,4 @@ See also the list of [contributors](https://github.com/getjingle/jingle-lang/con
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 *  My fellow computer science students for helping me test the language out
-* Marc-André Cournoyer for his [excellent book](http://createyourproglang.com/) that started off Coral which led to Jingle.
+* Marc-André Cournoyer for his [excellent book](http://createyourproglang.com/) that started off Cascade which led to Jingle.
