@@ -66,7 +66,7 @@ We recommend usage of a IDE or text editor that supports Jingle. Main ones that 
 
 ### Installing
 
-You can get Jingle through our Jingle Packs at getjingle.org. These will include the binaries, offline documentation, examples and Jingle's package manager, Toll for Jingle. The Jingle Pack will also create a PATH variable so you can use Jingle straight from the Command Prompt straight away. Check if your installation succeeded by running `jingle` into the console. This should show the following:
+You can get Jingle through our Jingle Packs at getjingle.org. These will include the binaries, offline documentation, examples and Jingle's package manager, JinglePkg. The Jingle Pack will also create a PATH variable so you can use Jingle straight from the Command Prompt straight away. Check if your installation succeeded by running `jingle` into the console. This should show the following:
 ```
 Jingle Lang v1.x - (c) Exedys Synergies/ Millo Evers 2019
 run "jingle help" for commands
