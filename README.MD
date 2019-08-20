@@ -27,10 +27,10 @@
 - [Usage](#usage)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
-- [Coming Soon](../master/COMING_SOON.md)
-- [Contributing](../master/CONTRIBUTING.md)
-- [Changelog](../master/CHANGELOG.md)
-- [Code of Conduct](../master/CODE_OF_CONDUCT.md)
+- [Coming Soon](../master/docs/COMING_SOON.md)
+- [Contributing](../master/docs/CONTRIBUTING.md)
+- [Changelog](../master/docs/CHANGELOG.md)
+- [Code of Conduct](../master/docs/CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
 Jingle is a high-level general-purpose programming language currently in development. It is statically-typed, inferred and structural. "So why would I use this?", I hear you ask. Well, Jingle is written in very simple, English-like syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
