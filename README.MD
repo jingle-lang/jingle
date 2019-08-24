@@ -7,9 +7,9 @@
 
 <div align="center">
 
-  [![Status](https://img.shields.io/badge/status-active-success.svg?style=for-the-badge)](https://github.com/exedys/jingle-lang/blob/master/CHANGELOG.md)
-  [![GitHub Issues](https://img.shields.io/github/issues/jingle-lang/jingle-lang?style=for-the-badge)](https://github.com/exedys/jingle-lang/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jingle-lang/jingle-lang?style=for-the-badge)](https://github.com/exedys/jingle-lang/pulls)
+  [![Status](https://img.shields.io/badge/status-active-success.svg?style=for-the-badge)](https://github.com/jingle-lang/jingle/blob/master/CHANGELOG.md)
+  [![GitHub Issues](https://img.shields.io/github/issues/jingle-lang/jingle-?style=for-the-badge)](https://github.com/jingle-lang/jingle/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jingle-lang/jingle?style=for-the-badge)](https://github.com/jingle-lang/jingle/pulls)
 
 </div>
 
