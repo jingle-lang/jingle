@@ -15,7 +15,7 @@
 
 ---
 
-<p align="center"> Jingle is the humanized programming language written in simplistic syntax.
+<p align="center"> Jingle is a new & simple programming language for modern-day programming.
     <br> 
 </p>
 
