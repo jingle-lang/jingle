@@ -1,4 +1,4 @@
-# Changelog
+# Changelog [![Build Status](https://travis-ci.com/jingle-lang/jingle.svg?branch=master)](https://travis-ci.com/jingle-lang/jingle)
 
  
 ## [Unreleased] 2019.00.0-rc1
