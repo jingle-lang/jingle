@@ -16,7 +16,7 @@ display:(Fibonacci(9))
 
 FibArray = [0,1] 
   
-def Fibonacci(n): 
+func Fibonacci(n): 
     if n<0: 
         display:("Incorrect input") 
     elif n<=len(FibArray): 
@@ -30,7 +30,7 @@ display:(Fibonacci(9))
 
 # Space Optimized
 
-def Fibonacci(n): 
+func Fibonacci(n): 
     var a = 0
     var b = 1
     if n < 0: 
