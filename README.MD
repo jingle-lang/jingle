@@ -21,6 +21,7 @@
 
 ## 📝 Table of Contents
 - [About](#about)
+- [Development](#development)
 - [Examples](#examples)
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
@@ -33,7 +34,10 @@
 - [Code of Conduct](../master/docs/CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
-Jingle is a high-level general-purpose programming language currently in development. It is statically-typed, inferred and structural. "So why would I use this?", I hear you ask. Well, Jingle is written in very simple syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It is also targets the JVM.
+Jingle is a high-level general-purpose programming language currently in development. It is statically-typed, inferred and structural. "So why would I use this?", I hear you ask. Well, Jingle is written in very simple syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It also has an interpreter with an experimental JVM target.
+
+## 🖥️ Development <a name = "development"></a>
+Jingle uses many open source tools such as ANTLR for its lexer & parser, LLVM for its compiler and the JVM for its interpreter. We use Go & Python for most of the language. We decided to use these 2 as Python is much easier to read and program in but Go is a lot faster to run so we use a combination of the both. The compiler utilises mostly the official Go bindings but also some parts are in LLVMlite, the best unofficial Python bindings for LLVM.
 
 ## 📔 Examples <a name = "examples"></a>
 Alright, let's look at how this all works. Here are 2 Hello World applications written in both Java & Jingle, with Java being on top and Jingle being on bottom.
@@ -50,7 +54,7 @@ public class HelloWorld {
 ```
 `display: ("Hello World")`
 
-As you can see, Jingle is a lot simpler and in this case, just makes more sense. Its syntax is more similar to scripting languages and lines that you would enter into a command prompt, rather than convoluted solutions to incredibly simple tasks. View more examples [here](https://github.com/exedys/jingle-lang/wiki/Syntax-Examples-and-Reference).
+As you can see, Jingle is a lot simpler and in this case, just makes more sense. Its syntax is more similar to scripting languages and lines that you would enter into a command prompt, rather than convoluted solutions to incredibly simple tasks. View more examples [here](https://github.com/jingle-lang/jingle/wiki/Syntax-Examples-and-Reference).
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
@@ -79,9 +83,9 @@ As Jingle is a general-purpose programming language, its intended usage is to be
 Please read the Jingle documentation for information about deployment & compiliation.
 
 ## ✍️ Authors <a name = "authors"></a>
-- [@exedys/Millo Evers](https://github.com/exedys) - Creator of Jingle
+- [@midoublelo/Millo Evers](https://github.com/midoublelo) - Creator of Jingle
 
-See also the list of [contributors](https://github.com/getjingle/jingle-lang/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/jingle-lang/jingle/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 *  My fellow computer science students for helping me test the language out
