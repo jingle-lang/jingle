@@ -1,13 +1,18 @@
 lexer grammar JingleLexer;
 
-
+// Helpers
 fragment DIGIT : [0-9] ;
+fragment DIGIT_CONT : [0-9_] ;
+fragment HEXDIGIT : [0-9a-fA-F_] ;
+fragment BINARY : [0-1_] ;
+fragment WHITESPACE : [ \t\r\n]+ -> skip ;
 
 // Comment
 COMMENT : '#' | . | '//';
 
 // Keywords
 VAR : 'var' ;
+ARRAY : 'array' ;
 CONST : 'const' | . | 'constant';
 DISPLAY : 'display' ;
 RETURN : 'return' ;
@@ -17,9 +22,12 @@ ELIF : 'elif' ;
 FOR : 'for' ;
 TRUE : 'true' ;
 FALSE : 'false' ;
-FUNC : 'func' ;
+FUNC : 'function' | . | 'func' | . | 'fn' ;
 CLASS : 'class' ;
 LET : 'let' ;
+TRAIT : 'trait' ;
+DEFINE : 'def' ;
+PROTOCOL : 'protocol' ;
 
 // Operators
 ASSIGN : ':' ;
@@ -32,6 +40,10 @@ LESSTHAN : '<' ;
 GREATERTHAN : '>' ;
 NOTEQUAL : '!=' ;
 BANG : '!' ;
+OR : '|' ;
+EQEQ : '==' ;
+HASH : '#' ;
+AMBERSAND : '&' ;
 
 // Delimiters
 COMMA : ',' ;
