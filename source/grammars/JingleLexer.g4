@@ -1,14 +1,26 @@
 lexer grammar JingleLexer;
 
+// Channels
+channels { COMMENTS }
+
 // Helpers
+fragment SEMICOLON : ';' ;
+fragment NEWLINE : '\r' '\n' | '\n' | '\r' ;
+fragment ID : [a-zA-Z]+ ;
 fragment DIGIT : [0-9] ;
 fragment DIGIT_CONT : [0-9_] ;
 fragment HEXDIGIT : [0-9a-fA-F_] ;
 fragment BINARY : [0-1_] ;
 fragment WHITESPACE : [ \t\r\n]+ -> skip ;
+fragment UNICODE_WS : [\p{White_Space}] -> skip;
+
+ENDSTATEMENT : SEMICOLON NEWLINE* | NEWLINE+;
 
 // Comment
-COMMENT : '#' | . | '//';
+COMMENT : '##' -> channel(COMMENTS);
+
+// Quotes
+SPEECHMARKS : '"' ;
 
 // Keywords
 VAR : 'var' ;
@@ -17,8 +29,10 @@ CONST : 'const' | . | 'constant';
 DISPLAY : 'display' ;
 RETURN : 'return' ;
 IF : 'if' ;
+IN : 'in' ;
 ELSE : 'else' ;
 ELIF : 'elif' ;
+WHILE : 'while' ;
 FOR : 'for' ;
 TRUE : 'true' ;
 FALSE : 'false' ;
@@ -28,9 +42,14 @@ LET : 'let' ;
 TRAIT : 'trait' ;
 DEFINE : 'def' ;
 PROTOCOL : 'protocol' ;
+ENUM : 'enum' ;
+IMPORT : 'import' ;
+FROM : 'from' ;
+PACKAGE : 'package' ;
+AS : 'as' ;
 
 // Operators
-ASSIGN : ':' ;
+ASSIGN : ':=' ;
 EQUALS : '=' ;
 PLUS : '+' ;
 MINUS : '-' ;
@@ -47,7 +66,6 @@ AMBERSAND : '&' ;
 
 // Delimiters
 COMMA : ',' ;
-SEMICOLON : ';' ;
 LBRACKET : '(' ;
 RBRACKET : ')' ;
 LBRACE : '{' ;
