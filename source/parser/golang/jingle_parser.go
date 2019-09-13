@@ -16,7 +16,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 58, 74, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 59, 74, 4,
 	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
 	8, 9, 8, 4, 9, 9, 9, 3, 2, 6, 2, 20, 10, 2, 13, 2, 14, 2, 21, 3, 3, 3,
 	3, 3, 3, 3, 4, 3, 4, 3, 4, 5, 4, 30, 10, 4, 3, 5, 3, 5, 3, 5, 3, 5, 3,
@@ -24,27 +24,27 @@ var parserATN = []uint16{
 	8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 5, 8, 54, 10, 8, 3, 8, 3, 8, 3, 8, 3,
 	8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 7, 8, 65, 10, 8, 12, 8, 14, 8, 68, 11,
 	8, 3, 9, 3, 9, 5, 9, 72, 10, 9, 3, 9, 2, 3, 14, 10, 2, 4, 6, 8, 10, 12,
-	14, 16, 2, 5, 3, 3, 3, 3, 3, 2, 34, 35, 3, 2, 32, 33, 2, 76, 2, 19, 3,
+	14, 16, 2, 5, 3, 3, 3, 3, 3, 2, 35, 36, 3, 2, 33, 34, 2, 76, 2, 19, 3,
 	2, 2, 2, 4, 23, 3, 2, 2, 2, 6, 29, 3, 2, 2, 2, 8, 31, 3, 2, 2, 2, 10, 36,
 	3, 2, 2, 2, 12, 39, 3, 2, 2, 2, 14, 53, 3, 2, 2, 2, 16, 71, 3, 2, 2, 2,
 	18, 20, 5, 4, 3, 2, 19, 18, 3, 2, 2, 2, 20, 21, 3, 2, 2, 2, 21, 19, 3,
 	2, 2, 2, 21, 22, 3, 2, 2, 2, 22, 3, 3, 2, 2, 2, 23, 24, 5, 6, 4, 2, 24,
 	25, 9, 2, 2, 2, 25, 5, 3, 2, 2, 2, 26, 30, 5, 10, 6, 2, 27, 30, 5, 12,
 	7, 2, 28, 30, 5, 8, 5, 2, 29, 26, 3, 2, 2, 2, 29, 27, 3, 2, 2, 2, 29, 28,
-	3, 2, 2, 2, 30, 7, 3, 2, 2, 2, 31, 32, 7, 9, 2, 2, 32, 33, 7, 45, 2, 2,
-	33, 34, 5, 14, 8, 2, 34, 35, 7, 46, 2, 2, 35, 9, 3, 2, 2, 2, 36, 37, 7,
-	6, 2, 2, 37, 38, 5, 12, 7, 2, 38, 11, 3, 2, 2, 2, 39, 40, 7, 58, 2, 2,
-	40, 41, 7, 30, 2, 2, 41, 42, 5, 14, 8, 2, 42, 13, 3, 2, 2, 2, 43, 44, 8,
-	8, 1, 2, 44, 45, 7, 45, 2, 2, 45, 46, 5, 14, 8, 2, 46, 47, 7, 46, 2, 2,
-	47, 54, 3, 2, 2, 2, 48, 54, 7, 58, 2, 2, 49, 50, 7, 33, 2, 2, 50, 54, 5,
-	14, 8, 5, 51, 54, 7, 57, 2, 2, 52, 54, 7, 52, 2, 2, 53, 43, 3, 2, 2, 2,
+	3, 2, 2, 2, 30, 7, 3, 2, 2, 2, 31, 32, 7, 10, 2, 2, 32, 33, 7, 46, 2, 2,
+	33, 34, 5, 14, 8, 2, 34, 35, 7, 47, 2, 2, 35, 9, 3, 2, 2, 2, 36, 37, 7,
+	7, 2, 2, 37, 38, 5, 12, 7, 2, 38, 11, 3, 2, 2, 2, 39, 40, 7, 59, 2, 2,
+	40, 41, 7, 31, 2, 2, 41, 42, 5, 14, 8, 2, 42, 13, 3, 2, 2, 2, 43, 44, 8,
+	8, 1, 2, 44, 45, 7, 46, 2, 2, 45, 46, 5, 14, 8, 2, 46, 47, 7, 47, 2, 2,
+	47, 54, 3, 2, 2, 2, 48, 54, 7, 59, 2, 2, 49, 50, 7, 34, 2, 2, 50, 54, 5,
+	14, 8, 5, 51, 54, 7, 58, 2, 2, 52, 54, 7, 53, 2, 2, 53, 43, 3, 2, 2, 2,
 	53, 48, 3, 2, 2, 2, 53, 49, 3, 2, 2, 2, 53, 51, 3, 2, 2, 2, 53, 52, 3,
 	2, 2, 2, 54, 66, 3, 2, 2, 2, 55, 56, 12, 10, 2, 2, 56, 57, 9, 3, 2, 2,
 	57, 65, 5, 14, 8, 11, 58, 59, 12, 9, 2, 2, 59, 60, 9, 4, 2, 2, 60, 65,
-	5, 14, 8, 10, 61, 62, 12, 8, 2, 2, 62, 63, 7, 29, 2, 2, 63, 65, 5, 16,
+	5, 14, 8, 10, 61, 62, 12, 8, 2, 2, 62, 63, 7, 30, 2, 2, 63, 65, 5, 16,
 	9, 2, 64, 55, 3, 2, 2, 2, 64, 58, 3, 2, 2, 2, 64, 61, 3, 2, 2, 2, 65, 68,
 	3, 2, 2, 2, 66, 64, 3, 2, 2, 2, 66, 67, 3, 2, 2, 2, 67, 15, 3, 2, 2, 2,
-	68, 66, 3, 2, 2, 2, 69, 72, 7, 57, 2, 2, 70, 72, 7, 52, 2, 2, 71, 69, 3,
+	68, 66, 3, 2, 2, 2, 69, 72, 7, 58, 2, 2, 70, 72, 7, 53, 2, 2, 71, 69, 3,
 	2, 2, 2, 71, 70, 3, 2, 2, 2, 72, 17, 3, 2, 2, 2, 8, 21, 29, 53, 64, 66,
 	71,
 }
@@ -52,7 +52,7 @@ var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "", "'##'", "'\"'", "'var'", "'array'", "", "'display'", "'return'",
+	"", "", "", "'##'", "'\"'", "'var'", "'array'", "", "'display'", "'return'",
 	"'if'", "'in'", "'else'", "'elif'", "'while'", "'for'", "'true'", "'false'",
 	"", "'class'", "'let'", "'trait'", "'def'", "'protocol'", "'enum'", "'import'",
 	"'from'", "'package'", "'as'", "':='", "'='", "'+'", "'-'", "'*'", "'/'",
@@ -61,12 +61,12 @@ var literalNames = []string{
 	"'null'", "'char'",
 }
 var symbolicNames = []string{
-	"", "ENDSTATEMENT", "COMMENT", "SPEECHMARKS", "VAR", "ARRAY", "CONST",
-	"DISPLAY", "RETURN", "IF", "IN", "ELSE", "ELIF", "WHILE", "FOR", "TRUE",
-	"FALSE", "FUNC", "CLASS", "LET", "TRAIT", "DEFINE", "PROTOCOL", "ENUM",
-	"IMPORT", "FROM", "PACKAGE", "AS", "ASSIGN", "EQUALS", "PLUS", "MINUS",
-	"MULTIPLY", "DIVIDE", "LESSTHAN", "GREATERTHAN", "NOTEQUAL", "BANG", "OR",
-	"EQEQ", "HASH", "AMBERSAND", "COMMA", "LBRACKET", "RBRACKET", "LBRACE",
+	"", "ENDSTATEMENT", "SEMICOLONTERMINATE", "COMMENT", "SPEECHMARKS", "VAR",
+	"ARRAY", "CONST", "DISPLAY", "RETURN", "IF", "IN", "ELSE", "ELIF", "WHILE",
+	"FOR", "TRUE", "FALSE", "FUNC", "CLASS", "LET", "TRAIT", "DEFINE", "PROTOCOL",
+	"ENUM", "IMPORT", "FROM", "PACKAGE", "AS", "ASSIGN", "EQUALS", "PLUS",
+	"MINUS", "MULTIPLY", "DIVIDE", "LESSTHAN", "GREATERTHAN", "NOTEQUAL", "BANG",
+	"OR", "EQEQ", "HASH", "AMBERSAND", "COMMA", "LBRACKET", "RBRACKET", "LBRACE",
 	"RBRACE", "LSQRBRACKET", "RSQRBRACKET", "ARROW", "FLOAT", "STRING", "BOOLEAN",
 	"NULL", "CHAR", "INT", "ID",
 }
@@ -103,63 +103,64 @@ func NewJingleParser(input antlr.TokenStream) *JingleParser {
 
 // JingleParser tokens.
 const (
-	JingleParserEOF          = antlr.TokenEOF
-	JingleParserENDSTATEMENT = 1
-	JingleParserCOMMENT      = 2
-	JingleParserSPEECHMARKS  = 3
-	JingleParserVAR          = 4
-	JingleParserARRAY        = 5
-	JingleParserCONST        = 6
-	JingleParserDISPLAY      = 7
-	JingleParserRETURN       = 8
-	JingleParserIF           = 9
-	JingleParserIN           = 10
-	JingleParserELSE         = 11
-	JingleParserELIF         = 12
-	JingleParserWHILE        = 13
-	JingleParserFOR          = 14
-	JingleParserTRUE         = 15
-	JingleParserFALSE        = 16
-	JingleParserFUNC         = 17
-	JingleParserCLASS        = 18
-	JingleParserLET          = 19
-	JingleParserTRAIT        = 20
-	JingleParserDEFINE       = 21
-	JingleParserPROTOCOL     = 22
-	JingleParserENUM         = 23
-	JingleParserIMPORT       = 24
-	JingleParserFROM         = 25
-	JingleParserPACKAGE      = 26
-	JingleParserAS           = 27
-	JingleParserASSIGN       = 28
-	JingleParserEQUALS       = 29
-	JingleParserPLUS         = 30
-	JingleParserMINUS        = 31
-	JingleParserMULTIPLY     = 32
-	JingleParserDIVIDE       = 33
-	JingleParserLESSTHAN     = 34
-	JingleParserGREATERTHAN  = 35
-	JingleParserNOTEQUAL     = 36
-	JingleParserBANG         = 37
-	JingleParserOR           = 38
-	JingleParserEQEQ         = 39
-	JingleParserHASH         = 40
-	JingleParserAMBERSAND    = 41
-	JingleParserCOMMA        = 42
-	JingleParserLBRACKET     = 43
-	JingleParserRBRACKET     = 44
-	JingleParserLBRACE       = 45
-	JingleParserRBRACE       = 46
-	JingleParserLSQRBRACKET  = 47
-	JingleParserRSQRBRACKET  = 48
-	JingleParserARROW        = 49
-	JingleParserFLOAT        = 50
-	JingleParserSTRING       = 51
-	JingleParserBOOLEAN      = 52
-	JingleParserNULL         = 53
-	JingleParserCHAR         = 54
-	JingleParserINT          = 55
-	JingleParserID           = 56
+	JingleParserEOF                = antlr.TokenEOF
+	JingleParserENDSTATEMENT       = 1
+	JingleParserSEMICOLONTERMINATE = 2
+	JingleParserCOMMENT            = 3
+	JingleParserSPEECHMARKS        = 4
+	JingleParserVAR                = 5
+	JingleParserARRAY              = 6
+	JingleParserCONST              = 7
+	JingleParserDISPLAY            = 8
+	JingleParserRETURN             = 9
+	JingleParserIF                 = 10
+	JingleParserIN                 = 11
+	JingleParserELSE               = 12
+	JingleParserELIF               = 13
+	JingleParserWHILE              = 14
+	JingleParserFOR                = 15
+	JingleParserTRUE               = 16
+	JingleParserFALSE              = 17
+	JingleParserFUNC               = 18
+	JingleParserCLASS              = 19
+	JingleParserLET                = 20
+	JingleParserTRAIT              = 21
+	JingleParserDEFINE             = 22
+	JingleParserPROTOCOL           = 23
+	JingleParserENUM               = 24
+	JingleParserIMPORT             = 25
+	JingleParserFROM               = 26
+	JingleParserPACKAGE            = 27
+	JingleParserAS                 = 28
+	JingleParserASSIGN             = 29
+	JingleParserEQUALS             = 30
+	JingleParserPLUS               = 31
+	JingleParserMINUS              = 32
+	JingleParserMULTIPLY           = 33
+	JingleParserDIVIDE             = 34
+	JingleParserLESSTHAN           = 35
+	JingleParserGREATERTHAN        = 36
+	JingleParserNOTEQUAL           = 37
+	JingleParserBANG               = 38
+	JingleParserOR                 = 39
+	JingleParserEQEQ               = 40
+	JingleParserHASH               = 41
+	JingleParserAMBERSAND          = 42
+	JingleParserCOMMA              = 43
+	JingleParserLBRACKET           = 44
+	JingleParserRBRACKET           = 45
+	JingleParserLBRACE             = 46
+	JingleParserRBRACE             = 47
+	JingleParserLSQRBRACKET        = 48
+	JingleParserRSQRBRACKET        = 49
+	JingleParserARROW              = 50
+	JingleParserFLOAT              = 51
+	JingleParserSTRING             = 52
+	JingleParserBOOLEAN            = 53
+	JingleParserNULL               = 54
+	JingleParserCHAR               = 55
+	JingleParserINT                = 56
+	JingleParserID                 = 57
 )
 
 // JingleParser rules.
@@ -263,6 +264,16 @@ func (s *JingleFileContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *JingleFileContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(JingleParserListener); ok {
 		listenerT.ExitJingleFile(s)
+	}
+}
+
+func (s *JingleFileContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitJingleFile(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -382,6 +393,16 @@ func (s *LineContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *LineContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(JingleParserListener); ok {
 		listenerT.ExitLine(s)
+	}
+}
+
+func (s *LineContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitLine(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -516,6 +537,16 @@ func (s *AssignmentStatementContext) ExitRule(listener antlr.ParseTreeListener) 
 	}
 }
 
+func (s *AssignmentStatementContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitAssignmentStatement(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type DisplayStatementContext struct {
 	*StatementContext
 }
@@ -556,6 +587,16 @@ func (s *DisplayStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *DisplayStatementContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitDisplayStatement(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type VarDeclarationStatementContext struct {
 	*StatementContext
 }
@@ -593,6 +634,16 @@ func (s *VarDeclarationStatementContext) EnterRule(listener antlr.ParseTreeListe
 func (s *VarDeclarationStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(JingleParserListener); ok {
 		listenerT.ExitVarDeclarationStatement(s)
+	}
+}
+
+func (s *VarDeclarationStatementContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitVarDeclarationStatement(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -731,6 +782,16 @@ func (s *DisplayContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *DisplayContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitDisplay(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *JingleParser) Display() (localctx IDisplayContext) {
 	localctx = NewDisplayContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 6, JingleParserRULE_display)
@@ -844,6 +905,16 @@ func (s *VarDeclarationContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *VarDeclarationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitVarDeclaration(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *JingleParser) VarDeclaration() (localctx IVarDeclarationContext) {
 	localctx = NewVarDeclarationContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 8, JingleParserRULE_varDeclaration)
@@ -950,6 +1021,16 @@ func (s *AssignmentContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *AssignmentContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(JingleParserListener); ok {
 		listenerT.ExitAssignment(s)
+	}
+}
+
+func (s *AssignmentContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitAssignment(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1074,6 +1155,16 @@ func (s *DecimalLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *DecimalLiteralContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitDecimalLiteral(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type MinusExpressionContext struct {
 	*ExpressionContext
 }
@@ -1118,6 +1209,16 @@ func (s *MinusExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *MinusExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitMinusExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type IntLiteralContext struct {
 	*ExpressionContext
 }
@@ -1149,6 +1250,16 @@ func (s *IntLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *IntLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(JingleParserListener); ok {
 		listenerT.ExitIntLiteral(s)
+	}
+}
+
+func (s *IntLiteralContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitIntLiteral(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1197,6 +1308,16 @@ func (s *ParenExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ParenExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(JingleParserListener); ok {
 		listenerT.ExitParenExpression(s)
+	}
+}
+
+func (s *ParenExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitParenExpression(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1284,6 +1405,16 @@ func (s *BinaryOperationContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *BinaryOperationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitBinaryOperation(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type TypeConversionContext struct {
 	*ExpressionContext
 	value      IExpressionContext
@@ -1348,6 +1479,16 @@ func (s *TypeConversionContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *TypeConversionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitTypeConversion(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type VarReferenceContext struct {
 	*ExpressionContext
 }
@@ -1379,6 +1520,16 @@ func (s *VarReferenceContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *VarReferenceContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(JingleParserListener); ok {
 		listenerT.ExitVarReference(s)
+	}
+}
+
+func (s *VarReferenceContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitVarReference(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1683,6 +1834,16 @@ func (s *IntegerContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *IntegerContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitInteger(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type DecimalContext struct {
 	*DataTypeContext
 }
@@ -1714,6 +1875,16 @@ func (s *DecimalContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *DecimalContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(JingleParserListener); ok {
 		listenerT.ExitDecimal(s)
+	}
+}
+
+func (s *DecimalContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case JingleParserVisitor:
+		return t.VisitDecimal(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
