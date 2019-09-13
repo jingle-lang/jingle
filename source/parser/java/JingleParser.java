@@ -16,14 +16,15 @@ public class JingleParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		ENDSTATEMENT=1, COMMENT=2, SPEECHMARKS=3, VAR=4, ARRAY=5, CONST=6, DISPLAY=7, 
-		RETURN=8, IF=9, IN=10, ELSE=11, ELIF=12, WHILE=13, FOR=14, TRUE=15, FALSE=16, 
-		FUNC=17, CLASS=18, LET=19, TRAIT=20, DEFINE=21, PROTOCOL=22, ENUM=23, 
-		IMPORT=24, FROM=25, PACKAGE=26, AS=27, ASSIGN=28, EQUALS=29, PLUS=30, 
-		MINUS=31, MULTIPLY=32, DIVIDE=33, LESSTHAN=34, GREATERTHAN=35, NOTEQUAL=36, 
-		BANG=37, OR=38, EQEQ=39, HASH=40, AMBERSAND=41, COMMA=42, LBRACKET=43, 
-		RBRACKET=44, LBRACE=45, RBRACE=46, LSQRBRACKET=47, RSQRBRACKET=48, ARROW=49, 
-		FLOAT=50, STRING=51, BOOLEAN=52, NULL=53, CHAR=54, INT=55, ID=56;
+		ENDSTATEMENT=1, SEMICOLONTERMINATE=2, COMMENT=3, SPEECHMARKS=4, VAR=5, 
+		ARRAY=6, CONST=7, DISPLAY=8, RETURN=9, IF=10, IN=11, ELSE=12, ELIF=13, 
+		WHILE=14, FOR=15, TRUE=16, FALSE=17, FUNC=18, CLASS=19, LET=20, TRAIT=21, 
+		DEFINE=22, PROTOCOL=23, ENUM=24, IMPORT=25, FROM=26, PACKAGE=27, AS=28, 
+		ASSIGN=29, EQUALS=30, PLUS=31, MINUS=32, MULTIPLY=33, DIVIDE=34, LESSTHAN=35, 
+		GREATERTHAN=36, NOTEQUAL=37, BANG=38, OR=39, EQEQ=40, HASH=41, AMBERSAND=42, 
+		COMMA=43, LBRACKET=44, RBRACKET=45, LBRACE=46, RBRACE=47, LSQRBRACKET=48, 
+		RSQRBRACKET=49, ARROW=50, FLOAT=51, STRING=52, BOOLEAN=53, NULL=54, CHAR=55, 
+		INT=56, ID=57;
 	public static final int
 		RULE_jingleFile = 0, RULE_line = 1, RULE_statement = 2, RULE_display = 3, 
 		RULE_varDeclaration = 4, RULE_assignment = 5, RULE_expression = 6, RULE_dataType = 7;
@@ -37,26 +38,26 @@ public class JingleParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, null, "'##'", "'\"'", "'var'", "'array'", null, "'display'", "'return'", 
-			"'if'", "'in'", "'else'", "'elif'", "'while'", "'for'", "'true'", "'false'", 
-			null, "'class'", "'let'", "'trait'", "'def'", "'protocol'", "'enum'", 
-			"'import'", "'from'", "'package'", "'as'", "':='", "'='", "'+'", "'-'", 
-			"'*'", "'/'", "'<'", "'>'", "'!='", "'!'", "'|'", "'=='", "'#'", "'&'", 
-			"','", "'('", "')'", "'{'", "'}'", "'['", "']'", "'->'", "'float'", "'string'", 
-			"'bool'", "'null'", "'char'"
+			null, null, null, "'##'", "'\"'", "'var'", "'array'", null, "'display'", 
+			"'return'", "'if'", "'in'", "'else'", "'elif'", "'while'", "'for'", "'true'", 
+			"'false'", null, "'class'", "'let'", "'trait'", "'def'", "'protocol'", 
+			"'enum'", "'import'", "'from'", "'package'", "'as'", "':='", "'='", "'+'", 
+			"'-'", "'*'", "'/'", "'<'", "'>'", "'!='", "'!'", "'|'", "'=='", "'#'", 
+			"'&'", "','", "'('", "')'", "'{'", "'}'", "'['", "']'", "'->'", "'float'", 
+			"'string'", "'bool'", "'null'", "'char'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "ENDSTATEMENT", "COMMENT", "SPEECHMARKS", "VAR", "ARRAY", "CONST", 
-			"DISPLAY", "RETURN", "IF", "IN", "ELSE", "ELIF", "WHILE", "FOR", "TRUE", 
-			"FALSE", "FUNC", "CLASS", "LET", "TRAIT", "DEFINE", "PROTOCOL", "ENUM", 
-			"IMPORT", "FROM", "PACKAGE", "AS", "ASSIGN", "EQUALS", "PLUS", "MINUS", 
-			"MULTIPLY", "DIVIDE", "LESSTHAN", "GREATERTHAN", "NOTEQUAL", "BANG", 
-			"OR", "EQEQ", "HASH", "AMBERSAND", "COMMA", "LBRACKET", "RBRACKET", "LBRACE", 
-			"RBRACE", "LSQRBRACKET", "RSQRBRACKET", "ARROW", "FLOAT", "STRING", "BOOLEAN", 
-			"NULL", "CHAR", "INT", "ID"
+			null, "ENDSTATEMENT", "SEMICOLONTERMINATE", "COMMENT", "SPEECHMARKS", 
+			"VAR", "ARRAY", "CONST", "DISPLAY", "RETURN", "IF", "IN", "ELSE", "ELIF", 
+			"WHILE", "FOR", "TRUE", "FALSE", "FUNC", "CLASS", "LET", "TRAIT", "DEFINE", 
+			"PROTOCOL", "ENUM", "IMPORT", "FROM", "PACKAGE", "AS", "ASSIGN", "EQUALS", 
+			"PLUS", "MINUS", "MULTIPLY", "DIVIDE", "LESSTHAN", "GREATERTHAN", "NOTEQUAL", 
+			"BANG", "OR", "EQEQ", "HASH", "AMBERSAND", "COMMA", "LBRACKET", "RBRACKET", 
+			"LBRACE", "RBRACE", "LSQRBRACKET", "RSQRBRACKET", "ARROW", "FLOAT", "STRING", 
+			"BOOLEAN", "NULL", "CHAR", "INT", "ID"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -130,6 +131,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitJingleFile(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitJingleFile(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final JingleFileContext jingleFile() throws RecognitionException {
@@ -183,6 +189,11 @@ public class JingleParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitLine(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -242,6 +253,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitAssignmentStatement(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitAssignmentStatement(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class DisplayStatementContext extends StatementContext {
 		public DisplayContext display() {
@@ -256,6 +272,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitDisplayStatement(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitDisplayStatement(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class VarDeclarationStatementContext extends StatementContext {
 		public VarDeclarationContext varDeclaration() {
@@ -269,6 +290,11 @@ public class JingleParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitVarDeclarationStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitVarDeclarationStatement(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -337,6 +363,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitDisplay(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitDisplay(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DisplayContext display() throws RecognitionException {
@@ -383,6 +414,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitVarDeclaration(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitVarDeclaration(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final VarDeclarationContext varDeclaration() throws RecognitionException {
@@ -425,6 +461,11 @@ public class JingleParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitAssignment(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitAssignment(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -475,6 +516,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitDecimalLiteral(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitDecimalLiteral(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class MinusExpressionContext extends ExpressionContext {
 		public TerminalNode MINUS() { return getToken(JingleParser.MINUS, 0); }
@@ -490,6 +536,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitMinusExpression(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitMinusExpression(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class IntLiteralContext extends ExpressionContext {
 		public TerminalNode INT() { return getToken(JingleParser.INT, 0); }
@@ -501,6 +552,11 @@ public class JingleParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitIntLiteral(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitIntLiteral(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ParenExpressionContext extends ExpressionContext {
@@ -517,6 +573,11 @@ public class JingleParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitParenExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitParenExpression(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class BinaryOperationContext extends ExpressionContext {
@@ -542,6 +603,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitBinaryOperation(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitBinaryOperation(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class TypeConversionContext extends ExpressionContext {
 		public ExpressionContext value;
@@ -562,6 +628,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitTypeConversion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitTypeConversion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class VarReferenceContext extends ExpressionContext {
 		public TerminalNode ID() { return getToken(JingleParser.ID, 0); }
@@ -573,6 +644,11 @@ public class JingleParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitVarReference(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitVarReference(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -761,6 +837,11 @@ public class JingleParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitInteger(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitInteger(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class DecimalContext extends DataTypeContext {
 		public TerminalNode FLOAT() { return getToken(JingleParser.FLOAT, 0); }
@@ -772,6 +853,11 @@ public class JingleParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JingleParserListener ) ((JingleParserListener)listener).exitDecimal(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JingleParserVisitor ) return ((JingleParserVisitor<? extends T>)visitor).visitDecimal(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -833,25 +919,25 @@ public class JingleParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3:J\4\2\t\2\4\3\t\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3;J\4\2\t\2\4\3\t\3"+
 		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\6\2\24\n\2\r\2\16"+
 		"\2\25\3\3\3\3\3\3\3\4\3\4\3\4\5\4\36\n\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3"+
 		"\6\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\5\b\66\n\b"+
 		"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\bA\n\b\f\b\16\bD\13\b\3\t\3\t\5"+
-		"\tH\n\t\3\t\2\3\16\n\2\4\6\b\n\f\16\20\2\5\3\3\3\3\3\2\"#\3\2 !\2L\2\23"+
+		"\tH\n\t\3\t\2\3\16\n\2\4\6\b\n\f\16\20\2\5\3\3\3\3\3\2#$\3\2!\"\2L\2\23"+
 		"\3\2\2\2\4\27\3\2\2\2\6\35\3\2\2\2\b\37\3\2\2\2\n$\3\2\2\2\f\'\3\2\2\2"+
 		"\16\65\3\2\2\2\20G\3\2\2\2\22\24\5\4\3\2\23\22\3\2\2\2\24\25\3\2\2\2\25"+
 		"\23\3\2\2\2\25\26\3\2\2\2\26\3\3\2\2\2\27\30\5\6\4\2\30\31\t\2\2\2\31"+
 		"\5\3\2\2\2\32\36\5\n\6\2\33\36\5\f\7\2\34\36\5\b\5\2\35\32\3\2\2\2\35"+
-		"\33\3\2\2\2\35\34\3\2\2\2\36\7\3\2\2\2\37 \7\t\2\2 !\7-\2\2!\"\5\16\b"+
-		"\2\"#\7.\2\2#\t\3\2\2\2$%\7\6\2\2%&\5\f\7\2&\13\3\2\2\2\'(\7:\2\2()\7"+
-		"\36\2\2)*\5\16\b\2*\r\3\2\2\2+,\b\b\1\2,-\7-\2\2-.\5\16\b\2./\7.\2\2/"+
-		"\66\3\2\2\2\60\66\7:\2\2\61\62\7!\2\2\62\66\5\16\b\5\63\66\79\2\2\64\66"+
-		"\7\64\2\2\65+\3\2\2\2\65\60\3\2\2\2\65\61\3\2\2\2\65\63\3\2\2\2\65\64"+
-		"\3\2\2\2\66B\3\2\2\2\678\f\n\2\289\t\3\2\29A\5\16\b\13:;\f\t\2\2;<\t\4"+
-		"\2\2<A\5\16\b\n=>\f\b\2\2>?\7\35\2\2?A\5\20\t\2@\67\3\2\2\2@:\3\2\2\2"+
-		"@=\3\2\2\2AD\3\2\2\2B@\3\2\2\2BC\3\2\2\2C\17\3\2\2\2DB\3\2\2\2EH\79\2"+
-		"\2FH\7\64\2\2GE\3\2\2\2GF\3\2\2\2H\21\3\2\2\2\b\25\35\65@BG";
+		"\33\3\2\2\2\35\34\3\2\2\2\36\7\3\2\2\2\37 \7\n\2\2 !\7.\2\2!\"\5\16\b"+
+		"\2\"#\7/\2\2#\t\3\2\2\2$%\7\7\2\2%&\5\f\7\2&\13\3\2\2\2\'(\7;\2\2()\7"+
+		"\37\2\2)*\5\16\b\2*\r\3\2\2\2+,\b\b\1\2,-\7.\2\2-.\5\16\b\2./\7/\2\2/"+
+		"\66\3\2\2\2\60\66\7;\2\2\61\62\7\"\2\2\62\66\5\16\b\5\63\66\7:\2\2\64"+
+		"\66\7\65\2\2\65+\3\2\2\2\65\60\3\2\2\2\65\61\3\2\2\2\65\63\3\2\2\2\65"+
+		"\64\3\2\2\2\66B\3\2\2\2\678\f\n\2\289\t\3\2\29A\5\16\b\13:;\f\t\2\2;<"+
+		"\t\4\2\2<A\5\16\b\n=>\f\b\2\2>?\7\36\2\2?A\5\20\t\2@\67\3\2\2\2@:\3\2"+
+		"\2\2@=\3\2\2\2AD\3\2\2\2B@\3\2\2\2BC\3\2\2\2C\17\3\2\2\2DB\3\2\2\2EH\7"+
+		":\2\2FH\7\65\2\2GE\3\2\2\2GF\3\2\2\2H\21\3\2\2\2\b\25\35\65@BG";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
