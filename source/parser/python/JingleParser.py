@@ -8,31 +8,31 @@ import sys
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3:")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3;")
         buf.write("J\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\3\2\6\2\24\n\2\r\2\16\2\25\3\3\3\3\3\3\3")
         buf.write("\4\3\4\3\4\5\4\36\n\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6")
         buf.write("\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3")
         buf.write("\b\5\b\66\n\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\b")
         buf.write("A\n\b\f\b\16\bD\13\b\3\t\3\t\5\tH\n\t\3\t\2\3\16\n\2\4")
-        buf.write("\6\b\n\f\16\20\2\5\3\3\3\3\3\2\"#\3\2 !\2L\2\23\3\2\2")
+        buf.write("\6\b\n\f\16\20\2\5\3\3\3\3\3\2#$\3\2!\"\2L\2\23\3\2\2")
         buf.write("\2\4\27\3\2\2\2\6\35\3\2\2\2\b\37\3\2\2\2\n$\3\2\2\2\f")
         buf.write("\'\3\2\2\2\16\65\3\2\2\2\20G\3\2\2\2\22\24\5\4\3\2\23")
         buf.write("\22\3\2\2\2\24\25\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2")
         buf.write("\26\3\3\2\2\2\27\30\5\6\4\2\30\31\t\2\2\2\31\5\3\2\2\2")
         buf.write("\32\36\5\n\6\2\33\36\5\f\7\2\34\36\5\b\5\2\35\32\3\2\2")
-        buf.write("\2\35\33\3\2\2\2\35\34\3\2\2\2\36\7\3\2\2\2\37 \7\t\2")
-        buf.write("\2 !\7-\2\2!\"\5\16\b\2\"#\7.\2\2#\t\3\2\2\2$%\7\6\2\2")
-        buf.write("%&\5\f\7\2&\13\3\2\2\2\'(\7:\2\2()\7\36\2\2)*\5\16\b\2")
-        buf.write("*\r\3\2\2\2+,\b\b\1\2,-\7-\2\2-.\5\16\b\2./\7.\2\2/\66")
-        buf.write("\3\2\2\2\60\66\7:\2\2\61\62\7!\2\2\62\66\5\16\b\5\63\66")
-        buf.write("\79\2\2\64\66\7\64\2\2\65+\3\2\2\2\65\60\3\2\2\2\65\61")
-        buf.write("\3\2\2\2\65\63\3\2\2\2\65\64\3\2\2\2\66B\3\2\2\2\678\f")
-        buf.write("\n\2\289\t\3\2\29A\5\16\b\13:;\f\t\2\2;<\t\4\2\2<A\5\16")
-        buf.write("\b\n=>\f\b\2\2>?\7\35\2\2?A\5\20\t\2@\67\3\2\2\2@:\3\2")
-        buf.write("\2\2@=\3\2\2\2AD\3\2\2\2B@\3\2\2\2BC\3\2\2\2C\17\3\2\2")
-        buf.write("\2DB\3\2\2\2EH\79\2\2FH\7\64\2\2GE\3\2\2\2GF\3\2\2\2H")
-        buf.write("\21\3\2\2\2\b\25\35\65@BG")
+        buf.write("\2\35\33\3\2\2\2\35\34\3\2\2\2\36\7\3\2\2\2\37 \7\n\2")
+        buf.write("\2 !\7.\2\2!\"\5\16\b\2\"#\7/\2\2#\t\3\2\2\2$%\7\7\2\2")
+        buf.write("%&\5\f\7\2&\13\3\2\2\2\'(\7;\2\2()\7\37\2\2)*\5\16\b\2")
+        buf.write("*\r\3\2\2\2+,\b\b\1\2,-\7.\2\2-.\5\16\b\2./\7/\2\2/\66")
+        buf.write("\3\2\2\2\60\66\7;\2\2\61\62\7\"\2\2\62\66\5\16\b\5\63")
+        buf.write("\66\7:\2\2\64\66\7\65\2\2\65+\3\2\2\2\65\60\3\2\2\2\65")
+        buf.write("\61\3\2\2\2\65\63\3\2\2\2\65\64\3\2\2\2\66B\3\2\2\2\67")
+        buf.write("8\f\n\2\289\t\3\2\29A\5\16\b\13:;\f\t\2\2;<\t\4\2\2<A")
+        buf.write("\5\16\b\n=>\f\b\2\2>?\7\36\2\2?A\5\20\t\2@\67\3\2\2\2")
+        buf.write("@:\3\2\2\2@=\3\2\2\2AD\3\2\2\2B@\3\2\2\2BC\3\2\2\2C\17")
+        buf.write("\3\2\2\2DB\3\2\2\2EH\7:\2\2FH\7\65\2\2GE\3\2\2\2GF\3\2")
+        buf.write("\2\2H\21\3\2\2\2\b\25\35\65@BG")
         return buf.getvalue()
 
 
@@ -46,27 +46,28 @@ class JingleParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "<INVALID>", "'##'", "'\"'", "'var'", 
-                     "'array'", "<INVALID>", "'display'", "'return'", "'if'", 
-                     "'in'", "'else'", "'elif'", "'while'", "'for'", "'true'", 
-                     "'false'", "<INVALID>", "'class'", "'let'", "'trait'", 
-                     "'def'", "'protocol'", "'enum'", "'import'", "'from'", 
-                     "'package'", "'as'", "':='", "'='", "'+'", "'-'", "'*'", 
-                     "'/'", "'<'", "'>'", "'!='", "'!'", "'|'", "'=='", 
-                     "'#'", "'&'", "','", "'('", "')'", "'{'", "'}'", "'['", 
-                     "']'", "'->'", "'float'", "'string'", "'bool'", "'null'", 
-                     "'char'" ]
+    literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "'##'", "'\"'", 
+                     "'var'", "'array'", "<INVALID>", "'display'", "'return'", 
+                     "'if'", "'in'", "'else'", "'elif'", "'while'", "'for'", 
+                     "'true'", "'false'", "<INVALID>", "'class'", "'let'", 
+                     "'trait'", "'def'", "'protocol'", "'enum'", "'import'", 
+                     "'from'", "'package'", "'as'", "':='", "'='", "'+'", 
+                     "'-'", "'*'", "'/'", "'<'", "'>'", "'!='", "'!'", "'|'", 
+                     "'=='", "'#'", "'&'", "','", "'('", "')'", "'{'", "'}'", 
+                     "'['", "']'", "'->'", "'float'", "'string'", "'bool'", 
+                     "'null'", "'char'" ]
 
-    symbolicNames = [ "<INVALID>", "ENDSTATEMENT", "COMMENT", "SPEECHMARKS", 
-                      "VAR", "ARRAY", "CONST", "DISPLAY", "RETURN", "IF", 
-                      "IN", "ELSE", "ELIF", "WHILE", "FOR", "TRUE", "FALSE", 
-                      "FUNC", "CLASS", "LET", "TRAIT", "DEFINE", "PROTOCOL", 
-                      "ENUM", "IMPORT", "FROM", "PACKAGE", "AS", "ASSIGN", 
-                      "EQUALS", "PLUS", "MINUS", "MULTIPLY", "DIVIDE", "LESSTHAN", 
-                      "GREATERTHAN", "NOTEQUAL", "BANG", "OR", "EQEQ", "HASH", 
-                      "AMBERSAND", "COMMA", "LBRACKET", "RBRACKET", "LBRACE", 
-                      "RBRACE", "LSQRBRACKET", "RSQRBRACKET", "ARROW", "FLOAT", 
-                      "STRING", "BOOLEAN", "NULL", "CHAR", "INT", "ID" ]
+    symbolicNames = [ "<INVALID>", "ENDSTATEMENT", "SEMICOLONTERMINATE", 
+                      "COMMENT", "SPEECHMARKS", "VAR", "ARRAY", "CONST", 
+                      "DISPLAY", "RETURN", "IF", "IN", "ELSE", "ELIF", "WHILE", 
+                      "FOR", "TRUE", "FALSE", "FUNC", "CLASS", "LET", "TRAIT", 
+                      "DEFINE", "PROTOCOL", "ENUM", "IMPORT", "FROM", "PACKAGE", 
+                      "AS", "ASSIGN", "EQUALS", "PLUS", "MINUS", "MULTIPLY", 
+                      "DIVIDE", "LESSTHAN", "GREATERTHAN", "NOTEQUAL", "BANG", 
+                      "OR", "EQEQ", "HASH", "AMBERSAND", "COMMA", "LBRACKET", 
+                      "RBRACKET", "LBRACE", "RBRACE", "LSQRBRACKET", "RSQRBRACKET", 
+                      "ARROW", "FLOAT", "STRING", "BOOLEAN", "NULL", "CHAR", 
+                      "INT", "ID" ]
 
     RULE_jingleFile = 0
     RULE_line = 1
@@ -82,61 +83,62 @@ class JingleParser ( Parser ):
 
     EOF = Token.EOF
     ENDSTATEMENT=1
-    COMMENT=2
-    SPEECHMARKS=3
-    VAR=4
-    ARRAY=5
-    CONST=6
-    DISPLAY=7
-    RETURN=8
-    IF=9
-    IN=10
-    ELSE=11
-    ELIF=12
-    WHILE=13
-    FOR=14
-    TRUE=15
-    FALSE=16
-    FUNC=17
-    CLASS=18
-    LET=19
-    TRAIT=20
-    DEFINE=21
-    PROTOCOL=22
-    ENUM=23
-    IMPORT=24
-    FROM=25
-    PACKAGE=26
-    AS=27
-    ASSIGN=28
-    EQUALS=29
-    PLUS=30
-    MINUS=31
-    MULTIPLY=32
-    DIVIDE=33
-    LESSTHAN=34
-    GREATERTHAN=35
-    NOTEQUAL=36
-    BANG=37
-    OR=38
-    EQEQ=39
-    HASH=40
-    AMBERSAND=41
-    COMMA=42
-    LBRACKET=43
-    RBRACKET=44
-    LBRACE=45
-    RBRACE=46
-    LSQRBRACKET=47
-    RSQRBRACKET=48
-    ARROW=49
-    FLOAT=50
-    STRING=51
-    BOOLEAN=52
-    NULL=53
-    CHAR=54
-    INT=55
-    ID=56
+    SEMICOLONTERMINATE=2
+    COMMENT=3
+    SPEECHMARKS=4
+    VAR=5
+    ARRAY=6
+    CONST=7
+    DISPLAY=8
+    RETURN=9
+    IF=10
+    IN=11
+    ELSE=12
+    ELIF=13
+    WHILE=14
+    FOR=15
+    TRUE=16
+    FALSE=17
+    FUNC=18
+    CLASS=19
+    LET=20
+    TRAIT=21
+    DEFINE=22
+    PROTOCOL=23
+    ENUM=24
+    IMPORT=25
+    FROM=26
+    PACKAGE=27
+    AS=28
+    ASSIGN=29
+    EQUALS=30
+    PLUS=31
+    MINUS=32
+    MULTIPLY=33
+    DIVIDE=34
+    LESSTHAN=35
+    GREATERTHAN=36
+    NOTEQUAL=37
+    BANG=38
+    OR=39
+    EQEQ=40
+    HASH=41
+    AMBERSAND=42
+    COMMA=43
+    LBRACKET=44
+    RBRACKET=45
+    LBRACE=46
+    RBRACE=47
+    LSQRBRACKET=48
+    RSQRBRACKET=49
+    ARROW=50
+    FLOAT=51
+    STRING=52
+    BOOLEAN=53
+    NULL=54
+    CHAR=55
+    INT=56
+    ID=57
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -171,6 +173,12 @@ class JingleParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitJingleFile" ):
                 listener.exitJingleFile(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitJingleFile" ):
+                return visitor.visitJingleFile(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -229,6 +237,12 @@ class JingleParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitLine" ):
                 listener.exitLine(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitLine" ):
+                return visitor.visitLine(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -292,6 +306,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitAssignmentStatement" ):
                 listener.exitAssignmentStatement(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignmentStatement" ):
+                return visitor.visitAssignmentStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class DisplayStatementContext(StatementContext):
 
@@ -311,6 +331,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitDisplayStatement" ):
                 listener.exitDisplayStatement(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDisplayStatement" ):
+                return visitor.visitDisplayStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class VarDeclarationStatementContext(StatementContext):
 
@@ -329,6 +355,12 @@ class JingleParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitVarDeclarationStatement" ):
                 listener.exitVarDeclarationStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVarDeclarationStatement" ):
+                return visitor.visitVarDeclarationStatement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -400,6 +432,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitDisplay" ):
                 listener.exitDisplay(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDisplay" ):
+                return visitor.visitDisplay(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -450,6 +488,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitVarDeclaration" ):
                 listener.exitVarDeclaration(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVarDeclaration" ):
+                return visitor.visitVarDeclaration(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -498,6 +542,12 @@ class JingleParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitAssignment" ):
                 listener.exitAssignment(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignment" ):
+                return visitor.visitAssignment(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -555,6 +605,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitDecimalLiteral" ):
                 listener.exitDecimalLiteral(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDecimalLiteral" ):
+                return visitor.visitDecimalLiteral(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class MinusExpressionContext(ExpressionContext):
 
@@ -576,6 +632,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitMinusExpression" ):
                 listener.exitMinusExpression(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMinusExpression" ):
+                return visitor.visitMinusExpression(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class IntLiteralContext(ExpressionContext):
 
@@ -593,6 +655,12 @@ class JingleParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitIntLiteral" ):
                 listener.exitIntLiteral(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIntLiteral" ):
+                return visitor.visitIntLiteral(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ParenExpressionContext(ExpressionContext):
@@ -616,6 +684,12 @@ class JingleParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitParenExpression" ):
                 listener.exitParenExpression(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParenExpression" ):
+                return visitor.visitParenExpression(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class BinaryOperationContext(ExpressionContext):
@@ -650,6 +724,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitBinaryOperation" ):
                 listener.exitBinaryOperation(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBinaryOperation" ):
+                return visitor.visitBinaryOperation(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class TypeConversionContext(ExpressionContext):
 
@@ -676,6 +756,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitTypeConversion" ):
                 listener.exitTypeConversion(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTypeConversion" ):
+                return visitor.visitTypeConversion(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class VarReferenceContext(ExpressionContext):
 
@@ -693,6 +779,12 @@ class JingleParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitVarReference" ):
                 listener.exitVarReference(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVarReference" ):
+                return visitor.visitVarReference(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -867,6 +959,12 @@ class JingleParser ( Parser ):
             if hasattr( listener, "exitInteger" ):
                 listener.exitInteger(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInteger" ):
+                return visitor.visitInteger(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class DecimalContext(DataTypeContext):
 
@@ -884,6 +982,12 @@ class JingleParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitDecimal" ):
                 listener.exitDecimal(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDecimal" ):
+                return visitor.visitDecimal(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
