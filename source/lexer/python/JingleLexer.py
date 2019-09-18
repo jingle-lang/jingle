@@ -108,7 +108,7 @@ def serializedATN():
         buf.write("\5\5\3\2\u00b9\u00b8\3\2\2\2\u00ba\u00bb\3\2\2\2\u00bb")
         buf.write("\u00b9\3\2\2\2\u00bb\u00bc\3\2\2\2\u00bc\u00be\3\2\2\2")
         buf.write("\u00bd\u00b1\3\2\2\2\u00bd\u00b9\3\2\2\2\u00be\30\3\2")
-        buf.write("\2\2\u00bf\u00c0\7%\2\2\u00c0\u00c1\7%\2\2\u00c1\u00c2")
+        buf.write("\2\2\u00bf\u00c0\7\61\2\2\u00c0\u00c1\7\61\2\2\u00c1\u00c2")
         buf.write("\3\2\2\2\u00c2\u00c3\b\r\3\2\u00c3\32\3\2\2\2\u00c4\u00c5")
         buf.write("\7$\2\2\u00c5\34\3\2\2\2\u00c6\u00c7\7x\2\2\u00c7\u00c8")
         buf.write("\7c\2\2\u00c8\u00c9\7t\2\2\u00c9\36\3\2\2\2\u00ca\u00cb")
@@ -268,7 +268,7 @@ class JingleLexer(Lexer):
     modeNames = [ "DEFAULT_MODE" ]
 
     literalNames = [ "<INVALID>",
-            "'##'", "'\"'", "'var'", "'array'", "'display'", "'return'", 
+            "'//'", "'\"'", "'var'", "'array'", "'display'", "'return'", 
             "'if'", "'in'", "'else'", "'elif'", "'while'", "'for'", "'true'", 
             "'false'", "'class'", "'let'", "'trait'", "'def'", "'protocol'", 
             "'enum'", "'import'", "'from'", "'package'", "'as'", "':='", 
