@@ -52,7 +52,7 @@ public class JingleLexer extends Lexer {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, null, null, "'##'", "'\"'", "'var'", "'array'", null, "'display'", 
+			null, null, null, "'//'", "'\"'", "'var'", "'array'", null, "'display'", 
 			"'return'", "'if'", "'in'", "'else'", "'elif'", "'while'", "'for'", "'true'", 
 			"'false'", null, "'class'", "'let'", "'trait'", "'def'", "'protocol'", 
 			"'enum'", "'import'", "'from'", "'package'", "'as'", "':='", "'='", "'+'", 
@@ -210,10 +210,10 @@ public class JingleLexer extends Lexer {
 		"\3\2\2\2\u00b6\u00be\3\2\2\2\u00b7\u00b5\3\2\2\2\u00b8\u00ba\5\5\3\2\u00b9"+
 		"\u00b8\3\2\2\2\u00ba\u00bb\3\2\2\2\u00bb\u00b9\3\2\2\2\u00bb\u00bc\3\2"+
 		"\2\2\u00bc\u00be\3\2\2\2\u00bd\u00b1\3\2\2\2\u00bd\u00b9\3\2\2\2\u00be"+
-		"\30\3\2\2\2\u00bf\u00c0\7%\2\2\u00c0\u00c1\7%\2\2\u00c1\u00c2\3\2\2\2"+
-		"\u00c2\u00c3\b\r\3\2\u00c3\32\3\2\2\2\u00c4\u00c5\7$\2\2\u00c5\34\3\2"+
-		"\2\2\u00c6\u00c7\7x\2\2\u00c7\u00c8\7c\2\2\u00c8\u00c9\7t\2\2\u00c9\36"+
-		"\3\2\2\2\u00ca\u00cb\7c\2\2\u00cb\u00cc\7t\2\2\u00cc\u00cd\7t\2\2\u00cd"+
+		"\30\3\2\2\2\u00bf\u00c0\7\61\2\2\u00c0\u00c1\7\61\2\2\u00c1\u00c2\3\2"+
+		"\2\2\u00c2\u00c3\b\r\3\2\u00c3\32\3\2\2\2\u00c4\u00c5\7$\2\2\u00c5\34"+
+		"\3\2\2\2\u00c6\u00c7\7x\2\2\u00c7\u00c8\7c\2\2\u00c8\u00c9\7t\2\2\u00c9"+
+		"\36\3\2\2\2\u00ca\u00cb\7c\2\2\u00cb\u00cc\7t\2\2\u00cc\u00cd\7t\2\2\u00cd"+
 		"\u00ce\7c\2\2\u00ce\u00cf\7{\2\2\u00cf \3\2\2\2\u00d0\u00d1\7e\2\2\u00d1"+
 		"\u00d2\7q\2\2\u00d2\u00d3\7p\2\2\u00d3\u00d4\7u\2\2\u00d4\u00df\7v\2\2"+
 		"\u00d5\u00df\13\2\2\2\u00d6\u00d7\7e\2\2\u00d7\u00d8\7q\2\2\u00d8\u00d9"+
