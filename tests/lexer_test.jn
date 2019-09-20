@@ -1,4 +1,5 @@
 var age = 20
 var name = "David"
 
+// Outputs 'Hi! My name is David and I am 20 years old.'
 display: ("Hi! My name is " + name + " and I am " + age + " years old.")
