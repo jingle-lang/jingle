@@ -5,38 +5,43 @@ from io import StringIO
 from typing.io import TextIO
 import sys
 
+if __name__ is not None and "." in __name__:
+    from .JingleBaseParser import JingleBaseParser
+else:
+    from JingleBaseParser import JingleBaseParser
+
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3;")
-        buf.write("J\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3X")
+        buf.write("L\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\3\2\6\2\24\n\2\r\2\16\2\25\3\3\3\3\3\3\3")
-        buf.write("\4\3\4\3\4\5\4\36\n\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6")
-        buf.write("\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3")
-        buf.write("\b\5\b\66\n\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\b")
-        buf.write("A\n\b\f\b\16\bD\13\b\3\t\3\t\5\tH\n\t\3\t\2\3\16\n\2\4")
-        buf.write("\6\b\n\f\16\20\2\5\3\3\3\3\3\2#$\3\2!\"\2L\2\23\3\2\2")
-        buf.write("\2\4\27\3\2\2\2\6\35\3\2\2\2\b\37\3\2\2\2\n$\3\2\2\2\f")
-        buf.write("\'\3\2\2\2\16\65\3\2\2\2\20G\3\2\2\2\22\24\5\4\3\2\23")
-        buf.write("\22\3\2\2\2\24\25\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2")
-        buf.write("\26\3\3\2\2\2\27\30\5\6\4\2\30\31\t\2\2\2\31\5\3\2\2\2")
-        buf.write("\32\36\5\n\6\2\33\36\5\f\7\2\34\36\5\b\5\2\35\32\3\2\2")
-        buf.write("\2\35\33\3\2\2\2\35\34\3\2\2\2\36\7\3\2\2\2\37 \7\n\2")
-        buf.write("\2 !\7.\2\2!\"\5\16\b\2\"#\7/\2\2#\t\3\2\2\2$%\7\7\2\2")
-        buf.write("%&\5\f\7\2&\13\3\2\2\2\'(\7;\2\2()\7\37\2\2)*\5\16\b\2")
-        buf.write("*\r\3\2\2\2+,\b\b\1\2,-\7.\2\2-.\5\16\b\2./\7/\2\2/\66")
-        buf.write("\3\2\2\2\60\66\7;\2\2\61\62\7\"\2\2\62\66\5\16\b\5\63")
-        buf.write("\66\7:\2\2\64\66\7\65\2\2\65+\3\2\2\2\65\60\3\2\2\2\65")
-        buf.write("\61\3\2\2\2\65\63\3\2\2\2\65\64\3\2\2\2\66B\3\2\2\2\67")
-        buf.write("8\f\n\2\289\t\3\2\29A\5\16\b\13:;\f\t\2\2;<\t\4\2\2<A")
-        buf.write("\5\16\b\n=>\f\b\2\2>?\7\36\2\2?A\5\20\t\2@\67\3\2\2\2")
-        buf.write("@:\3\2\2\2@=\3\2\2\2AD\3\2\2\2B@\3\2\2\2BC\3\2\2\2C\17")
-        buf.write("\3\2\2\2DB\3\2\2\2EH\7:\2\2FH\7\65\2\2GE\3\2\2\2GF\3\2")
-        buf.write("\2\2H\21\3\2\2\2\b\25\35\65@BG")
+        buf.write("\4\3\4\3\4\5\4\36\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6")
+        buf.write("\3\6\3\6\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3")
+        buf.write("\b\3\b\3\b\5\b8\n\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3")
+        buf.write("\b\7\bC\n\b\f\b\16\bF\13\b\3\t\3\t\5\tJ\n\t\3\t\2\3\16")
+        buf.write("\n\2\4\6\b\n\f\16\20\2\5\3\3\3\3\3\2,-\3\2*+\2N\2\23\3")
+        buf.write("\2\2\2\4\27\3\2\2\2\6\35\3\2\2\2\b\37\3\2\2\2\n&\3\2\2")
+        buf.write("\2\f)\3\2\2\2\16\67\3\2\2\2\20I\3\2\2\2\22\24\5\4\3\2")
+        buf.write("\23\22\3\2\2\2\24\25\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2")
+        buf.write("\2\26\3\3\2\2\2\27\30\5\6\4\2\30\31\t\2\2\2\31\5\3\2\2")
+        buf.write("\2\32\36\5\n\6\2\33\36\5\f\7\2\34\36\5\b\5\2\35\32\3\2")
+        buf.write("\2\2\35\33\3\2\2\2\35\34\3\2\2\2\36\7\3\2\2\2\37 \7\t")
+        buf.write("\2\2 !\7@\2\2!\"\7U\2\2\"#\79\2\2#$\5\16\b\2$%\7:\2\2")
+        buf.write("%\t\3\2\2\2&\'\7\6\2\2\'(\5\f\7\2(\13\3\2\2\2)*\7V\2\2")
+        buf.write("*+\7$\2\2+,\5\16\b\2,\r\3\2\2\2-.\b\b\1\2./\79\2\2/\60")
+        buf.write("\5\16\b\2\60\61\7:\2\2\618\3\2\2\2\628\7V\2\2\63\64\7")
+        buf.write("+\2\2\648\5\16\b\5\658\7W\2\2\668\7X\2\2\67-\3\2\2\2\67")
+        buf.write("\62\3\2\2\2\67\63\3\2\2\2\67\65\3\2\2\2\67\66\3\2\2\2")
+        buf.write("8D\3\2\2\29:\f\n\2\2:;\t\3\2\2;C\5\16\b\13<=\f\t\2\2=")
+        buf.write(">\t\4\2\2>C\5\16\b\n?@\f\b\2\2@A\7 \2\2AC\5\20\t\2B9\3")
+        buf.write("\2\2\2B<\3\2\2\2B?\3\2\2\2CF\3\2\2\2DB\3\2\2\2DE\3\2\2")
+        buf.write("\2E\17\3\2\2\2FD\3\2\2\2GJ\7W\2\2HJ\7X\2\2IG\3\2\2\2I")
+        buf.write("H\3\2\2\2J\21\3\2\2\2\b\25\35\67BDI")
         return buf.getvalue()
 
 
-class JingleParser ( Parser ):
+class JingleParser ( JingleBaseParser ):
 
     grammarFileName = "JingleParser.g4"
 
@@ -46,28 +51,37 @@ class JingleParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "'##'", "'\"'", 
-                     "'var'", "'array'", "<INVALID>", "'display'", "'return'", 
-                     "'if'", "'in'", "'else'", "'elif'", "'while'", "'for'", 
-                     "'true'", "'false'", "<INVALID>", "'class'", "'let'", 
-                     "'trait'", "'def'", "'protocol'", "'enum'", "'import'", 
-                     "'from'", "'package'", "'as'", "':='", "'='", "'+'", 
-                     "'-'", "'*'", "'/'", "'<'", "'>'", "'!='", "'!'", "'|'", 
-                     "'=='", "'#'", "'&'", "','", "'('", "')'", "'{'", "'}'", 
-                     "'['", "']'", "'->'", "'float'", "'string'", "'bool'", 
-                     "'null'", "'char'" ]
+    literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "'\"'", "'var'", 
+                     "'array'", "<INVALID>", "'display'", "'return'", "'if'", 
+                     "'then'", "'and'", "'or'", "'in'", "'else'", "'elif'", 
+                     "'while'", "'for'", "'true'", "'false'", "<INVALID>", 
+                     "'class'", "'let'", "'trait'", "'def'", "'protocol'", 
+                     "'enum'", "'import'", "'from'", "'package'", "'as'", 
+                     "'break'", "'abstract'", "'select'", "':='", "'='", 
+                     "'=='", "'!='", "'<='", "'>='", "'+'", "'-'", "'*'", 
+                     "'/'", "'<'", "'>'", "'!'", "'^'", "'%'", "'|'", "'||'", 
+                     "'#'", "'&'", "'&&'", "','", "'('", "')'", "'{'", "'}'", 
+                     "'['", "']'", "'->'", "':'", "'.'", "'...'", "'++'", 
+                     "'--'", "'float'", "'string'", "'bool'", "'null'", 
+                     "'char'" ]
 
     symbolicNames = [ "<INVALID>", "ENDSTATEMENT", "SEMICOLONTERMINATE", 
-                      "COMMENT", "SPEECHMARKS", "VAR", "ARRAY", "CONST", 
-                      "DISPLAY", "RETURN", "IF", "IN", "ELSE", "ELIF", "WHILE", 
-                      "FOR", "TRUE", "FALSE", "FUNC", "CLASS", "LET", "TRAIT", 
-                      "DEFINE", "PROTOCOL", "ENUM", "IMPORT", "FROM", "PACKAGE", 
-                      "AS", "ASSIGN", "EQUALS", "PLUS", "MINUS", "MULTIPLY", 
-                      "DIVIDE", "LESSTHAN", "GREATERTHAN", "NOTEQUAL", "BANG", 
-                      "OR", "EQEQ", "HASH", "AMBERSAND", "COMMA", "LBRACKET", 
-                      "RBRACKET", "LBRACE", "RBRACE", "LSQRBRACKET", "RSQRBRACKET", 
-                      "ARROW", "FLOAT", "STRING", "BOOLEAN", "NULL", "CHAR", 
-                      "INT", "ID" ]
+                      "SPEECHMARKS", "VAR", "ARRAY", "CONST", "DISPLAY", 
+                      "RETURN", "IF", "THEN", "AND", "OR", "IN", "ELSE", 
+                      "ELIF", "WHILE", "FOR", "TRUE", "FALSE", "FUNC", "CLASS", 
+                      "LET", "TRAIT", "DEFINE", "PROTOCOL", "ENUM", "IMPORT", 
+                      "FROM", "PACKAGE", "AS", "BREAK", "ABSTRACT", "SELECT", 
+                      "ASSIGN", "EQUALS", "EQEQ", "NOTEQUAL", "LTEQUALS", 
+                      "GTEQUALS", "PLUS", "MINUS", "MULTIPLY", "DIVIDE", 
+                      "LESSTHAN", "GREATERTHAN", "BANG", "POWER", "MODULUS", 
+                      "VERTICAL", "ORSYMBOL", "HASH", "AMBERSAND", "ANDSYMBOL", 
+                      "COMMA", "LBRACKET", "RBRACKET", "LBRACE", "RBRACE", 
+                      "LSQRBRACKET", "RSQRBRACKET", "ARROW", "COLON", "DOT", 
+                      "ELLIPSIS", "PLUSPLUS", "MINUSMINUS", "FLOAT", "STRING", 
+                      "BOOLEAN", "NULL", "CHAR", "INT", "COMMENT", "TERMINATOR", 
+                      "IDENTIFIER", "BINARY_OP", "INT_LIT", "FLOAT_LIT", 
+                      "STRING_LIT", "RUNE_LIT", "LITTLE_U_VALUE", "BIG_U_VALUE", 
+                      "WHITESPACE", "NOUNICODEID", "INT_TYPE", "FLOAT_TYPE" ]
 
     RULE_jingleFile = 0
     RULE_line = 1
@@ -84,61 +98,90 @@ class JingleParser ( Parser ):
     EOF = Token.EOF
     ENDSTATEMENT=1
     SEMICOLONTERMINATE=2
-    COMMENT=3
-    SPEECHMARKS=4
-    VAR=5
-    ARRAY=6
-    CONST=7
-    DISPLAY=8
-    RETURN=9
-    IF=10
-    IN=11
-    ELSE=12
-    ELIF=13
-    WHILE=14
-    FOR=15
-    TRUE=16
-    FALSE=17
-    FUNC=18
-    CLASS=19
-    LET=20
-    TRAIT=21
-    DEFINE=22
-    PROTOCOL=23
-    ENUM=24
-    IMPORT=25
-    FROM=26
-    PACKAGE=27
-    AS=28
-    ASSIGN=29
-    EQUALS=30
-    PLUS=31
-    MINUS=32
-    MULTIPLY=33
-    DIVIDE=34
-    LESSTHAN=35
-    GREATERTHAN=36
+    SPEECHMARKS=3
+    VAR=4
+    ARRAY=5
+    CONST=6
+    DISPLAY=7
+    RETURN=8
+    IF=9
+    THEN=10
+    AND=11
+    OR=12
+    IN=13
+    ELSE=14
+    ELIF=15
+    WHILE=16
+    FOR=17
+    TRUE=18
+    FALSE=19
+    FUNC=20
+    CLASS=21
+    LET=22
+    TRAIT=23
+    DEFINE=24
+    PROTOCOL=25
+    ENUM=26
+    IMPORT=27
+    FROM=28
+    PACKAGE=29
+    AS=30
+    BREAK=31
+    ABSTRACT=32
+    SELECT=33
+    ASSIGN=34
+    EQUALS=35
+    EQEQ=36
     NOTEQUAL=37
-    BANG=38
-    OR=39
-    EQEQ=40
-    HASH=41
-    AMBERSAND=42
-    COMMA=43
-    LBRACKET=44
-    RBRACKET=45
-    LBRACE=46
-    RBRACE=47
-    LSQRBRACKET=48
-    RSQRBRACKET=49
-    ARROW=50
-    FLOAT=51
-    STRING=52
-    BOOLEAN=53
-    NULL=54
-    CHAR=55
-    INT=56
-    ID=57
+    LTEQUALS=38
+    GTEQUALS=39
+    PLUS=40
+    MINUS=41
+    MULTIPLY=42
+    DIVIDE=43
+    LESSTHAN=44
+    GREATERTHAN=45
+    BANG=46
+    POWER=47
+    MODULUS=48
+    VERTICAL=49
+    ORSYMBOL=50
+    HASH=51
+    AMBERSAND=52
+    ANDSYMBOL=53
+    COMMA=54
+    LBRACKET=55
+    RBRACKET=56
+    LBRACE=57
+    RBRACE=58
+    LSQRBRACKET=59
+    RSQRBRACKET=60
+    ARROW=61
+    COLON=62
+    DOT=63
+    ELLIPSIS=64
+    PLUSPLUS=65
+    MINUSMINUS=66
+    FLOAT=67
+    STRING=68
+    BOOLEAN=69
+    NULL=70
+    CHAR=71
+    INT=72
+    COMMENT=73
+    TERMINATOR=74
+    IDENTIFIER=75
+    BINARY_OP=76
+    INT_LIT=77
+    FLOAT_LIT=78
+    STRING_LIT=79
+    RUNE_LIT=80
+    LITTLE_U_VALUE=81
+    BIG_U_VALUE=82
+    WHITESPACE=83
+    NOUNICODEID=84
+    INT_TYPE=85
+    FLOAT_TYPE=86
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -199,7 +242,7 @@ class JingleParser ( Parser ):
                 self.state = 19 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JingleParser.VAR) | (1 << JingleParser.DISPLAY) | (1 << JingleParser.ID))) != 0)):
+                if not (_la==JingleParser.VAR or _la==JingleParser.DISPLAY or _la==JingleParser.NOUNICODEID):
                     break
 
         except RecognitionException as re:
@@ -378,7 +421,7 @@ class JingleParser ( Parser ):
                 self.state = 24
                 self.varDeclaration()
                 pass
-            elif token in [JingleParser.ID]:
+            elif token in [JingleParser.NOUNICODEID]:
                 localctx = JingleParser.AssignmentStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 25
@@ -410,6 +453,12 @@ class JingleParser ( Parser ):
 
         def DISPLAY(self):
             return self.getToken(JingleParser.DISPLAY, 0)
+
+        def COLON(self):
+            return self.getToken(JingleParser.COLON, 0)
+
+        def WHITESPACE(self):
+            return self.getToken(JingleParser.WHITESPACE, 0)
 
         def LBRACKET(self):
             return self.getToken(JingleParser.LBRACKET, 0)
@@ -450,10 +499,14 @@ class JingleParser ( Parser ):
             self.state = 29
             self.match(JingleParser.DISPLAY)
             self.state = 30
-            self.match(JingleParser.LBRACKET)
+            self.match(JingleParser.COLON)
             self.state = 31
-            self.expression(0)
+            self.match(JingleParser.WHITESPACE)
             self.state = 32
+            self.match(JingleParser.LBRACKET)
+            self.state = 33
+            self.expression(0)
+            self.state = 34
             self.match(JingleParser.RBRACKET)
         except RecognitionException as re:
             localctx.exception = re
@@ -503,9 +556,9 @@ class JingleParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_varDeclaration)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 34
+            self.state = 36
             self.match(JingleParser.VAR)
-            self.state = 35
+            self.state = 37
             self.assignment()
         except RecognitionException as re:
             localctx.exception = re
@@ -522,8 +575,8 @@ class JingleParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def ID(self):
-            return self.getToken(JingleParser.ID, 0)
+        def NOUNICODEID(self):
+            return self.getToken(JingleParser.NOUNICODEID, 0)
 
         def ASSIGN(self):
             return self.getToken(JingleParser.ASSIGN, 0)
@@ -558,11 +611,11 @@ class JingleParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 37
-            self.match(JingleParser.ID)
-            self.state = 38
-            self.match(JingleParser.ASSIGN)
             self.state = 39
+            self.match(JingleParser.NOUNICODEID)
+            self.state = 40
+            self.match(JingleParser.ASSIGN)
+            self.state = 41
             self.expression(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -594,8 +647,8 @@ class JingleParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def FLOAT(self):
-            return self.getToken(JingleParser.FLOAT, 0)
+        def FLOAT_TYPE(self):
+            return self.getToken(JingleParser.FLOAT_TYPE, 0)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterDecimalLiteral" ):
@@ -645,8 +698,8 @@ class JingleParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def INT(self):
-            return self.getToken(JingleParser.INT, 0)
+        def INT_TYPE(self):
+            return self.getToken(JingleParser.INT_TYPE, 0)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterIntLiteral" ):
@@ -769,8 +822,8 @@ class JingleParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def ID(self):
-            return self.getToken(JingleParser.ID, 0)
+        def NOUNICODEID(self):
+            return self.getToken(JingleParser.NOUNICODEID, 0)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterVarReference" ):
@@ -798,7 +851,7 @@ class JingleParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 51
+            self.state = 53
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [JingleParser.LBRACKET]:
@@ -806,48 +859,48 @@ class JingleParser ( Parser ):
                 self._ctx = localctx
                 _prevctx = localctx
 
-                self.state = 42
-                self.match(JingleParser.LBRACKET)
-                self.state = 43
-                self.expression(0)
                 self.state = 44
+                self.match(JingleParser.LBRACKET)
+                self.state = 45
+                self.expression(0)
+                self.state = 46
                 self.match(JingleParser.RBRACKET)
                 pass
-            elif token in [JingleParser.ID]:
+            elif token in [JingleParser.NOUNICODEID]:
                 localctx = JingleParser.VarReferenceContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 46
-                self.match(JingleParser.ID)
+                self.state = 48
+                self.match(JingleParser.NOUNICODEID)
                 pass
             elif token in [JingleParser.MINUS]:
                 localctx = JingleParser.MinusExpressionContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 47
+                self.state = 49
                 self.match(JingleParser.MINUS)
-                self.state = 48
+                self.state = 50
                 self.expression(3)
                 pass
-            elif token in [JingleParser.INT]:
+            elif token in [JingleParser.INT_TYPE]:
                 localctx = JingleParser.IntLiteralContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 49
-                self.match(JingleParser.INT)
+                self.state = 51
+                self.match(JingleParser.INT_TYPE)
                 pass
-            elif token in [JingleParser.FLOAT]:
+            elif token in [JingleParser.FLOAT_TYPE]:
                 localctx = JingleParser.DecimalLiteralContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 50
-                self.match(JingleParser.FLOAT)
+                self.state = 52
+                self.match(JingleParser.FLOAT_TYPE)
                 pass
             else:
                 raise NoViableAltException(self)
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 64
+            self.state = 66
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -855,18 +908,18 @@ class JingleParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 62
+                    self.state = 64
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
                     if la_ == 1:
                         localctx = JingleParser.BinaryOperationContext(self, JingleParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 53
+                        self.state = 55
                         if not self.precpred(self._ctx, 8):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 8)")
-                        self.state = 54
+                        self.state = 56
                         localctx.operator = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==JingleParser.MULTIPLY or _la==JingleParser.DIVIDE):
@@ -874,7 +927,7 @@ class JingleParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 55
+                        self.state = 57
                         localctx.right = self.expression(9)
                         pass
 
@@ -882,11 +935,11 @@ class JingleParser ( Parser ):
                         localctx = JingleParser.BinaryOperationContext(self, JingleParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 56
+                        self.state = 58
                         if not self.precpred(self._ctx, 7):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
-                        self.state = 57
+                        self.state = 59
                         localctx.operator = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==JingleParser.PLUS or _la==JingleParser.MINUS):
@@ -894,7 +947,7 @@ class JingleParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 58
+                        self.state = 60
                         localctx.right = self.expression(8)
                         pass
 
@@ -902,18 +955,18 @@ class JingleParser ( Parser ):
                         localctx = JingleParser.TypeConversionContext(self, JingleParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.value = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 59
+                        self.state = 61
                         if not self.precpred(self._ctx, 6):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 6)")
-                        self.state = 60
+                        self.state = 62
                         self.match(JingleParser.AS)
-                        self.state = 61
+                        self.state = 63
                         localctx.targetType = self.dataType()
                         pass
 
              
-                self.state = 66
+                self.state = 68
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
 
@@ -948,8 +1001,8 @@ class JingleParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def INT(self):
-            return self.getToken(JingleParser.INT, 0)
+        def INT_TYPE(self):
+            return self.getToken(JingleParser.INT_TYPE, 0)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterInteger" ):
@@ -972,8 +1025,8 @@ class JingleParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def FLOAT(self):
-            return self.getToken(JingleParser.FLOAT, 0)
+        def FLOAT_TYPE(self):
+            return self.getToken(JingleParser.FLOAT_TYPE, 0)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterDecimal" ):
@@ -996,20 +1049,20 @@ class JingleParser ( Parser ):
         localctx = JingleParser.DataTypeContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_dataType)
         try:
-            self.state = 69
+            self.state = 71
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [JingleParser.INT]:
+            if token in [JingleParser.INT_TYPE]:
                 localctx = JingleParser.IntegerContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 67
-                self.match(JingleParser.INT)
+                self.state = 69
+                self.match(JingleParser.INT_TYPE)
                 pass
-            elif token in [JingleParser.FLOAT]:
+            elif token in [JingleParser.FLOAT_TYPE]:
                 localctx = JingleParser.DecimalContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 68
-                self.match(JingleParser.FLOAT)
+                self.state = 70
+                self.match(JingleParser.FLOAT_TYPE)
                 pass
             else:
                 raise NoViableAltException(self)
