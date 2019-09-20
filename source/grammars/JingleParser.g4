@@ -1,8 +1,13 @@
 parser grammar JingleParser;
 
-options { tokenVocab=JingleLexer; }
+options { 
+     tokenVocab=JingleLexer; 
+     superClass=JingleBaseParser;
+     }
 
 jingleFile : lines=line+ ;
+
+// INTs only
 
 line      : statement (ENDSTATEMENT | EOF) ;
 
@@ -10,20 +15,69 @@ statement : varDeclaration # varDeclarationStatement
           | assignment     # assignmentStatement
           | display          # displayStatement ;
 
-display : DISPLAY LBRACKET expression RBRACKET ;
+display : DISPLAY COLON WHITESPACE LBRACKET expression RBRACKET ;
 
 varDeclaration : VAR assignment ;
 
-assignment : ID ASSIGN expression ;
+assignment : NOUNICODEID ASSIGN expression ;
 
 expression : left=expression operator=(DIVIDE|MULTIPLY) right=expression # binaryOperation
            | left=expression operator=(PLUS|MINUS) right=expression        # binaryOperation
            | value=expression AS targetType=dataType                           # typeConversion
            | LBRACKET expression RBRACKET                                      # parenExpression
-           | ID                                                            # varReference
+           | NOUNICODEID                                                            # varReference
            | MINUS expression                                              # minusExpression
-           | INT                                                        # intLiteral
-           | FLOAT                                                        # decimalLiteral ;
+           | INT_TYPE                                                        # intLiteral
+           | FLOAT_TYPE                                                     # decimalLiteral ;
 
-dataType : INT     # integer
-     | FLOAT # decimal ;
+dataType : INT_TYPE     # integer
+     | FLOAT_TYPE # decimal ;
+
+/*
+// Development Parser
+topLevelDecl
+     : declaration
+     | functionDecl
+     | methodDecl
+     ;
+
+declaration
+     : varDecl
+     ;
+
+functionDecl
+    : FUNCTION IDENTIFIER ( function | signature )
+    ;
+
+function
+    : signature block
+    ;
+
+methodDecl
+    : FUNC receiver IDENTIFIER ( function | signature )
+    ;
+
+receiver
+    : parameters
+    ;     
+
+varDecl
+    : VAR ( varSpec | '(' ( varSpec )* ')' )
+    ;
+
+varSpec
+    : identifierList ( type_ ( '=' expressionList )? | '=' expressionList )
+    ;
+
+block
+    : '{' statementList '}'
+    ;
+
+statementList
+    : ( statement )*
+    ;
+
+statement
+    : declaration
+	;
+*/
