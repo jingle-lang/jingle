@@ -8,7 +8,7 @@ Jingle language introduction
 
 ## Code elements
 ### Comments
-Comments are designed as in-file documentation. Comments can be defined using the `//` character sequence. These are standard line comments but multi-line comments are defined with the opening sequence `/*` and closed with the sequence `*/`.
+Comments are designed as in-file documentation. Comments can be defined using the `//` character sequence.
 
 ## Types
 Information on various types in the Jingle language
