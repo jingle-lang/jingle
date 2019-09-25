@@ -1,10 +1,14 @@
 # Jingle Language Specification
 ## Introduction
-Jingle language introduction
+Welcome to the Jingle programming language specification.
 
 ## Table of contents
-- Code Elements
+- [Code Elements](
+  - Comments
+- Control Flow
+  - If Statements
 - Types
+  - Strings
 
 ## Code elements
 ### Comments
