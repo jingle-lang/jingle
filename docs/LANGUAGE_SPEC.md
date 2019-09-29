@@ -43,7 +43,7 @@ var world = "World"
 display: ("Hello #{world}!")
 ```
 
-You can do string interopolation with `#{expression}` Example: `"Hello there #{name}!" `
+You can do string interpolation with `#{expression}` Example: `"Hello there #{name}!" `
 
 ## Variables
 Jingle has 4 variable types which all have their own declaration statements. There are variables, constants and locals which are all weakly typed, which means their type can be changed at runtime, obviously excluding constants. Let variables are strongly typed so their type cannot be changed at runtime. Let variables also do not have type inference while all other variable types do.
