@@ -24,3 +24,14 @@ Information on various types in the Jingle language
 `"string"`
 
 You can do string interopolation with `#{expression}` Example: `"Hello there #{name}!" `
+
+var and const have type inference
+let requires type
+let is strongly typed so type cannot be changed after declared
+var is weakly typed so type can be changed after declared
+```
+var num1 = 5
+const name = "Harold" 
+let int num1 = 5
+let name = "Harold" 
+```
