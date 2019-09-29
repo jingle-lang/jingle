@@ -3,12 +3,15 @@
 Welcome to the Jingle programming language specification.
 
 ## Table of contents
+- [Grammar](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#grammar)
 - [Code Elements](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#code-elements)
   - [Comments](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#comments)
 - [Control Flow](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#control-flow)
   - [If Statements](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#if-statements)
 - [Types](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#types)
-  - [Strings](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#types)
+  - [Strings](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#strings)
+  - [Integers](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#integers)
+- [Variables](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#variables)
 
 ## Grammar
 If you wish to have a look at the grammar, it is in EBNF form designed for ANTLR in [source/grammars](https://github.com/jingle-lang/jingle/tree/master/source/grammars).
