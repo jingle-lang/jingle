@@ -24,7 +24,14 @@ if
 ## Types
 Information on various types in the Jingle language.
 ### Strings
-`"string"`
+String literals are essentially pieces of text. They are practically identical to strings that you would find in any other programming language. However, Jingle's strings currently do not support Unicode characters such as Emojis, but this is being worked on. They are referred to with the keywords `string` or `str`
+
+Examples of strings include:
+```
+var name = "Tom"
+var world = "World"
+display: ("Hello #{world}!")
+```
 
 You can do string interopolation with `#{expression}` Example: `"Hello there #{name}!" `
 
