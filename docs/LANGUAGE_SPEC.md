@@ -23,8 +23,18 @@ if
 
 ## Types
 Information on various types in the Jingle language.
+### Integers
+Integer literals are whole numbers. They are practically identical to integers you would find in any other programming languages. They are referred to with the keywords `integer` or `int`.
+
+Examples of integers include:
+```
+var version = 2
+display: ("You are running version #{version}.")
+var age = 15
+display: ("I am #{age} years old.")
+```
 ### Strings
-String literals are essentially pieces of text. They are practically identical to strings that you would find in any other programming language. However, Jingle's strings currently do not support Unicode characters such as Emojis, but this is being worked on. They are referred to with the keywords `string` or `str`
+String literals are essentially pieces of text. They are practically identical to strings that you would find in any other programming language. However, Jingle's strings currently do not support Unicode characters such as Emojis, but this is being worked on. They are referred to with the keywords `string` or `str`.
 
 Examples of strings include:
 ```
