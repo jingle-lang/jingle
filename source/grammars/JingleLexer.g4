@@ -1,5 +1,6 @@
 lexer grammar JingleLexer;
 
+channels { WHITESPACE, COMMENT_CH }
 
 // Fragments and helpers are at the bottom of the file.
 
@@ -12,7 +13,8 @@ SPEECHMARKS : '"' ;
 // Keywords
 VAR : 'var' ;
 ARRAY : 'array' ;
-CONST : 'const' | . | 'constant';
+CONST : 'con' | . | 'const' | . | 'constant';
+LOCAL : 'loc' | . | 'local' ;
 DISPLAY : 'display' ;
 RETURN : 'return' ;
 IF : 'if' ;
@@ -21,12 +23,12 @@ AND : 'and' ;
 OR : 'or' ;
 IN : 'in' ;
 ELSE : 'else' ;
-ELIF : 'elif' ;
+ELSEIF : 'elseif' | . | 'elif' ;
 WHILE : 'while' ;
 FOR : 'for' ;
 TRUE : 'true' ;
 FALSE : 'false' ;
-FUNC : 'function' | . | 'func' | . | 'fn' ;
+FUNCTION : 'function' | . | 'func' | . | 'fn' ;
 CLASS : 'class' ;
 LET : 'let' ;
 TRAIT : 'trait' ;
@@ -40,6 +42,7 @@ AS : 'as' ;
 BREAK : 'break' ;
 ABSTRACT : 'abstract' ;
 SELECT : 'select' ;
+INPUT : 'input' ;
 
 // Operators
 ASSIGN : ':=' ;
@@ -63,6 +66,12 @@ HASH : '#' ;
 AMBERSAND : '&' ;
 ANDSYMBOL : '&&' ;
 
+// Types
+TYPE_INT : 'int' | 'integer';
+TYPE_DECIMAL : 'flt' | 'float' ;
+TYPE_STRING : 'str' | 'string';
+TYPE_BOOLEAN : 'bool' | 'boolean';
+
 // Delimiters
 COMMA : ',' ;
 LBRACKET : '(' ;
@@ -85,30 +94,54 @@ BOOLEAN : 'bool' ;
 NULL : 'null' ;
 CHAR : 'char' ;
 
-INT
-   : DECIMAL_DIGIT+
-   | 'int'
-   ;
+INT_LITERAL : '0'|[1-9][0-9]* ;
+FLOAT_LITERAL : '0'|[1-9][0-9]* '.' [0-9]+ ;
 
 // Helpers
 fragment SEMICOLON : ';' ;
 fragment NEWLINE : '\r' '\n' | '\n' | '\r' ;
-fragment ID : [a-zA-Z]+ ;
+fragment ID : [_]*[a-z][A-Za-z0-9_]* ;
 fragment DIGIT_CONT : [0-9_] ;
 fragment HEXDIGIT : [0-9a-fA-F_] ;
 fragment BINARY : [0-1_] ;
-fragment WHITESPACE : [ \t\r\n]+ -> channel(HIDDEN) ;
+fragment WHITESPACE : [ \t\r\n]+ -> channel(WHITESPACE) ;
 fragment UNICODE_WS : [\p{White_Space}] -> channel(HIDDEN) ;
 
 COMMENT
-    :   '//' ~[\r\n]* -> skip
+    :   ( '//' ~('\r' | '\n')* '\r'? '\n'
+        | '/*' .*? '*/'
+        ) -> channel(COMMENT_CH)
     ;
 
 TERMINATOR
 	: [\r\n]+ -> channel(HIDDEN)
 	;
 
+STRING_OPEN : '"' -> pushMode(MODE_IN_STRING);
+
+UNMATCHED : . ;
+
+mode MODE_IN_STRING;
+
+SCAPE_STRING_DELIMITER : '\\"' ;
+ESCAPE_SLASH : '\\\\' ;
+ESCAPE_NEWLINE : '\\n' ;
+ESCAPE_SHARP : '\\#' ;
+STRING_CLOSE : '"' -> popMode ;
+INTERPOLATION_OPEN : '#{' -> pushMode(MODE_IN_INTERPOLATION) ;
+STRING_CONTENT : ~["\n\r\t\\#]+ ;
+
+STR_UNMATCHED : . -> type(UNMATCHED) ;
+
+mode MODE_IN_INTERPOLATION;
+
+INTERPOLATION_CLOSE : '}' -> popMode ;
+
+/*
 // Identifier
+
+// Identifier without unicode support
+NOUNICODEID : [_]*[a-z][A-Za-z0-9_]* ;
 
 IDENTIFIER
     : LETTER ( LETTER | UNICODE_DIGIT )*
@@ -537,3 +570,5 @@ fragment UNICODE_LETTER
  | [\u1810-\u1819]
  | [\uFF10-\uFF19]
  ;
+
+ */
