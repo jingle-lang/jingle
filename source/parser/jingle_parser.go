@@ -16,66 +16,71 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 88, 76, 4,
-	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
-	8, 9, 8, 4, 9, 9, 9, 3, 2, 6, 2, 20, 10, 2, 13, 2, 14, 2, 21, 3, 3, 3,
-	3, 3, 3, 3, 4, 3, 4, 3, 4, 5, 4, 30, 10, 4, 3, 5, 3, 5, 3, 5, 3, 5, 3,
-	5, 3, 5, 3, 5, 3, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 7, 3, 7, 3, 8, 3, 8, 3,
-	8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 5, 8, 56, 10, 8, 3, 8, 3,
-	8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 7, 8, 67, 10, 8, 12, 8, 14,
-	8, 70, 11, 8, 3, 9, 3, 9, 5, 9, 74, 10, 9, 3, 9, 2, 3, 14, 10, 2, 4, 6,
-	8, 10, 12, 14, 16, 2, 5, 3, 3, 3, 3, 3, 2, 44, 45, 3, 2, 42, 43, 2, 78,
-	2, 19, 3, 2, 2, 2, 4, 23, 3, 2, 2, 2, 6, 29, 3, 2, 2, 2, 8, 31, 3, 2, 2,
-	2, 10, 38, 3, 2, 2, 2, 12, 41, 3, 2, 2, 2, 14, 55, 3, 2, 2, 2, 16, 73,
-	3, 2, 2, 2, 18, 20, 5, 4, 3, 2, 19, 18, 3, 2, 2, 2, 20, 21, 3, 2, 2, 2,
-	21, 19, 3, 2, 2, 2, 21, 22, 3, 2, 2, 2, 22, 3, 3, 2, 2, 2, 23, 24, 5, 6,
-	4, 2, 24, 25, 9, 2, 2, 2, 25, 5, 3, 2, 2, 2, 26, 30, 5, 10, 6, 2, 27, 30,
-	5, 12, 7, 2, 28, 30, 5, 8, 5, 2, 29, 26, 3, 2, 2, 2, 29, 27, 3, 2, 2, 2,
-	29, 28, 3, 2, 2, 2, 30, 7, 3, 2, 2, 2, 31, 32, 7, 9, 2, 2, 32, 33, 7, 64,
-	2, 2, 33, 34, 7, 85, 2, 2, 34, 35, 7, 57, 2, 2, 35, 36, 5, 14, 8, 2, 36,
-	37, 7, 58, 2, 2, 37, 9, 3, 2, 2, 2, 38, 39, 7, 6, 2, 2, 39, 40, 5, 12,
-	7, 2, 40, 11, 3, 2, 2, 2, 41, 42, 7, 86, 2, 2, 42, 43, 7, 36, 2, 2, 43,
-	44, 5, 14, 8, 2, 44, 13, 3, 2, 2, 2, 45, 46, 8, 8, 1, 2, 46, 47, 7, 57,
-	2, 2, 47, 48, 5, 14, 8, 2, 48, 49, 7, 58, 2, 2, 49, 56, 3, 2, 2, 2, 50,
-	56, 7, 86, 2, 2, 51, 52, 7, 43, 2, 2, 52, 56, 5, 14, 8, 5, 53, 56, 7, 87,
-	2, 2, 54, 56, 7, 88, 2, 2, 55, 45, 3, 2, 2, 2, 55, 50, 3, 2, 2, 2, 55,
-	51, 3, 2, 2, 2, 55, 53, 3, 2, 2, 2, 55, 54, 3, 2, 2, 2, 56, 68, 3, 2, 2,
-	2, 57, 58, 12, 10, 2, 2, 58, 59, 9, 3, 2, 2, 59, 67, 5, 14, 8, 11, 60,
-	61, 12, 9, 2, 2, 61, 62, 9, 4, 2, 2, 62, 67, 5, 14, 8, 10, 63, 64, 12,
-	8, 2, 2, 64, 65, 7, 32, 2, 2, 65, 67, 5, 16, 9, 2, 66, 57, 3, 2, 2, 2,
-	66, 60, 3, 2, 2, 2, 66, 63, 3, 2, 2, 2, 67, 70, 3, 2, 2, 2, 68, 66, 3,
-	2, 2, 2, 68, 69, 3, 2, 2, 2, 69, 15, 3, 2, 2, 2, 70, 68, 3, 2, 2, 2, 71,
-	74, 7, 87, 2, 2, 72, 74, 7, 88, 2, 2, 73, 71, 3, 2, 2, 2, 73, 72, 3, 2,
-	2, 2, 74, 17, 3, 2, 2, 2, 8, 21, 29, 55, 66, 68, 73,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 109, 76,
+	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
+	4, 8, 9, 8, 4, 9, 9, 9, 3, 2, 6, 2, 20, 10, 2, 13, 2, 14, 2, 21, 3, 3,
+	3, 3, 3, 3, 3, 4, 3, 4, 3, 4, 5, 4, 30, 10, 4, 3, 5, 3, 5, 3, 5, 3, 5,
+	3, 5, 3, 5, 3, 5, 3, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 7, 3, 7, 3, 8, 3, 8,
+	3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 5, 8, 56, 10, 8, 3, 8,
+	3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 7, 8, 67, 10, 8, 12, 8,
+	14, 8, 70, 11, 8, 3, 9, 3, 9, 5, 9, 74, 10, 9, 3, 9, 2, 3, 14, 10, 2, 4,
+	6, 8, 10, 12, 14, 16, 2, 5, 3, 3, 3, 3, 3, 2, 52, 53, 3, 2, 50, 51, 2,
+	78, 2, 19, 3, 2, 2, 2, 4, 23, 3, 2, 2, 2, 6, 29, 3, 2, 2, 2, 8, 31, 3,
+	2, 2, 2, 10, 38, 3, 2, 2, 2, 12, 41, 3, 2, 2, 2, 14, 55, 3, 2, 2, 2, 16,
+	73, 3, 2, 2, 2, 18, 20, 5, 4, 3, 2, 19, 18, 3, 2, 2, 2, 20, 21, 3, 2, 2,
+	2, 21, 19, 3, 2, 2, 2, 21, 22, 3, 2, 2, 2, 22, 3, 3, 2, 2, 2, 23, 24, 5,
+	6, 4, 2, 24, 25, 9, 2, 2, 2, 25, 5, 3, 2, 2, 2, 26, 30, 5, 10, 6, 2, 27,
+	30, 5, 12, 7, 2, 28, 30, 5, 8, 5, 2, 29, 26, 3, 2, 2, 2, 29, 27, 3, 2,
+	2, 2, 29, 28, 3, 2, 2, 2, 30, 7, 3, 2, 2, 2, 31, 32, 7, 10, 2, 2, 32, 33,
+	7, 76, 2, 2, 33, 34, 7, 109, 2, 2, 34, 35, 7, 69, 2, 2, 35, 36, 5, 14,
+	8, 2, 36, 37, 7, 70, 2, 2, 37, 9, 3, 2, 2, 2, 38, 39, 7, 6, 2, 2, 39, 40,
+	5, 12, 7, 2, 40, 11, 3, 2, 2, 2, 41, 42, 7, 100, 2, 2, 42, 43, 7, 45, 2,
+	2, 43, 44, 5, 14, 8, 2, 44, 13, 3, 2, 2, 2, 45, 46, 8, 8, 1, 2, 46, 47,
+	7, 69, 2, 2, 47, 48, 5, 14, 8, 2, 48, 49, 7, 70, 2, 2, 49, 56, 3, 2, 2,
+	2, 50, 56, 7, 100, 2, 2, 51, 52, 7, 51, 2, 2, 52, 56, 5, 14, 8, 5, 53,
+	56, 7, 64, 2, 2, 54, 56, 7, 65, 2, 2, 55, 45, 3, 2, 2, 2, 55, 50, 3, 2,
+	2, 2, 55, 51, 3, 2, 2, 2, 55, 53, 3, 2, 2, 2, 55, 54, 3, 2, 2, 2, 56, 68,
+	3, 2, 2, 2, 57, 58, 12, 10, 2, 2, 58, 59, 9, 3, 2, 2, 59, 67, 5, 14, 8,
+	11, 60, 61, 12, 9, 2, 2, 61, 62, 9, 4, 2, 2, 62, 67, 5, 14, 8, 10, 63,
+	64, 12, 8, 2, 2, 64, 65, 7, 34, 2, 2, 65, 67, 5, 16, 9, 2, 66, 57, 3, 2,
+	2, 2, 66, 60, 3, 2, 2, 2, 66, 63, 3, 2, 2, 2, 67, 70, 3, 2, 2, 2, 68, 66,
+	3, 2, 2, 2, 68, 69, 3, 2, 2, 2, 69, 15, 3, 2, 2, 2, 70, 68, 3, 2, 2, 2,
+	71, 74, 7, 64, 2, 2, 72, 74, 7, 65, 2, 2, 73, 71, 3, 2, 2, 2, 73, 72, 3,
+	2, 2, 2, 74, 17, 3, 2, 2, 2, 8, 21, 29, 55, 66, 68, 73,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "", "", "'\"'", "'var'", "'array'", "", "'display'", "'return'", "'if'",
-	"'then'", "'and'", "'or'", "'in'", "'else'", "'elif'", "'while'", "'for'",
-	"'true'", "'false'", "", "'class'", "'let'", "'trait'", "'def'", "'protocol'",
-	"'enum'", "'import'", "'from'", "'package'", "'as'", "'break'", "'abstract'",
-	"'select'", "':='", "'='", "'=='", "'!='", "'<='", "'>='", "'+'", "'-'",
-	"'*'", "'/'", "'<'", "'>'", "'!'", "'^'", "'%'", "'|'", "'||'", "'#'",
-	"'&'", "'&&'", "','", "'('", "')'", "'{'", "'}'", "'['", "']'", "'->'",
-	"':'", "'.'", "'...'", "'++'", "'--'", "'float'", "'string'", "'bool'",
-	"'null'", "'char'",
+	"", "", "", "", "'var'", "", "", "", "'display'", "'return'", "'if'", "'then'",
+	"'and'", "'or'", "'in'", "'else'", "", "'while'", "'for'", "'true'", "'false'",
+	"", "'class'", "'let'", "'bind'", "'trait'", "'def'", "'protocol'", "'enum'",
+	"'import'", "'from'", "'package'", "'as'", "'break'", "'abstract'", "'select'",
+	"'input'", "'each'", "'new'", "'continue'", "'export'", "'include'", "':='",
+	"'='", "'=='", "'!='", "'<='", "'>='", "'+'", "'-'", "'*'", "'/'", "'<'",
+	"'>'", "'!'", "'^'", "'%'", "'|'", "'||'", "'#'", "'&'", "'&&'", "", "",
+	"", "", "','", "'('", "')'", "'{'", "", "'['", "']'", "'->'", "':'", "'.'",
+	"'...'", "'++'", "'--'", "'float'", "'string'", "'bool'", "'null'", "'char'",
+	"", "", "", "", "", "", "'\\\"'", "'\\\\'", "'\\n'", "'\\#'", "", "'#{'",
 }
 var symbolicNames = []string{
 	"", "ENDSTATEMENT", "SEMICOLONTERMINATE", "SPEECHMARKS", "VAR", "ARRAY",
-	"CONST", "DISPLAY", "RETURN", "IF", "THEN", "AND", "OR", "IN", "ELSE",
-	"ELIF", "WHILE", "FOR", "TRUE", "FALSE", "FUNC", "CLASS", "LET", "TRAIT",
-	"DEFINE", "PROTOCOL", "ENUM", "IMPORT", "FROM", "PACKAGE", "AS", "BREAK",
-	"ABSTRACT", "SELECT", "ASSIGN", "EQUALS", "EQEQ", "NOTEQUAL", "LTEQUALS",
-	"GTEQUALS", "PLUS", "MINUS", "MULTIPLY", "DIVIDE", "LESSTHAN", "GREATERTHAN",
-	"BANG", "POWER", "MODULUS", "VERTICAL", "ORSYMBOL", "HASH", "AMBERSAND",
-	"ANDSYMBOL", "COMMA", "LBRACKET", "RBRACKET", "LBRACE", "RBRACE", "LSQRBRACKET",
-	"RSQRBRACKET", "ARROW", "COLON", "DOT", "ELLIPSIS", "PLUSPLUS", "MINUSMINUS",
-	"FLOAT", "STRING", "BOOLEAN", "NULL", "CHAR", "INT", "COMMENT", "TERMINATOR",
-	"IDENTIFIER", "BINARY_OP", "INT_LIT", "FLOAT_LIT", "STRING_LIT", "RUNE_LIT",
-	"LITTLE_U_VALUE", "BIG_U_VALUE", "WHITESPACE", "NOUNICODEID", "INT_TYPE",
-	"FLOAT_TYPE",
+	"CONST", "LOCAL", "DISPLAY", "RETURN", "IF", "THEN", "AND", "OR", "IN",
+	"ELSE", "ELSEIF", "WHILE", "FOR", "TRUE", "FALSE", "FUNCTION", "CLASS",
+	"LET", "BIND", "TRAIT", "DEFINE", "PROTOCOL", "ENUM", "IMPORT", "FROM",
+	"PACKAGE", "AS", "BREAK", "ABSTRACT", "SELECT", "INPUT", "EACH", "NEW",
+	"CONTINUE", "EXPORT", "INCLUDE", "ASSIGN", "EQUALS", "EQEQ", "NOTEQUAL",
+	"LTEQUALS", "GTEQUALS", "PLUS", "MINUS", "MULTIPLY", "DIVIDE", "LESSTHAN",
+	"GREATERTHAN", "BANG", "POWER", "MODULUS", "VERTICAL", "ORSYMBOL", "HASH",
+	"AMBERSAND", "ANDSYMBOL", "TYPE_INT", "TYPE_DECIMAL", "TYPE_STRING", "TYPE_BOOLEAN",
+	"COMMA", "LBRACKET", "RBRACKET", "LBRACE", "RBRACE", "LSQRBRACKET", "RSQRBRACKET",
+	"ARROW", "COLON", "DOT", "ELLIPSIS", "PLUSPLUS", "MINUSMINUS", "FLOAT",
+	"STRING", "BOOLEAN", "NULL", "CHAR", "INT_LITERAL", "FLOAT_LITERAL", "COMMENT",
+	"TERMINATOR", "STRING_OPEN", "UNMATCHED", "SCAPE_STRING_DELIMITER", "ESCAPE_SLASH",
+	"ESCAPE_NEWLINE", "ESCAPE_SHARP", "STRING_CLOSE", "INTERPOLATION_OPEN",
+	"STRING_CONTENT", "INTERPOLATION_CLOSE", "NOUNICODEID", "IDENTIFIER", "BINARY_OP",
+	"INT_LIT", "FLOAT_LIT", "STRING_LIT", "RUNE_LIT", "LITTLE_U_VALUE", "BIG_U_VALUE",
+	"WHITESPACE",
 }
 
 var ruleNames = []string{
@@ -91,7 +96,7 @@ func init() {
 }
 
 type JingleParser struct {
-	JingleBaseParser
+	*antlr.BaseParser
 }
 
 func NewJingleParser(input antlr.TokenStream) *JingleParser {
@@ -110,93 +115,114 @@ func NewJingleParser(input antlr.TokenStream) *JingleParser {
 
 // JingleParser tokens.
 const (
-	JingleParserEOF                = antlr.TokenEOF
-	JingleParserENDSTATEMENT       = 1
-	JingleParserSEMICOLONTERMINATE = 2
-	JingleParserSPEECHMARKS        = 3
-	JingleParserVAR                = 4
-	JingleParserARRAY              = 5
-	JingleParserCONST              = 6
-	JingleParserDISPLAY            = 7
-	JingleParserRETURN             = 8
-	JingleParserIF                 = 9
-	JingleParserTHEN               = 10
-	JingleParserAND                = 11
-	JingleParserOR                 = 12
-	JingleParserIN                 = 13
-	JingleParserELSE               = 14
-	JingleParserELIF               = 15
-	JingleParserWHILE              = 16
-	JingleParserFOR                = 17
-	JingleParserTRUE               = 18
-	JingleParserFALSE              = 19
-	JingleParserFUNC               = 20
-	JingleParserCLASS              = 21
-	JingleParserLET                = 22
-	JingleParserTRAIT              = 23
-	JingleParserDEFINE             = 24
-	JingleParserPROTOCOL           = 25
-	JingleParserENUM               = 26
-	JingleParserIMPORT             = 27
-	JingleParserFROM               = 28
-	JingleParserPACKAGE            = 29
-	JingleParserAS                 = 30
-	JingleParserBREAK              = 31
-	JingleParserABSTRACT           = 32
-	JingleParserSELECT             = 33
-	JingleParserASSIGN             = 34
-	JingleParserEQUALS             = 35
-	JingleParserEQEQ               = 36
-	JingleParserNOTEQUAL           = 37
-	JingleParserLTEQUALS           = 38
-	JingleParserGTEQUALS           = 39
-	JingleParserPLUS               = 40
-	JingleParserMINUS              = 41
-	JingleParserMULTIPLY           = 42
-	JingleParserDIVIDE             = 43
-	JingleParserLESSTHAN           = 44
-	JingleParserGREATERTHAN        = 45
-	JingleParserBANG               = 46
-	JingleParserPOWER              = 47
-	JingleParserMODULUS            = 48
-	JingleParserVERTICAL           = 49
-	JingleParserORSYMBOL           = 50
-	JingleParserHASH               = 51
-	JingleParserAMBERSAND          = 52
-	JingleParserANDSYMBOL          = 53
-	JingleParserCOMMA              = 54
-	JingleParserLBRACKET           = 55
-	JingleParserRBRACKET           = 56
-	JingleParserLBRACE             = 57
-	JingleParserRBRACE             = 58
-	JingleParserLSQRBRACKET        = 59
-	JingleParserRSQRBRACKET        = 60
-	JingleParserARROW              = 61
-	JingleParserCOLON              = 62
-	JingleParserDOT                = 63
-	JingleParserELLIPSIS           = 64
-	JingleParserPLUSPLUS           = 65
-	JingleParserMINUSMINUS         = 66
-	JingleParserFLOAT              = 67
-	JingleParserSTRING             = 68
-	JingleParserBOOLEAN            = 69
-	JingleParserNULL               = 70
-	JingleParserCHAR               = 71
-	JingleParserINT                = 72
-	JingleParserCOMMENT            = 73
-	JingleParserTERMINATOR         = 74
-	JingleParserIDENTIFIER         = 75
-	JingleParserBINARY_OP          = 76
-	JingleParserINT_LIT            = 77
-	JingleParserFLOAT_LIT          = 78
-	JingleParserSTRING_LIT         = 79
-	JingleParserRUNE_LIT           = 80
-	JingleParserLITTLE_U_VALUE     = 81
-	JingleParserBIG_U_VALUE        = 82
-	JingleParserWHITESPACE         = 83
-	JingleParserNOUNICODEID        = 84
-	JingleParserINT_TYPE           = 85
-	JingleParserFLOAT_TYPE         = 86
+	JingleParserEOF                    = antlr.TokenEOF
+	JingleParserENDSTATEMENT           = 1
+	JingleParserSEMICOLONTERMINATE     = 2
+	JingleParserSPEECHMARKS            = 3
+	JingleParserVAR                    = 4
+	JingleParserARRAY                  = 5
+	JingleParserCONST                  = 6
+	JingleParserLOCAL                  = 7
+	JingleParserDISPLAY                = 8
+	JingleParserRETURN                 = 9
+	JingleParserIF                     = 10
+	JingleParserTHEN                   = 11
+	JingleParserAND                    = 12
+	JingleParserOR                     = 13
+	JingleParserIN                     = 14
+	JingleParserELSE                   = 15
+	JingleParserELSEIF                 = 16
+	JingleParserWHILE                  = 17
+	JingleParserFOR                    = 18
+	JingleParserTRUE                   = 19
+	JingleParserFALSE                  = 20
+	JingleParserFUNCTION               = 21
+	JingleParserCLASS                  = 22
+	JingleParserLET                    = 23
+	JingleParserBIND                   = 24
+	JingleParserTRAIT                  = 25
+	JingleParserDEFINE                 = 26
+	JingleParserPROTOCOL               = 27
+	JingleParserENUM                   = 28
+	JingleParserIMPORT                 = 29
+	JingleParserFROM                   = 30
+	JingleParserPACKAGE                = 31
+	JingleParserAS                     = 32
+	JingleParserBREAK                  = 33
+	JingleParserABSTRACT               = 34
+	JingleParserSELECT                 = 35
+	JingleParserINPUT                  = 36
+	JingleParserEACH                   = 37
+	JingleParserNEW                    = 38
+	JingleParserCONTINUE               = 39
+	JingleParserEXPORT                 = 40
+	JingleParserINCLUDE                = 41
+	JingleParserASSIGN                 = 42
+	JingleParserEQUALS                 = 43
+	JingleParserEQEQ                   = 44
+	JingleParserNOTEQUAL               = 45
+	JingleParserLTEQUALS               = 46
+	JingleParserGTEQUALS               = 47
+	JingleParserPLUS                   = 48
+	JingleParserMINUS                  = 49
+	JingleParserMULTIPLY               = 50
+	JingleParserDIVIDE                 = 51
+	JingleParserLESSTHAN               = 52
+	JingleParserGREATERTHAN            = 53
+	JingleParserBANG                   = 54
+	JingleParserPOWER                  = 55
+	JingleParserMODULUS                = 56
+	JingleParserVERTICAL               = 57
+	JingleParserORSYMBOL               = 58
+	JingleParserHASH                   = 59
+	JingleParserAMBERSAND              = 60
+	JingleParserANDSYMBOL              = 61
+	JingleParserTYPE_INT               = 62
+	JingleParserTYPE_DECIMAL           = 63
+	JingleParserTYPE_STRING            = 64
+	JingleParserTYPE_BOOLEAN           = 65
+	JingleParserCOMMA                  = 66
+	JingleParserLBRACKET               = 67
+	JingleParserRBRACKET               = 68
+	JingleParserLBRACE                 = 69
+	JingleParserRBRACE                 = 70
+	JingleParserLSQRBRACKET            = 71
+	JingleParserRSQRBRACKET            = 72
+	JingleParserARROW                  = 73
+	JingleParserCOLON                  = 74
+	JingleParserDOT                    = 75
+	JingleParserELLIPSIS               = 76
+	JingleParserPLUSPLUS               = 77
+	JingleParserMINUSMINUS             = 78
+	JingleParserFLOAT                  = 79
+	JingleParserSTRING                 = 80
+	JingleParserBOOLEAN                = 81
+	JingleParserNULL                   = 82
+	JingleParserCHAR                   = 83
+	JingleParserINT_LITERAL            = 84
+	JingleParserFLOAT_LITERAL          = 85
+	JingleParserCOMMENT                = 86
+	JingleParserTERMINATOR             = 87
+	JingleParserSTRING_OPEN            = 88
+	JingleParserUNMATCHED              = 89
+	JingleParserSCAPE_STRING_DELIMITER = 90
+	JingleParserESCAPE_SLASH           = 91
+	JingleParserESCAPE_NEWLINE         = 92
+	JingleParserESCAPE_SHARP           = 93
+	JingleParserSTRING_CLOSE           = 94
+	JingleParserINTERPOLATION_OPEN     = 95
+	JingleParserSTRING_CONTENT         = 96
+	JingleParserINTERPOLATION_CLOSE    = 97
+	JingleParserNOUNICODEID            = 98
+	JingleParserIDENTIFIER             = 99
+	JingleParserBINARY_OP              = 100
+	JingleParserINT_LIT                = 101
+	JingleParserFLOAT_LIT              = 102
+	JingleParserSTRING_LIT             = 103
+	JingleParserRUNE_LIT               = 104
+	JingleParserLITTLE_U_VALUE         = 105
+	JingleParserBIG_U_VALUE            = 106
+	JingleParserWHITESPACE             = 107
 )
 
 // JingleParser rules.
@@ -1042,8 +1068,8 @@ func (s *AssignmentContext) NOUNICODEID() antlr.TerminalNode {
 	return s.GetToken(JingleParserNOUNICODEID, 0)
 }
 
-func (s *AssignmentContext) ASSIGN() antlr.TerminalNode {
-	return s.GetToken(JingleParserASSIGN, 0)
+func (s *AssignmentContext) EQUALS() antlr.TerminalNode {
+	return s.GetToken(JingleParserEQUALS, 0)
 }
 
 func (s *AssignmentContext) Expression() IExpressionContext {
@@ -1113,7 +1139,7 @@ func (p *JingleParser) Assignment() (localctx IAssignmentContext) {
 	}
 	{
 		p.SetState(40)
-		p.Match(JingleParserASSIGN)
+		p.Match(JingleParserEQUALS)
 	}
 	{
 		p.SetState(41)
@@ -1191,8 +1217,8 @@ func (s *DecimalLiteralContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *DecimalLiteralContext) FLOAT_TYPE() antlr.TerminalNode {
-	return s.GetToken(JingleParserFLOAT_TYPE, 0)
+func (s *DecimalLiteralContext) TYPE_DECIMAL() antlr.TerminalNode {
+	return s.GetToken(JingleParserTYPE_DECIMAL, 0)
 }
 
 func (s *DecimalLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
@@ -1289,8 +1315,8 @@ func (s *IntLiteralContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *IntLiteralContext) INT_TYPE() antlr.TerminalNode {
-	return s.GetToken(JingleParserINT_TYPE, 0)
+func (s *IntLiteralContext) TYPE_INT() antlr.TerminalNode {
+	return s.GetToken(JingleParserTYPE_INT, 0)
 }
 
 func (s *IntLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
@@ -1662,22 +1688,22 @@ func (p *JingleParser) expression(_p int) (localctx IExpressionContext) {
 			p.expression(3)
 		}
 
-	case JingleParserINT_TYPE:
+	case JingleParserTYPE_INT:
 		localctx = NewIntLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(51)
-			p.Match(JingleParserINT_TYPE)
+			p.Match(JingleParserTYPE_INT)
 		}
 
-	case JingleParserFLOAT_TYPE:
+	case JingleParserTYPE_DECIMAL:
 		localctx = NewDecimalLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(52)
-			p.Match(JingleParserFLOAT_TYPE)
+			p.Match(JingleParserTYPE_DECIMAL)
 		}
 
 	default:
@@ -1870,8 +1896,8 @@ func (s *IntegerContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *IntegerContext) INT_TYPE() antlr.TerminalNode {
-	return s.GetToken(JingleParserINT_TYPE, 0)
+func (s *IntegerContext) TYPE_INT() antlr.TerminalNode {
+	return s.GetToken(JingleParserTYPE_INT, 0)
 }
 
 func (s *IntegerContext) EnterRule(listener antlr.ParseTreeListener) {
@@ -1914,8 +1940,8 @@ func (s *DecimalContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *DecimalContext) FLOAT_TYPE() antlr.TerminalNode {
-	return s.GetToken(JingleParserFLOAT_TYPE, 0)
+func (s *DecimalContext) TYPE_DECIMAL() antlr.TerminalNode {
+	return s.GetToken(JingleParserTYPE_DECIMAL, 0)
 }
 
 func (s *DecimalContext) EnterRule(listener antlr.ParseTreeListener) {
@@ -1964,20 +1990,20 @@ func (p *JingleParser) DataType() (localctx IDataTypeContext) {
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case JingleParserINT_TYPE:
+	case JingleParserTYPE_INT:
 		localctx = NewIntegerContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(69)
-			p.Match(JingleParserINT_TYPE)
+			p.Match(JingleParserTYPE_INT)
 		}
 
-	case JingleParserFLOAT_TYPE:
+	case JingleParserTYPE_DECIMAL:
 		localctx = NewDecimalContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(70)
-			p.Match(JingleParserFLOAT_TYPE)
+			p.Match(JingleParserTYPE_DECIMAL)
 		}
 
 	default:
