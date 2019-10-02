@@ -10,13 +10,18 @@ jingleFile : lines=line+ ;
 
 line      : statement (ENDSTATEMENT | EOF) ;
 
-statement : varDeclaration # varDeclarationStatement
-          | assignment     # assignmentStatement
-          | display          # displayStatement ;
+statement :
+    | varDeclaration
+    | stmtDisplay  ;
+
+
+varDeclaration : VAR NOUNICODEID EQUALS INT_LITERAL ;
+
+stmtDisplay : DISPLAY COLON LBRACKET (INT_LITERAL | NOUNICODEID) RBRACKET;
+
+/*
 
 display : DISPLAY COLON WHITESPACE LBRACKET expression RBRACKET ;
-
-varDeclaration : VAR assignment ;
 
 assignment : NOUNICODEID EQUALS expression ;
 
@@ -25,12 +30,14 @@ expression : left=expression operator=(DIVIDE|MULTIPLY) right=expression # binar
            | value=expression AS targetType=dataType                           # typeConversion
            | LBRACKET expression RBRACKET                                      # parenExpression
            | NOUNICODEID                                                            # varReference
-           | MINUS expression                                              # minusExpression
            | TYPE_INT                                                        # intLiteral
-           | TYPE_DECIMAL                                                    # decimalLiteral ;
+           | TYPE_DECIMAL                                                    # decimalLiteral 
+           | TYPE_STRING ;
 
 dataType : TYPE_INT      # integer
      | TYPE_DECIMAL # decimal ;
+
+*/
 
 /*
 // Development Parser
