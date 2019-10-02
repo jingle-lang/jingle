@@ -16,19 +16,7 @@ func (v *BaseJingleParserVisitor) VisitLine(ctx *LineContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseJingleParserVisitor) VisitVarDeclarationStatement(ctx *VarDeclarationStatementContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitAssignmentStatement(ctx *AssignmentStatementContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitDisplayStatement(ctx *DisplayStatementContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitDisplay(ctx *DisplayContext) interface{} {
+func (v *BaseJingleParserVisitor) VisitStatement(ctx *StatementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -36,42 +24,6 @@ func (v *BaseJingleParserVisitor) VisitVarDeclaration(ctx *VarDeclarationContext
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseJingleParserVisitor) VisitAssignment(ctx *AssignmentContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitDecimalLiteral(ctx *DecimalLiteralContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitMinusExpression(ctx *MinusExpressionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitIntLiteral(ctx *IntLiteralContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitParenExpression(ctx *ParenExpressionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitBinaryOperation(ctx *BinaryOperationContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitTypeConversion(ctx *TypeConversionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitVarReference(ctx *VarReferenceContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitInteger(ctx *IntegerContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseJingleParserVisitor) VisitDecimal(ctx *DecimalContext) interface{} {
+func (v *BaseJingleParserVisitor) VisitStmtDisplay(ctx *StmtDisplayContext) interface{} {
 	return v.VisitChildren(ctx)
 }
