@@ -2,7 +2,6 @@ parser grammar JingleParser;
 
 options { 
      tokenVocab=JingleLexer; 
-     superClass=JingleBaseParser;
      }
 
 jingleFile : lines=line+ ;
@@ -19,7 +18,7 @@ display : DISPLAY COLON WHITESPACE LBRACKET expression RBRACKET ;
 
 varDeclaration : VAR assignment ;
 
-assignment : NOUNICODEID ASSIGN expression ;
+assignment : NOUNICODEID EQUALS expression ;
 
 expression : left=expression operator=(DIVIDE|MULTIPLY) right=expression # binaryOperation
            | left=expression operator=(PLUS|MINUS) right=expression        # binaryOperation
@@ -27,11 +26,11 @@ expression : left=expression operator=(DIVIDE|MULTIPLY) right=expression # binar
            | LBRACKET expression RBRACKET                                      # parenExpression
            | NOUNICODEID                                                            # varReference
            | MINUS expression                                              # minusExpression
-           | INT_TYPE                                                        # intLiteral
-           | FLOAT_TYPE                                                     # decimalLiteral ;
+           | TYPE_INT                                                        # intLiteral
+           | TYPE_DECIMAL                                                    # decimalLiteral ;
 
-dataType : INT_TYPE     # integer
-     | FLOAT_TYPE # decimal ;
+dataType : TYPE_INT      # integer
+     | TYPE_DECIMAL # decimal ;
 
 /*
 // Development Parser

@@ -12,7 +12,7 @@ SPEECHMARKS : '"' ;
 
 // Keywords
 VAR : 'var' ;
-ARRAY : 'array' ;
+ARRAY : 'array' | . | 'arr' ;
 CONST : 'con' | . | 'const' | . | 'constant';
 LOCAL : 'loc' | . | 'local' ;
 DISPLAY : 'display' ;
@@ -28,9 +28,10 @@ WHILE : 'while' ;
 FOR : 'for' ;
 TRUE : 'true' ;
 FALSE : 'false' ;
-FUNCTION : 'function' | . | 'func' | . | 'fn' ;
+FUNCTION :  'func' | . | 'fn' ;
 CLASS : 'class' ;
 LET : 'let' ;
+BIND : 'bind' ;
 TRAIT : 'trait' ;
 DEFINE : 'def' ;
 PROTOCOL : 'protocol' ;
@@ -43,6 +44,11 @@ BREAK : 'break' ;
 ABSTRACT : 'abstract' ;
 SELECT : 'select' ;
 INPUT : 'input' ;
+EACH : 'each' ;
+NEW : 'new' ;
+CONTINUE : 'continue' ;
+EXPORT : 'export' ;
+INCLUDE : 'include' ;
 
 // Operators
 ASSIGN : ':=' ;
@@ -137,7 +143,7 @@ mode MODE_IN_INTERPOLATION;
 
 INTERPOLATION_CLOSE : '}' -> popMode ;
 
-/*
+
 // Identifier
 
 // Identifier without unicode support
@@ -571,4 +577,3 @@ fragment UNICODE_LETTER
  | [\uFF10-\uFF19]
  ;
 
- */
