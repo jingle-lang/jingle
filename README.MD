@@ -89,4 +89,3 @@ See also the list of [contributors](https://github.com/jingle-lang/jingle/contri
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 *  My fellow computer science students for helping me test the language out
-* Marc-André Cournoyer for his [excellent book](http://createyourproglang.com/) that started off Cascade which led to Jingle.
