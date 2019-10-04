@@ -15,7 +15,7 @@
 
 ---
 
-<p align="center"> Jingle is a new & simple programming language for modern-day programming.
+<p align="center"> Jingle is a new & simple programming language for modern-day coding.
     <br> 
 </p>
 
