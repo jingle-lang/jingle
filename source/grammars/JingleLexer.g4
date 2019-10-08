@@ -49,6 +49,7 @@ NEW : 'new' ;
 CONTINUE : 'continue' ;
 EXPORT : 'export' ;
 INCLUDE : 'include' ;
+REQUIRE : 'require' ;
 
 // Operators
 ASSIGN : ':=' ;
