@@ -43,6 +43,7 @@ Jingle uses many open source tools such as ANTLR for its lexer & parser, LLVM fo
 Alright, let's look at how this all works. Here are 2 Hello World applications written in both Java & Jingle, with Java being on top and Jingle being on bottom.
 
 ```java
+//Java
 
 public class HelloWorld {
 
@@ -52,7 +53,10 @@ public class HelloWorld {
   
 }
 ```
-`display: ("Hello, World")`
+```
+// Jingle
+display: ("Hello, World")
+```
 
 It is a lot easier to read than Java and when using the LLVM compiler is a lot faster. A good example as well is here:
 ```python
