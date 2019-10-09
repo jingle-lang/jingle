@@ -56,10 +56,12 @@ public class HelloWorld {
 
 It is a lot easier to read than Java and when using the LLVM compiler is a lot faster. A good example as well is here:
 ```python
+# Python
 print("Hello, World")
 ```
 
 ```ruby
+# Ruby
 puts "Hello, World"
 ```
 
