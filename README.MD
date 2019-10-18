@@ -52,8 +52,7 @@ public class HelloWorld {
   }
   
 }
-```
-```
+
 // Jingle
 display: ("Hello, World")
 ```
@@ -62,9 +61,7 @@ It is a lot easier to read than Java and when using the LLVM compiler is a lot f
 ```python
 # Python
 print("Hello, World")
-```
 
-```ruby
 # Ruby
 puts "Hello, World"
 ```
