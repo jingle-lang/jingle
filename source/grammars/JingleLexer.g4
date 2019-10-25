@@ -1,6 +1,6 @@
 lexer grammar JingleLexer;
 
-channels { WHITESPACE, COMMENT_CH }
+channels { CONSUME, INDENT, DEDENT }
 
 // Fragments and helpers are at the bottom of the file.
 
@@ -50,9 +50,10 @@ CONTINUE : 'continue' ;
 EXPORT : 'export' ;
 INCLUDE : 'include' ;
 REQUIRE : 'require' ;
+SUMMON : 'summon' ;
 
 // Operators
-ASSIGN : ':=' ;
+WALRUS : ':=' ;
 EQUALS : '=' ;
 EQEQ : '==' ;
 NOTEQUAL : '!=' ;
@@ -111,13 +112,14 @@ fragment ID : [_]*[a-z][A-Za-z0-9_]* ;
 fragment DIGIT_CONT : [0-9_] ;
 fragment HEXDIGIT : [0-9a-fA-F_] ;
 fragment BINARY : [0-1_] ;
-fragment WHITESPACE : [ \t\r\n]+ -> channel(WHITESPACE) ;
 fragment UNICODE_WS : [\p{White_Space}] -> channel(HIDDEN) ;
+
+WHITESPACE : [ \t\r\n]+ -> channel(CONSUME) ;
 
 COMMENT
     :   ( '//' ~('\r' | '\n')* '\r'? '\n'
         | '/*' .*? '*/'
-        ) -> channel(COMMENT_CH)
+        ) -> channel(HIDDEN)
     ;
 
 TERMINATOR
