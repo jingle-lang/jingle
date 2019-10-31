@@ -15,7 +15,7 @@ VAR : 'var' ;
 ARRAY : 'array' | . | 'arr' ;
 CONST : 'con' | . | 'const' | . | 'constant';
 LOCAL : 'loc' | . | 'local' ;
-DISPLAY : 'display' ;
+ECHO : 'echo' ;
 RETURN : 'return' ;
 IF : 'if' ;
 THEN : 'then' ;

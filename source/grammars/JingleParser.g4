@@ -42,7 +42,7 @@ statement :
     | returnStmt
     | simpleStmt
     | block
-    | stmtDisplay 
+    | echoDisplay 
     ;
 
 declaration :
@@ -53,7 +53,7 @@ varDecl : VAR NOUNICODEID WHITESPACE EQUALS ( INT_LITERAL | NOUNICODEID ) ;
 
 funcDecl : FUNCTION WHITESPACE NOUNICODEID WHITESPACE LBRACKET params RBRACKET WHITESPACE COLON ;
 
-stmtDisplay : DISPLAY COLON WHITESPACE LBRACKET (INT_LITERAL | NOUNICODEID) RBRACKET;
+echoDisplay : ECHO WHITESPACE LBRACKET (INT_LITERAL | NOUNICODEID) RBRACKET;
 
 params
     : LBRACKET ( paramList COMMA? )? RBRACKET
