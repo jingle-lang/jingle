@@ -8,4 +8,4 @@ func Fibonacci(n):
   else:
     return Fibonacci(n-1)+Fibonacci(n-2)
     
-display:(Fibonacci(9)) 
+echo(Fibonacci(9)) 
