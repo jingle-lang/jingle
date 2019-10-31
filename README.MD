@@ -54,7 +54,7 @@ public class HelloWorld {
 }
 
 // Jingle
-display: ("Hello, World")
+echo("Hello, World")
 ```
 
 It is a lot easier to read than Java and when using the LLVM compiler is a lot faster. A good example as well is here:
