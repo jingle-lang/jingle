@@ -1,2 +1,2 @@
-// Displays Hello World!
-display: ("Hello World!")
+// Prints Hello World!
+echo("Hello World!")
