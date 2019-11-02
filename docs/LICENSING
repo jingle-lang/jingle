@@ -1,0 +1,7 @@
+Jingle uses a dual-license model to allow for both developer freedom and for the betterment of opensource and the organisations using Jingle.
+
+We use the following licenses:
+- GNU GPL-v3 for the compiler
+- BSD 3-Clause Revised for the standard library
+
+If you are a large organisation and/or require proprietary usage of Jingle please contact us.
