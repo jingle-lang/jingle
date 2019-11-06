@@ -83,6 +83,10 @@ forStmt
     : FOR ( expression | forClause )?
     ;
 
+whileStmt
+    : WHILE (expression | forClause)?
+    ;
+
 returnStmt
     : RETURN expressionList?
     ;

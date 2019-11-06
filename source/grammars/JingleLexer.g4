@@ -1,6 +1,111 @@
 lexer grammar JingleLexer;
 
-channels { CONSUME, INDENT, DEDENT }
+channels { CONSUME }
+
+tokens { INDENT, DEDENT }
+
+@lexer::header{
+from antlr4.Token import CommonToken
+import re
+import importlib
+
+# Allow languages to extend the lexer and parser, by loading the parser dynamically
+module_path = __name__[:-5]
+language_name = __name__.split('.')[-1]
+language_name = language_name[:-5]  # Remove Lexer from name
+LanguageParser = getattr(importlib.import_module('{}Parser'.format(module_path)), '{}Parser'.format(language_name))
+}
+
+@lexer::members{
+@property
+def tokens(self):
+    try:
+        return self._tokens
+    except AttributeError:
+        self._tokens = []
+        return self._tokens
+
+@property
+def indents(self):
+    try:
+        return self._indents
+    except AttributeError:
+        self._indents = []
+        return self._indents
+
+@property
+def opened(self):
+    try:
+        return self._opened
+    except AttributeError:
+        self._opened = 0
+        return self._opened
+
+@opened.setter
+def opened(self, value):
+    self._opened = value
+
+@property
+def lastToken(self):
+    try:
+        return self._lastToken
+    except AttributeError:
+        self._lastToken = None
+        return self._lastToken
+
+@lastToken.setter
+def lastToken(self, value):
+    self._lastToken = value
+
+def reset(self):
+    super().reset()
+    self.tokens = []
+    self.indents = []
+    self.opened = 0
+    self.lastToken = None
+
+def emitToken(self, t):
+    super().emitToken(t)
+    self.tokens.append(t)
+
+def nextToken(self):
+    if self._input.LA(1) == Token.EOF and self.indents:
+        for i in range(len(self.tokens)-1,-1,-1):
+            if self.tokens[i].type == Token.EOF:
+                self.tokens.pop(i)
+        self.emitToken(self.commonToken(LanguageParser.NEWLINE, '\n'))
+        while self.indents:
+            self.emitToken(self.createDedent())
+            self.indents.pop()
+        self.emitToken(self.commonToken(LanguageParser.EOF, "<EOF>"))
+    next = super().nextToken()
+    if next.channel == Token.DEFAULT_CHANNEL:
+        self.lastToken = next
+    return next if not self.tokens else self.tokens.pop(0)
+
+def createDedent(self):
+    dedent = self.commonToken(LanguageParser.DEDENT, "")
+    dedent.line = self.lastToken.line
+    return dedent
+
+def commonToken(self, type, text, indent=0):
+    stop = self.getCharIndex()-1-indent
+    start = (stop - len(text) + 1) if text else stop
+    return CommonToken(self._tokenFactorySourcePair, type, super().DEFAULT_TOKEN_CHANNEL, start, stop)
+@staticmethod
+
+def getIndentationCount(spaces):
+    count = 0
+    for ch in spaces:
+        if ch == '\t':
+            count += 8 - (count % 8)
+        else:
+            count += 1
+    return count
+
+def atStartOfInput(self):
+    return Lexer.column.fget(self) == 0 and Lexer.line.fget(self) == 1
+}
 
 // Fragments and helpers are at the bottom of the file.
 
@@ -28,7 +133,7 @@ WHILE : 'while' ;
 FOR : 'for' ;
 TRUE : 'true' ;
 FALSE : 'false' ;
-FUNCTION :  'func' | . | 'fn' ;
+FUNCTION :  'fn' ;
 CLASS : 'class' ;
 LET : 'let' ;
 BIND : 'bind' ;
