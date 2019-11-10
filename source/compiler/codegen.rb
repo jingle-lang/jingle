@@ -14,7 +14,7 @@ class LLVMCompiler
   attr_reader :locals
 
   def initialize(mod=nil, function=nil)
-    @module = mod || LLVM::Module.new("awesome")
+    @module = mod || LLVM::Module.new("jingle")
     
     @locals = {} # To track local names during compilation
     
@@ -29,7 +29,7 @@ class LLVMCompiler
   end
 
   def preamble
-    fun = @module.functions.add("puts", [PCHAR], INT)
+    fun = @module.functions.add("echo", [PCHAR], INT)
     fun.linkage = :external
   end
   
