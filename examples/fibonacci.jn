@@ -1,4 +1,4 @@
-fn fibonacci(n)
+fn fibonacci(n):
   if n < 0:
     echo("Incorrect input")
   elif n=1:
