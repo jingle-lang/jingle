@@ -34,7 +34,7 @@
 - [Code of Conduct](../master/docs/CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
-Jingle is a high-level general-purpose programming language currently in development. It is statically-typed, inferred and structural. "So why would I use this?", I hear you ask. Well, Jingle is written in very simple syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It also has an interpreter with an experimental JVM target.
+Jingle is a high-level general-purpose programming language currently in development. It is dynamically-typed, inferred and structural. "So why would I use this?", I hear you ask. Well, Jingle is written in very simple syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It also has an interpreter with an experimental JVM target.
 
 ## 🖥️ Development <a name = "development"></a>
 Jingle uses many open source tools such as ANTLR for its lexer & parser and LLVM for its compiler. We use Python & Rust for most of the language. We decided to use Python as it is much easier to read and program in. The compiler utilises mostly the official Go bindings but also some parts are in LLVMlite, the best unofficial Python bindings for LLVM. The virtual machine is implemented in Rust using the `stack-vm` crate.
