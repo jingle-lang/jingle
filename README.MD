@@ -73,11 +73,11 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 We recommend usage of a IDE or text editor that supports Jingle. Main ones that are supported are:
-* Eclipse 
-* IntelliJ IDEA
-* Visual Studio Code
-* Sublime Text *(Coming Soon)*
-* Atom *(Coming Soon)*
+- Eclipse 
+- IntelliJ IDEA
+- Visual Studio Code
+- Sublime Text *(Coming Soon)*
+- Atom *(Coming Soon)*
 
 ### Installing
 
@@ -99,10 +99,10 @@ Please read the Jingle documentation for information about deployment & compilia
 See also the list of [contributors](https://github.com/jingle-lang/jingle/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-* My fellow computer science students for helping me test the language out
-* Terrence Parr for ANTLR
-* Federico Tomasseti for his large amount of resources, great newsletter and detailed book on language construction
-* Thorsten Ball for his excellent books Writing a Compiler in Go and Writing an Interpreter in Go
-* Google for the Go language and Mozilla for the Rust language
-* Chris Lattner & Vikram Adve and the rest of the LLVM Developer group for their work on the LLVM
-* The incredible book Compilers Principles, Techniques and Tools by Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman.
+- My fellow computer science students for helping me test the language out
+- Terrence Parr for ANTLR
+- Federico Tomasseti for his large amount of resources, great newsletter and detailed book on language construction
+- Thorsten Ball for his excellent books Writing a Compiler in Go and Writing an Interpreter in Go
+- Google for the Go language and Mozilla for the Rust language
+- Chris Lattner & Vikram Adve and the rest of the LLVM Developer group for their work on the LLVM
+- The incredible book Compilers Principles, Techniques and Tools by Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman.
