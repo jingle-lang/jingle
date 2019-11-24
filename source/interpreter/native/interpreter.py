@@ -25,7 +25,7 @@ def parse(argv):
         lexer = JingleLexer(input) 
         stream = antlr4.TokenStream(lexer)
         parser = JingleParser(stream)
-        tree = parser.program() 
+        tree = parser.program()
         printer = JingleParserVisitor(tree,input)
         walker = antlr4.ParseTreeWalker()
         walker.walk(printer, tree)
