@@ -4,9 +4,7 @@ from io import StringIO
 import typing
 import sys
 
-
 from antlr4.Token import CommonToken
-import re
 import importlib
 
 # Allow languages to extend the lexer and parser, by loading the parser dynamically
