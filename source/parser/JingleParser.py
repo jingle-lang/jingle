@@ -140,7 +140,7 @@ class JingleParser ( Parser ):
                      "'continue'", "'export'", "'include'", "'require'", 
                      "'summon'", "':='", "'='", "'=='", "'!='", "'<='", 
                      "'>='", "'+'", "'-'", "'*'", "'/'", "'<'", "'>'", "'!'", 
-                     "'^'", "'%'", "'|'", "'||'", "'#'", "'&'", "'&&'", 
+                     "'^'", "'%'", "'|'", "'||'", "'#'", "'&'", "'&&'",
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "','", "'('", "')'", "'{'", "<INVALID>", "'['", "']'", 
                      "'->'", "':'", "'.'", "'...'", "'++'", "'--'", "'float'", 
@@ -150,10 +150,10 @@ class JingleParser ( Parser ):
                      "'\\#'", "<INVALID>", "'#{'" ]
 
     symbolicNames = [ "<INVALID>", "INDENT", "DEDENT", "ENDSTATEMENT", "SEMICOLONTERMINATE", 
-                      "SPEECHMARKS", "VAR", "ARRAY", "CONST", "LOCAL", "ECHO", 
+                      "SPEECHMARKS", "VAR", "ARRAY", "CONST", "LOCAL", "ECHO",
                       "RETURN", "IF", "THEN", "AND", "OR", "IN", "ELSE", 
-                      "ELSEIF", "WHILE", "FOR", "TRUE", "FALSE", "FUNCTION", 
-                      "CLASS", "LET", "BIND", "TRAIT", "DEFINE", "PROTOCOL", 
+                      "ELSEIF", "WHILE", "FOR", "TRUE", "FALSE", "FUNCTION",
+                      "CLASS", "LET", "BIND", "TRAIT", "DEFINE", "PROTOCOL",
                       "ENUM", "IMPORT", "FROM", "PACKAGE", "AS", "BREAK", 
                       "ABSTRACT", "SELECT", "INPUT", "EACH", "NEW", "CONTINUE", 
                       "EXPORT", "INCLUDE", "REQUIRE", "SUMMON", "WALRUS", 
@@ -164,13 +164,13 @@ class JingleParser ( Parser ):
                       "TYPE_DECIMAL", "TYPE_STRING", "TYPE_BOOLEAN", "COMMA", 
                       "LBRACKET", "RBRACKET", "LBRACE", "RBRACE", "LSQRBRACKET", 
                       "RSQRBRACKET", "ARROW", "COLON", "DOT", "ELLIPSIS", 
-                      "PLUSPLUS", "MINUSMINUS", "FLOAT", "STRING", "BOOLEAN", 
+                      "PLUSPLUS", "MINUSMINUS", "FLOAT", "STRING", "BOOLEAN",
                       "NULL", "CHAR", "INT_LITERAL", "FLOAT_LITERAL", "WHITESPACE", 
-                      "COMMENT", "TERMINATOR", "STRING_OPEN", "UNMATCHED", 
+                      "COMMENT", "TERMINATOR", "STRING_OPEN", "UNMATCHED",
                       "SCAPE_STRING_DELIMITER", "ESCAPE_SLASH", "ESCAPE_NEWLINE", 
                       "ESCAPE_SHARP", "STRING_CLOSE", "INTERPOLATION_OPEN", 
-                      "STRING_CONTENT", "INTERPOLATION_CLOSE", "NOUNICODEID", 
-                      "IDENTIFIER", "BINARY_OP", "INT_LIT", "FLOAT_LIT", 
+                      "STRING_CONTENT", "INTERPOLATION_CLOSE", "NOUNICODEID",
+                      "IDENTIFIER", "BINARY_OP", "INT_LIT", "FLOAT_LIT",
                       "STRING_LIT", "RUNE_LIT", "LITTLE_U_VALUE", "BIG_U_VALUE" ]
 
     RULE_jingleFile = 0
@@ -207,7 +207,7 @@ class JingleParser ( Parser ):
     ruleNames =  [ "jingleFile", "packagePhrase", "importDecl", "importSpec", 
                    "topLevelDecl", "line", "endOfStatement", "statement", 
                    "declaration", "varDecl", "funcDecl", "echoDisplay", 
-                   "params", "identifierList", "expressionList", "paramList", 
+                   "params", "identifierList", "expressionList", "paramList",
                    "paramDecl", "ifStmt", "forStmt", "returnStmt", "simpleStmt", 
                    "incDecStmt", "assign_op", "shortVarDecl", "emptyStmt", 
                    "block", "statementList", "forClause", "expression", 
@@ -1353,7 +1353,7 @@ class JingleParser ( Parser ):
                     self.state = 153
                     self.match(JingleParser.COMMA)
                     self.state = 154
-                    self.match(JingleParser.NOUNICODEID) 
+                    self.match(JingleParser.NOUNICODEID)
                 self.state = 159
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,9,self._ctx)
