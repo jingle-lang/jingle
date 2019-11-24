@@ -2,7 +2,6 @@
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
-import typing
 import sys
 
 
@@ -2492,7 +2491,6 @@ class JingleParser ( Parser ):
                         self.match(JingleParser.AS)
                         self.state = 247
                         localctx.targetType = self.dataType()
-                        pass
 
              
                 self.state = 252
