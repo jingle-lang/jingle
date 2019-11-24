@@ -1,12 +1,11 @@
 import sys
-import antlr4 
+import antlr4
 # -- These imports only work for local files, 
 # -- once interpreter is functional work on, 
 # -- allowing imports from other folders
 import JingleLexer
 import JingleParser
 import JingleParserVisitor
-import JingleParserListener
 
 testfile = 'var test = 5'
 
