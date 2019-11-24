@@ -21,7 +21,7 @@ def __init__(self): # this method creates the class object.
 #function used to parse an input file
 def parse(argv):
     if len(sys.argv) > 1:
-        input = antlr4.FileStream(sys.argv[1]) 
+        input = antlr4.FileStream(sys.argv[1])
         lexer = JingleLexer(input) 
         stream = antlr4.TokenStream(lexer)
         parser = JingleParser(stream)
