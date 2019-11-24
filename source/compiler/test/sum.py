@@ -3,7 +3,6 @@
 from __future__ import print_function
 
 from ctypes import CFUNCTYPE, c_int, POINTER
-import sys
 try:
     from time import perf_counter as time
 except ImportError:
