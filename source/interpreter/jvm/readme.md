@@ -1,1 +1,0 @@
-Jingle's JVM interpreter.
