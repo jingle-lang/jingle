@@ -1,0 +1,4 @@
+// Variables are inferred and mutable.
+var int1 = 5
+var float1 = 2.5
+var str1 = "Cake"
