@@ -2,3 +2,10 @@
 var int1 = 5
 var float1 = 2.5
 var str1 = "Cake"
+var bool1 = true
+
+// Constants are inferred but immutable.
+con int2 = 6
+con float2 = 3.5
+con str2 = "Bread"
+con bool2 = false
