@@ -10,7 +10,7 @@ def main(argv):
     lexer = JingleLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = JingleParser(stream)
-    tree = parser.topLevelDecl()
+    tree = parser.top_level_decl()
  
 if __name__ == '__main__':
     main(sys.argv)
