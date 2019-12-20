@@ -8,66 +8,138 @@ else:
 # This class defines a complete listener for a parse tree produced by JingleParser.
 class JingleParserListener(ParseTreeListener):
 
-    # Enter a parse tree produced by JingleParser#jingleFile.
-    def enterJingleFile(self, ctx:JingleParser.JingleFileContext):
+    # Enter a parse tree produced by JingleParser#top_level_decl.
+    def enterTop_level_decl(self, ctx:JingleParser.Top_level_declContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#jingleFile.
-    def exitJingleFile(self, ctx:JingleParser.JingleFileContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#packagePhrase.
-    def enterPackagePhrase(self, ctx:JingleParser.PackagePhraseContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#packagePhrase.
-    def exitPackagePhrase(self, ctx:JingleParser.PackagePhraseContext):
+    # Exit a parse tree produced by JingleParser#top_level_decl.
+    def exitTop_level_decl(self, ctx:JingleParser.Top_level_declContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#importDecl.
-    def enterImportDecl(self, ctx:JingleParser.ImportDeclContext):
+    # Enter a parse tree produced by JingleParser#end_of_statement.
+    def enterEnd_of_statement(self, ctx:JingleParser.End_of_statementContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#importDecl.
-    def exitImportDecl(self, ctx:JingleParser.ImportDeclContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#importSpec.
-    def enterImportSpec(self, ctx:JingleParser.ImportSpecContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#importSpec.
-    def exitImportSpec(self, ctx:JingleParser.ImportSpecContext):
+    # Exit a parse tree produced by JingleParser#end_of_statement.
+    def exitEnd_of_statement(self, ctx:JingleParser.End_of_statementContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#topLevelDecl.
-    def enterTopLevelDecl(self, ctx:JingleParser.TopLevelDeclContext):
+    # Enter a parse tree produced by JingleParser#attributes.
+    def enterAttributes(self, ctx:JingleParser.AttributesContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#topLevelDecl.
-    def exitTopLevelDecl(self, ctx:JingleParser.TopLevelDeclContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#line.
-    def enterLine(self, ctx:JingleParser.LineContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#line.
-    def exitLine(self, ctx:JingleParser.LineContext):
+    # Exit a parse tree produced by JingleParser#attributes.
+    def exitAttributes(self, ctx:JingleParser.AttributesContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#endOfStatement.
-    def enterEndOfStatement(self, ctx:JingleParser.EndOfStatementContext):
+    # Enter a parse tree produced by JingleParser#attribute.
+    def enterAttribute(self, ctx:JingleParser.AttributeContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#endOfStatement.
-    def exitEndOfStatement(self, ctx:JingleParser.EndOfStatementContext):
+    # Exit a parse tree produced by JingleParser#attribute.
+    def exitAttribute(self, ctx:JingleParser.AttributeContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#attribute_list.
+    def enterAttribute_list(self, ctx:JingleParser.Attribute_listContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#attribute_list.
+    def exitAttribute_list(self, ctx:JingleParser.Attribute_listContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#operator.
+    def enterOperator(self, ctx:JingleParser.OperatorContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#operator.
+    def exitOperator(self, ctx:JingleParser.OperatorContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#statements.
+    def enterStatements(self, ctx:JingleParser.StatementsContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#statements.
+    def exitStatements(self, ctx:JingleParser.StatementsContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#block.
+    def enterBlock(self, ctx:JingleParser.BlockContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#block.
+    def exitBlock(self, ctx:JingleParser.BlockContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#param_list.
+    def enterParam_list(self, ctx:JingleParser.Param_listContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#param_list.
+    def exitParam_list(self, ctx:JingleParser.Param_listContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#param.
+    def enterParam(self, ctx:JingleParser.ParamContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#param.
+    def exitParam(self, ctx:JingleParser.ParamContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#expression.
+    def enterExpression(self, ctx:JingleParser.ExpressionContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#expression.
+    def exitExpression(self, ctx:JingleParser.ExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#main_expression.
+    def enterMain_expression(self, ctx:JingleParser.Main_expressionContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#main_expression.
+    def exitMain_expression(self, ctx:JingleParser.Main_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#unary_expression.
+    def enterUnary_expression(self, ctx:JingleParser.Unary_expressionContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#unary_expression.
+    def exitUnary_expression(self, ctx:JingleParser.Unary_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#operand.
+    def enterOperand(self, ctx:JingleParser.OperandContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#operand.
+    def exitOperand(self, ctx:JingleParser.OperandContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#literal.
+    def enterLiteral(self, ctx:JingleParser.LiteralContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#literal.
+    def exitLiteral(self, ctx:JingleParser.LiteralContext):
         pass
 
 
@@ -89,210 +161,219 @@ class JingleParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#varDecl.
-    def enterVarDecl(self, ctx:JingleParser.VarDeclContext):
+    # Enter a parse tree produced by JingleParser#var_declaration.
+    def enterVar_declaration(self, ctx:JingleParser.Var_declarationContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#varDecl.
-    def exitVarDecl(self, ctx:JingleParser.VarDeclContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#funcDecl.
-    def enterFuncDecl(self, ctx:JingleParser.FuncDeclContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#funcDecl.
-    def exitFuncDecl(self, ctx:JingleParser.FuncDeclContext):
+    # Exit a parse tree produced by JingleParser#var_declaration.
+    def exitVar_declaration(self, ctx:JingleParser.Var_declarationContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#echoDisplay.
-    def enterEchoDisplay(self, ctx:JingleParser.EchoDisplayContext):
+    # Enter a parse tree produced by JingleParser#var_declaration_prefix.
+    def enterVar_declaration_prefix(self, ctx:JingleParser.Var_declaration_prefixContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#echoDisplay.
-    def exitEchoDisplay(self, ctx:JingleParser.EchoDisplayContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#params.
-    def enterParams(self, ctx:JingleParser.ParamsContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#params.
-    def exitParams(self, ctx:JingleParser.ParamsContext):
+    # Exit a parse tree produced by JingleParser#var_declaration_prefix.
+    def exitVar_declaration_prefix(self, ctx:JingleParser.Var_declaration_prefixContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#identifierList.
-    def enterIdentifierList(self, ctx:JingleParser.IdentifierListContext):
+    # Enter a parse tree produced by JingleParser#var_declaration_keyword.
+    def enterVar_declaration_keyword(self, ctx:JingleParser.Var_declaration_keywordContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#identifierList.
-    def exitIdentifierList(self, ctx:JingleParser.IdentifierListContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#expressionList.
-    def enterExpressionList(self, ctx:JingleParser.ExpressionListContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#expressionList.
-    def exitExpressionList(self, ctx:JingleParser.ExpressionListContext):
+    # Exit a parse tree produced by JingleParser#var_declaration_keyword.
+    def exitVar_declaration_keyword(self, ctx:JingleParser.Var_declaration_keywordContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#paramList.
-    def enterParamList(self, ctx:JingleParser.ParamListContext):
+    # Enter a parse tree produced by JingleParser#function_declaration.
+    def enterFunction_declaration(self, ctx:JingleParser.Function_declarationContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#paramList.
-    def exitParamList(self, ctx:JingleParser.ParamListContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#paramDecl.
-    def enterParamDecl(self, ctx:JingleParser.ParamDeclContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#paramDecl.
-    def exitParamDecl(self, ctx:JingleParser.ParamDeclContext):
+    # Exit a parse tree produced by JingleParser#function_declaration.
+    def exitFunction_declaration(self, ctx:JingleParser.Function_declarationContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#ifStmt.
-    def enterIfStmt(self, ctx:JingleParser.IfStmtContext):
+    # Enter a parse tree produced by JingleParser#function_declaration_prefix.
+    def enterFunction_declaration_prefix(self, ctx:JingleParser.Function_declaration_prefixContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#ifStmt.
-    def exitIfStmt(self, ctx:JingleParser.IfStmtContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#forStmt.
-    def enterForStmt(self, ctx:JingleParser.ForStmtContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#forStmt.
-    def exitForStmt(self, ctx:JingleParser.ForStmtContext):
+    # Exit a parse tree produced by JingleParser#function_declaration_prefix.
+    def exitFunction_declaration_prefix(self, ctx:JingleParser.Function_declaration_prefixContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#returnStmt.
-    def enterReturnStmt(self, ctx:JingleParser.ReturnStmtContext):
+    # Enter a parse tree produced by JingleParser#class_declaration.
+    def enterClass_declaration(self, ctx:JingleParser.Class_declarationContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#returnStmt.
-    def exitReturnStmt(self, ctx:JingleParser.ReturnStmtContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#simpleStmt.
-    def enterSimpleStmt(self, ctx:JingleParser.SimpleStmtContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#simpleStmt.
-    def exitSimpleStmt(self, ctx:JingleParser.SimpleStmtContext):
+    # Exit a parse tree produced by JingleParser#class_declaration.
+    def exitClass_declaration(self, ctx:JingleParser.Class_declarationContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#incDecStmt.
-    def enterIncDecStmt(self, ctx:JingleParser.IncDecStmtContext):
+    # Enter a parse tree produced by JingleParser#class_declaration_prefix.
+    def enterClass_declaration_prefix(self, ctx:JingleParser.Class_declaration_prefixContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#incDecStmt.
-    def exitIncDecStmt(self, ctx:JingleParser.IncDecStmtContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#assign_op.
-    def enterAssign_op(self, ctx:JingleParser.Assign_opContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#assign_op.
-    def exitAssign_op(self, ctx:JingleParser.Assign_opContext):
+    # Exit a parse tree produced by JingleParser#class_declaration_prefix.
+    def exitClass_declaration_prefix(self, ctx:JingleParser.Class_declaration_prefixContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#shortVarDecl.
-    def enterShortVarDecl(self, ctx:JingleParser.ShortVarDeclContext):
+    # Enter a parse tree produced by JingleParser#trait_declaration.
+    def enterTrait_declaration(self, ctx:JingleParser.Trait_declarationContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#shortVarDecl.
-    def exitShortVarDecl(self, ctx:JingleParser.ShortVarDeclContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#emptyStmt.
-    def enterEmptyStmt(self, ctx:JingleParser.EmptyStmtContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#emptyStmt.
-    def exitEmptyStmt(self, ctx:JingleParser.EmptyStmtContext):
+    # Exit a parse tree produced by JingleParser#trait_declaration.
+    def exitTrait_declaration(self, ctx:JingleParser.Trait_declarationContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#block.
-    def enterBlock(self, ctx:JingleParser.BlockContext):
+    # Enter a parse tree produced by JingleParser#trait_declaration_prefix.
+    def enterTrait_declaration_prefix(self, ctx:JingleParser.Trait_declaration_prefixContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#block.
-    def exitBlock(self, ctx:JingleParser.BlockContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#statementList.
-    def enterStatementList(self, ctx:JingleParser.StatementListContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#statementList.
-    def exitStatementList(self, ctx:JingleParser.StatementListContext):
+    # Exit a parse tree produced by JingleParser#trait_declaration_prefix.
+    def exitTrait_declaration_prefix(self, ctx:JingleParser.Trait_declaration_prefixContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#forClause.
-    def enterForClause(self, ctx:JingleParser.ForClauseContext):
+    # Enter a parse tree produced by JingleParser#trait_block.
+    def enterTrait_block(self, ctx:JingleParser.Trait_blockContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#forClause.
-    def exitForClause(self, ctx:JingleParser.ForClauseContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#parenExpression.
-    def enterParenExpression(self, ctx:JingleParser.ParenExpressionContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#parenExpression.
-    def exitParenExpression(self, ctx:JingleParser.ParenExpressionContext):
+    # Exit a parse tree produced by JingleParser#trait_block.
+    def exitTrait_block(self, ctx:JingleParser.Trait_blockContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#binaryOperation.
-    def enterBinaryOperation(self, ctx:JingleParser.BinaryOperationContext):
+    # Enter a parse tree produced by JingleParser#trait_block_body.
+    def enterTrait_block_body(self, ctx:JingleParser.Trait_block_bodyContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#binaryOperation.
-    def exitBinaryOperation(self, ctx:JingleParser.BinaryOperationContext):
-        pass
-
-
-    # Enter a parse tree produced by JingleParser#typeConversion.
-    def enterTypeConversion(self, ctx:JingleParser.TypeConversionContext):
-        pass
-
-    # Exit a parse tree produced by JingleParser#typeConversion.
-    def exitTypeConversion(self, ctx:JingleParser.TypeConversionContext):
+    # Exit a parse tree produced by JingleParser#trait_block_body.
+    def exitTrait_block_body(self, ctx:JingleParser.Trait_block_bodyContext):
         pass
 
 
-    # Enter a parse tree produced by JingleParser#dataType.
-    def enterDataType(self, ctx:JingleParser.DataTypeContext):
+    # Enter a parse tree produced by JingleParser#property_declaration.
+    def enterProperty_declaration(self, ctx:JingleParser.Property_declarationContext):
         pass
 
-    # Exit a parse tree produced by JingleParser#dataType.
-    def exitDataType(self, ctx:JingleParser.DataTypeContext):
+    # Exit a parse tree produced by JingleParser#property_declaration.
+    def exitProperty_declaration(self, ctx:JingleParser.Property_declarationContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#property_declaration_prefix.
+    def enterProperty_declaration_prefix(self, ctx:JingleParser.Property_declaration_prefixContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#property_declaration_prefix.
+    def exitProperty_declaration_prefix(self, ctx:JingleParser.Property_declaration_prefixContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#import_declaration.
+    def enterImport_declaration(self, ctx:JingleParser.Import_declarationContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#import_declaration.
+    def exitImport_declaration(self, ctx:JingleParser.Import_declarationContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#import_name_direct.
+    def enterImport_name_direct(self, ctx:JingleParser.Import_name_directContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#import_name_direct.
+    def exitImport_name_direct(self, ctx:JingleParser.Import_name_directContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#import_from.
+    def enterImport_from(self, ctx:JingleParser.Import_fromContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#import_from.
+    def exitImport_from(self, ctx:JingleParser.Import_fromContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#static_var_declaration.
+    def enterStatic_var_declaration(self, ctx:JingleParser.Static_var_declarationContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#static_var_declaration.
+    def exitStatic_var_declaration(self, ctx:JingleParser.Static_var_declarationContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#static_var_declaration_prefix.
+    def enterStatic_var_declaration_prefix(self, ctx:JingleParser.Static_var_declaration_prefixContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#static_var_declaration_prefix.
+    def exitStatic_var_declaration_prefix(self, ctx:JingleParser.Static_var_declaration_prefixContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#loop_statement.
+    def enterLoop_statement(self, ctx:JingleParser.Loop_statementContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#loop_statement.
+    def exitLoop_statement(self, ctx:JingleParser.Loop_statementContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#for_statement.
+    def enterFor_statement(self, ctx:JingleParser.For_statementContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#for_statement.
+    def exitFor_statement(self, ctx:JingleParser.For_statementContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#while_statement.
+    def enterWhile_statement(self, ctx:JingleParser.While_statementContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#while_statement.
+    def exitWhile_statement(self, ctx:JingleParser.While_statementContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#control_statement.
+    def enterControl_statement(self, ctx:JingleParser.Control_statementContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#control_statement.
+    def exitControl_statement(self, ctx:JingleParser.Control_statementContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#if_statement.
+    def enterIf_statement(self, ctx:JingleParser.If_statementContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#if_statement.
+    def exitIf_statement(self, ctx:JingleParser.If_statementContext):
+        pass
+
+
+    # Enter a parse tree produced by JingleParser#else_statement.
+    def enterElse_statement(self, ctx:JingleParser.Else_statementContext):
+        pass
+
+    # Exit a parse tree produced by JingleParser#else_statement.
+    def exitElse_statement(self, ctx:JingleParser.Else_statementContext):
         pass
 
 

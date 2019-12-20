@@ -1,48 +1,86 @@
 # Generated from JingleParser.g4 by ANTLR 4.7.2
-import sys
 from antlr4 import *
-from JingleParser import JingleParser
-#if __name__ is not None and "." in __name__:
-#    from .JingleParser import JingleParser
-#else:
-#    from JingleParser import JingleParser
+if __name__ is not None and "." in __name__:
+    from .JingleParser import JingleParser
+else:
+    from JingleParser import JingleParser
 
 # This class defines a complete generic visitor for a parse tree produced by JingleParser.
 
 class JingleParserVisitor(ParseTreeVisitor):
 
-    # Visit a parse tree produced by JingleParser#jingleFile.
-    def visitJingleFile(self, ctx:JingleParser.JingleFileContext):
+    # Visit a parse tree produced by JingleParser#top_level_decl.
+    def visitTop_level_decl(self, ctx:JingleParser.Top_level_declContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#packagePhrase.
-    def visitPackagePhrase(self, ctx:JingleParser.PackagePhraseContext):
+    # Visit a parse tree produced by JingleParser#end_of_statement.
+    def visitEnd_of_statement(self, ctx:JingleParser.End_of_statementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#importDecl.
-    def visitImportDecl(self, ctx:JingleParser.ImportDeclContext):
+    # Visit a parse tree produced by JingleParser#attributes.
+    def visitAttributes(self, ctx:JingleParser.AttributesContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#importSpec.
-    def visitImportSpec(self, ctx:JingleParser.ImportSpecContext):
+    # Visit a parse tree produced by JingleParser#attribute.
+    def visitAttribute(self, ctx:JingleParser.AttributeContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#topLevelDecl.
-    def visitTopLevelDecl(self, ctx:JingleParser.TopLevelDeclContext):
+    # Visit a parse tree produced by JingleParser#attribute_list.
+    def visitAttribute_list(self, ctx:JingleParser.Attribute_listContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#line.
-    def visitLine(self, ctx:JingleParser.LineContext):
+    # Visit a parse tree produced by JingleParser#operator.
+    def visitOperator(self, ctx:JingleParser.OperatorContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#endOfStatement.
-    def visitEndOfStatement(self, ctx:JingleParser.EndOfStatementContext):
+    # Visit a parse tree produced by JingleParser#statements.
+    def visitStatements(self, ctx:JingleParser.StatementsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#block.
+    def visitBlock(self, ctx:JingleParser.BlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#param_list.
+    def visitParam_list(self, ctx:JingleParser.Param_listContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#param.
+    def visitParam(self, ctx:JingleParser.ParamContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#expression.
+    def visitExpression(self, ctx:JingleParser.ExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#main_expression.
+    def visitMain_expression(self, ctx:JingleParser.Main_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#unary_expression.
+    def visitUnary_expression(self, ctx:JingleParser.Unary_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#operand.
+    def visitOperand(self, ctx:JingleParser.OperandContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#literal.
+    def visitLiteral(self, ctx:JingleParser.LiteralContext):
         return self.visitChildren(ctx)
 
 
@@ -56,118 +94,123 @@ class JingleParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#varDecl.
-    def visitVarDecl(self, ctx:JingleParser.VarDeclContext):
+    # Visit a parse tree produced by JingleParser#var_declaration.
+    def visitVar_declaration(self, ctx:JingleParser.Var_declarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#funcDecl.
-    def visitFuncDecl(self, ctx:JingleParser.FuncDeclContext):
+    # Visit a parse tree produced by JingleParser#var_declaration_prefix.
+    def visitVar_declaration_prefix(self, ctx:JingleParser.Var_declaration_prefixContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#echoDisplay.
-    def visitEchoDisplay(self, ctx:JingleParser.EchoDisplayContext):
+    # Visit a parse tree produced by JingleParser#var_declaration_keyword.
+    def visitVar_declaration_keyword(self, ctx:JingleParser.Var_declaration_keywordContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#params.
-    def visitParams(self, ctx:JingleParser.ParamsContext):
+    # Visit a parse tree produced by JingleParser#function_declaration.
+    def visitFunction_declaration(self, ctx:JingleParser.Function_declarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#identifierList.
-    def visitIdentifierList(self, ctx:JingleParser.IdentifierListContext):
+    # Visit a parse tree produced by JingleParser#function_declaration_prefix.
+    def visitFunction_declaration_prefix(self, ctx:JingleParser.Function_declaration_prefixContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#expressionList.
-    def visitExpressionList(self, ctx:JingleParser.ExpressionListContext):
+    # Visit a parse tree produced by JingleParser#class_declaration.
+    def visitClass_declaration(self, ctx:JingleParser.Class_declarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#paramList.
-    def visitParamList(self, ctx:JingleParser.ParamListContext):
+    # Visit a parse tree produced by JingleParser#class_declaration_prefix.
+    def visitClass_declaration_prefix(self, ctx:JingleParser.Class_declaration_prefixContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#paramDecl.
-    def visitParamDecl(self, ctx:JingleParser.ParamDeclContext):
+    # Visit a parse tree produced by JingleParser#trait_declaration.
+    def visitTrait_declaration(self, ctx:JingleParser.Trait_declarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#ifStmt.
-    def visitIfStmt(self, ctx:JingleParser.IfStmtContext):
+    # Visit a parse tree produced by JingleParser#trait_declaration_prefix.
+    def visitTrait_declaration_prefix(self, ctx:JingleParser.Trait_declaration_prefixContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#forStmt.
-    def visitForStmt(self, ctx:JingleParser.ForStmtContext):
+    # Visit a parse tree produced by JingleParser#trait_block.
+    def visitTrait_block(self, ctx:JingleParser.Trait_blockContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#returnStmt.
-    def visitReturnStmt(self, ctx:JingleParser.ReturnStmtContext):
+    # Visit a parse tree produced by JingleParser#trait_block_body.
+    def visitTrait_block_body(self, ctx:JingleParser.Trait_block_bodyContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#simpleStmt.
-    def visitSimpleStmt(self, ctx:JingleParser.SimpleStmtContext):
+    # Visit a parse tree produced by JingleParser#property_declaration.
+    def visitProperty_declaration(self, ctx:JingleParser.Property_declarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#incDecStmt.
-    def visitIncDecStmt(self, ctx:JingleParser.IncDecStmtContext):
+    # Visit a parse tree produced by JingleParser#property_declaration_prefix.
+    def visitProperty_declaration_prefix(self, ctx:JingleParser.Property_declaration_prefixContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#assign_op.
-    def visitAssign_op(self, ctx:JingleParser.Assign_opContext):
+    # Visit a parse tree produced by JingleParser#import_declaration.
+    def visitImport_declaration(self, ctx:JingleParser.Import_declarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#shortVarDecl.
-    def visitShortVarDecl(self, ctx:JingleParser.ShortVarDeclContext):
+    # Visit a parse tree produced by JingleParser#import_name_direct.
+    def visitImport_name_direct(self, ctx:JingleParser.Import_name_directContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#emptyStmt.
-    def visitEmptyStmt(self, ctx:JingleParser.EmptyStmtContext):
+    # Visit a parse tree produced by JingleParser#import_from.
+    def visitImport_from(self, ctx:JingleParser.Import_fromContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#block.
-    def visitBlock(self, ctx:JingleParser.BlockContext):
+    # Visit a parse tree produced by JingleParser#static_var_declaration.
+    def visitStatic_var_declaration(self, ctx:JingleParser.Static_var_declarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#statementList.
-    def visitStatementList(self, ctx:JingleParser.StatementListContext):
+    # Visit a parse tree produced by JingleParser#static_var_declaration_prefix.
+    def visitStatic_var_declaration_prefix(self, ctx:JingleParser.Static_var_declaration_prefixContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#forClause.
-    def visitForClause(self, ctx:JingleParser.ForClauseContext):
+    # Visit a parse tree produced by JingleParser#loop_statement.
+    def visitLoop_statement(self, ctx:JingleParser.Loop_statementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#parenExpression.
-    def visitParenExpression(self, ctx:JingleParser.ParenExpressionContext):
+    # Visit a parse tree produced by JingleParser#for_statement.
+    def visitFor_statement(self, ctx:JingleParser.For_statementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#binaryOperation.
-    def visitBinaryOperation(self, ctx:JingleParser.BinaryOperationContext):
+    # Visit a parse tree produced by JingleParser#while_statement.
+    def visitWhile_statement(self, ctx:JingleParser.While_statementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#typeConversion.
-    def visitTypeConversion(self, ctx:JingleParser.TypeConversionContext):
+    # Visit a parse tree produced by JingleParser#control_statement.
+    def visitControl_statement(self, ctx:JingleParser.Control_statementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JingleParser#dataType.
-    def visitDataType(self, ctx:JingleParser.DataTypeContext):
+    # Visit a parse tree produced by JingleParser#if_statement.
+    def visitIf_statement(self, ctx:JingleParser.If_statementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JingleParser#else_statement.
+    def visitElse_statement(self, ctx:JingleParser.Else_statementContext):
         return self.visitChildren(ctx)
 
 
