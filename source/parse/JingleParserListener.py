@@ -1,9 +1,6 @@
 # Generated from JingleParser.g4 by ANTLR 4.7.2
 from antlr4 import *
-if __name__ is not None and "." in __name__:
-    from .JingleParser import JingleParser
-else:
-    from JingleParser import JingleParser
+from JingleParser import JingleParser
 
 # This class defines a complete listener for a parse tree produced by JingleParser.
 class JingleParserListener(ParseTreeListener):
