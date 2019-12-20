@@ -1,5 +1,5 @@
 Jingle CLI/REPL Commands:
-- `jingle compile` - AOT compile Jingle code.
+- `jingle build` - AOT compile Jingle code.
   - `-o` - Output raw LLVM IR.
   - `-t` - Choose compile target
     - `--exec` - Native executable compile
