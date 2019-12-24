@@ -14,10 +14,10 @@ var str1 = "Cake"
 var bool1 = true
 
 // Constants are inferred but immutable.
-con int2 = 6
-con float2 = 3.5
-con str2 = "Bread"
-con bool2 = false
+let int2 = 6
+let float2 = 3.5
+let str2 = "Bread"
+let bool2 = false
 
 fn func()
     var varFnTest = 1
