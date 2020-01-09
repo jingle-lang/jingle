@@ -83,7 +83,6 @@ fn helloWorld:
   echo("Hello #{message}") => Outputs "Hello World"
   
 echo("Hello #{message}") => Returns error because message is not defined as a global variable, only as a local variable.
-
 ```
 Let variables are strongly typed so their type cannot be changed at runtime. Let variables also do not have type inference while all other variable types do.
 ```
