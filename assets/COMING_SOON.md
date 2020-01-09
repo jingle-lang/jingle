@@ -3,7 +3,7 @@
 ---
 First Alpha Release Candidate
 
-- [ ] Actually create the language :p
+- [ ] Actually create the language
 - [x] Setup GitHub page
 - [x] Write documentation
-- [ ] Setup website (getjingle.org)
+- [ ] Setup website (jingle-lang.org)
