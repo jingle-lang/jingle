@@ -22,7 +22,18 @@ Comments are designed as in-file documentation. Comments can be defined using th
 
 ## Control Flow
 ### If Statements
-if
+If statements are used to execute code dependent on different conditions which are specified using a boolean operator. If statements have 2 branches, 'if' or 'else'. If the expression is true, the 'if' branch is executed. If the expression is false, the 'else' branch is executed.
+
+```
+a = 10
+b = 100
+if a > b:
+  echo("a is bigger")
+elif a == b:
+  echo("a and b are equal")
+else:
+    echo("b is bigger")
+```
 
 ## Types
 Information on various types in the Jingle language.
@@ -32,35 +43,50 @@ Integer literals are whole numbers. They are practically identical to integers y
 Examples of integers include:
 ```
 var version = 2
-display: ("You are running version #{version}.")
 var age = 15
-display: ("I am #{age} years old.")
+var testScore = 56
 ```
 ### Strings
-String literals are essentially pieces of text. They are practically identical to strings that you would find in any other programming language. However, Jingle's strings currently do not support Unicode characters such as Emojis, but this is being worked on. They are referred to with the keywords `string` or `str`.
+String literals are essentially pieces of text. They are practically identical to strings that you would find in any other programming language. However, Jingle's strings currently do not support Unicode characters such as emojis, but this is being worked on. They are referred to with the keywords `string` or `str`.
 
 Examples of strings include:
 ```
 var name = "Tom"
-var world = "World"
-display: ("Hello #{world}!")
+var planet = "Earth"
+var language = "Jingle"
 ```
 
 You can do string interpolation with `#{expression}` Example: `"Hello there #{name}!" `
 
 ## Variables
-Jingle has 4 variable types which all have their own declaration statements. There are variables, constants and locals which are all weakly typed, which means their type can be changed at runtime, obviously excluding constants. Let variables are strongly typed so their type cannot be changed at runtime. Let variables also do not have type inference while all other variable types do.
+Jingle has 4 variable types which all have their own declaration statements. There are variables and locals which are weakly typed, which means their type can be changed at runtime, and constants which are static which means that their value cannot be changed which means their type cannot be changed.
 
-Examples:
 ```
+// Variables
+
 var random = 15
 // This can later turn into any other type due to weak typing.
 var random = "15"
-// This is the same with and locals.
-local index = 5
-local index = "5"
 
-// However lets must have their type strictly defined. The value can change but the type cannot.
+// Constants
+
+con pi = 3.14
+// These are constants which cannot change value.
+con gravity = 9.8
+
+// Locals
+
+// Local variables can only be created inside a code block and can only be accessed from that same block. They are defined using the ':=' symbol.
+
+fn helloWorld:
+  message := "World"
+  echo("Hello #{message}") => Outputs "Hello World"
+  
+echo("Hello #{message}") => Returns error because message is not defined as a global variable, only as a local variable.
+
+```
+Let variables are strongly typed so their type cannot be changed at runtime. Let variables also do not have type inference while all other variable types do.
+```
 
 let int random = 15
 let int random = 14
