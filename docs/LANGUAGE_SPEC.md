@@ -32,7 +32,7 @@ if a > b:
 elif a == b:
   echo("a and b are equal")
 else:
-    echo("b is bigger")
+  echo("b is bigger")
 ```
 
 ## Types
@@ -87,7 +87,6 @@ echo("Hello #{message}") => Returns error because message is not defined as a gl
 ```
 Let variables are strongly typed so their type cannot be changed at runtime. Let variables also do not have type inference while all other variable types do.
 ```
-
 let int random = 15
 let int random = 14
 // Allowed
