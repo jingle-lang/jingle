@@ -1,2 +1,8 @@
 // Prints Hello World!
 echo("Hello World!")
+
+var world = "World!"
+
+echo("Hello #{world}")
+
+
