@@ -4,6 +4,9 @@ Welcome to the Jingle programming language specification.
 
 ## Table of contents
 - [Grammar](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#grammar)
+- [Language Elements](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#language-elements)
+  - [Reserved Keywords](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#reserved-keywords)
+  - [Naming Convention](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#naming-convention)
 - [Code Elements](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#code-elements)
   - [Comments](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#comments)
   - [Imports](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#imports)
@@ -16,6 +19,17 @@ Welcome to the Jingle programming language specification.
 
 ## Grammar
 If you wish to have a look at the grammar, it is in EBNF form designed for ANTLR in [source/grammars](https://github.com/jingle-lang/jingle/tree/master/source/grammars).
+
+## Language Elements
+### Reserved Keywords
+Jingle uses the following keywords. These keywords cannot be used as identifiers.
+```
+var    else  import  elif
+return class require true
+if     let   break   false
+else   def   for     while
+fn     trait con     as
+```
 
 ## Code elements
 ### Comments
