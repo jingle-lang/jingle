@@ -4,202 +4,177 @@ options {
      tokenVocab=JingleLexer; 
      }
 
-jingleFile
-    // : lines=line+
-    : packagePhrase endOfStatement ( importDecl endOfStatement )* ( topLevelDecl endOfStatement)*
-    ;
+top_level_decl : statements? ;
 
-// INTs only
+end_of_statement : ENDSTATEMENT | SEMICOLONTERMINATE | EOF ;
 
-packagePhrase
-    : PACKAGE NOUNICODEID
-    ;
+// Primitives
 
-importDecl
-    : IMPORT ( importSpec | LBRACKET ( importSpec endOfStatement)* RBRACKET )
-    ;
+attributes : attribute+ ;
+attribute : ATTSYMBOL IDENTIFIER LBRACKET attribute_list RBRACKET ;
+attribute_list
+     : IDENTIFIER
+     | expression
+     | literal
+     | operator
+     ;
 
-importSpec
-    : STRING_LIT
-    ;
+operator : (PLUS | MINUS | MULTIPLY | DIVIDE | POWER | EQUALS | BANG | MODULUS | AMBERSAND | VERTICAL | LESSTHAN | GREATERTHAN ) ;
+statements : statement+ ;
 
-topLevelDecl
-    : statement
-    | funcDecl
-    ;
+block : NEWLINE INDENT statement+ DEDENT ;
 
-line      : statement (ENDSTATEMENT | EOF) ;
+param_list : param (COMMA param)* COMMA? ;
 
-endOfStatement :
-    ENDSTATEMENT
-    | EOF
-    ;
+param : ;
 
-statement :
-    | declaration
-    | ifStmt
-    | forStmt
-    | returnStmt
-    | simpleStmt
-    | block
-    | echoDisplay 
-    ;
+// Expressions
 
-declaration :
-    | varDecl
-    | funcDecl ;
+expression
+     : main_expression
+     | unary_expression
+     | expression (MULTIPLY | DIVIDE | MODULUS) expression
+     | expression (PLUS | MINUS | POWER) expression
+     | expression (EQEQ | NOTEQUAL | LESSTHAN | GREATERTHAN | LESSTHANEQUAL | MORETHANEQUAL) expression
+     | expression (ANDSYMBOL | AND) expression
+     | expression (ORSYMBOL | OR) expression
+     ;
 
-varDecl : VAR NOUNICODEID WHITESPACE EQUALS ( INT_LITERAL | NOUNICODEID ) ;
+main_expression
+     : operand
+     | main_expression ( DOT IDENTIFIER )
+     ;
 
-funcDecl : FUNCTION WHITESPACE NOUNICODEID WHITESPACE LBRACKET params RBRACKET WHITESPACE COLON ;
+unary_expression
+     : main_expression
+     | (PLUS | MINUS | BANG | POWER | MULTIPLY | AMBERSAND | BACKARROW) expression
+     ;
 
-echoDisplay : ECHO WHITESPACE LBRACKET (INT_LITERAL | NOUNICODEID) RBRACKET;
+operand
+     : literal
+     ;
 
-params
-    : LBRACKET ( paramList COMMA? )? RBRACKET
-    ;
+literal
+     : STRING
+     | NUMBER
+     ;
 
-identifierList
-    : NOUNICODEID ( COMMA NOUNICODEID )*
-    ;
+// Parser Rules
 
-expressionList
-    : expression ( COMMA NOUNICODEID )*
-    ;
-
-paramList
-    : paramDecl (COMMA paramDecl)*
-    ;
-
-paramDecl
-    : identifierList? ELLIPSIS?
-    ;
-
-ifStmt
-    : IF (simpleStmt)? expression block ( ELSE (ifStmt | block) )?
-    ;
-
-forStmt
-    : FOR ( expression | forClause )?
-    ;
-
-whileStmt
-    : WHILE (expression | forClause)?
-    ;
-
-returnStmt
-    : RETURN expressionList?
-    ;
-
-simpleStmt
-    : expression
-    | incDecStmt
-    | assign_op
-    | shortVarDecl
-    | emptyStmt
-    ;
-
-incDecStmt
-    : expression ( PLUSPLUS | MINUSMINUS)
-    ;
-
-assign_op
-    : (PLUS | MINUS | MULTIPLY | DIVIDE | MODULUS | ANDSYMBOL)? EQUALS
-    ;
-
-shortVarDecl
-    : identifierList WALRUS expressionList
-    ;
-
-emptyStmt
-    : endOfStatement 
-    ;   
-
-block
-    : INDENT statementList DEDENT
-    ;
-
-statementList
-    : statement endOfStatement
-    ;
-
-forClause
-    : 
-    ;
-
-expression : left=expression operator=(DIVIDE|MULTIPLY) right=expression # binaryOperation
-           | left=expression operator=(PLUS|MINUS) right=expression        # binaryOperation
-           | value=expression AS targetType=dataType                           # typeConversion
-           | LBRACKET expression RBRACKET      # parenExpression
-           ;                                
-
-dataType
-    : TYPE_INT
-    | TYPE_DECIMAL
-    | TYPE_STRING
-    ;
-/*
-
-display : DISPLAY COLON WHITESPACE LBRACKET expression RBRACKET ;
-
-assignment : NOUNICODEID EQUALS expression ;
-
-
-           | NOUNICODEID                                                            # varReference
-           | TYPE_INT                                                        # intLiteral
-           | TYPE_DECIMAL                                                    # decimalLiteral 
-           | TYPE_STRING ;
-
-dataType : TYPE_INT      # integer
-     | TYPE_DECIMAL # decimal ;
-
-*/
-
-/*
-// Development Parser
-topLevelDecl
+statement
      : declaration
-     | functionDecl
-     | methodDecl
+     | expression
+     | loop_statement
+     | control_statement
      ;
 
 declaration
-     : varDecl
+     : var_declaration
+     | function_declaration
+     | class_declaration
+     | trait_declaration
+     | import_declaration
+     | static_var_declaration
      ;
 
-functionDecl
-    : FUNCTION IDENTIFIER ( function | signature )
-    ;
+var_declaration // var string = "hello" 
+     : var_declaration_prefix IDENTIFIER EQUALS expression
+     ;
 
-function
-    : signature block
-    ;
+var_declaration_prefix
+     : attributes? var_declaration_keyword
+     ;
 
-methodDecl
-    : FUNC receiver IDENTIFIER ( function | signature )
-    ;
+var_declaration_keyword // con pi = 3.14
+     : VAR
+     | LET
+     ;
 
-receiver
-    : parameters
-    ;     
+function_declaration // fn func()
+     : function_declaration_prefix IDENTIFIER LBRACKET param_list? RBRACKET block
+     ;
 
-varDecl
-    : VAR ( varSpec | '(' ( varSpec )* ')' )
-    ;
+function_declaration_prefix
+     : attributes? FUNCTION
+     ;
 
-varSpec
-    : identifierList ( type_ ( '=' expressionList )? | '=' expressionList )
-    ;
+class_declaration // class Class()
+     : class_declaration_prefix IDENTIFIER ( LBRACKET (param_list)? RBRACKET )? block 
+     ;
 
-block
-    : '{' statementList '}'
-    ;
+class_declaration_prefix
+     : attributes? CLASS
+     ;
 
-statementList
-    : ( statement )*
-    ;
+trait_declaration
+     : trait_declaration_prefix IDENTIFIER trait_block
+     ;
 
-statement
-    : declaration
-	;
-*/
+trait_declaration_prefix
+     : attributes? TRAIT
+     ;
+
+trait_block
+     : NEWLINE INDENT trait_block_body+ DEDENT
+     ;
+
+trait_block_body
+     : function_declaration
+     | var_declaration
+     | property_declaration
+     ;
+
+property_declaration
+     : property_declaration_prefix IDENTIFIER EQUALS expression
+     ;
+
+property_declaration_prefix
+     : attributes? DEFINE
+     ; 
+
+import_declaration
+     : import_name_direct
+     | import_from
+     ;
+
+import_name_direct
+     : IMPORT STRING
+     ;
+
+import_from
+     : FROM STRING IMPORT STRING
+     ;
+
+static_var_declaration // bind string = "hello" 
+     : static_var_declaration_prefix IDENTIFIER EQUALS expression
+     ;
+
+static_var_declaration_prefix
+     : attributes? BIND
+     ;
+
+loop_statement
+     : for_statement
+     | while_statement
+     ;
+
+for_statement
+     : FOR expression? expression? expression? block
+     ;
+
+while_statement
+     : WHILE expression block
+     ;
+
+control_statement
+     : if_statement
+     ;
+
+if_statement
+     : IF expression else_statement? block
+     ;
+
+else_statement
+     : ELSE block
+     | ELSE if_statement
+     ;
