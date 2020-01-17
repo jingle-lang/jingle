@@ -6,6 +6,7 @@ Welcome to the Jingle programming language specification.
 - [Grammar](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#grammar)
 - [Code Elements](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#code-elements)
   - [Comments](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#comments)
+  - [Imports](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#imports)
 - [Control Flow](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#control-flow)
   - [If Statements](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#if-statements)
 - [Types](https://github.com/jingle-lang/jingle/blob/master/docs/LANGUAGE_SPEC.md#types)
@@ -19,6 +20,9 @@ If you wish to have a look at the grammar, it is in EBNF form designed for ANTLR
 ## Code elements
 ### Comments
 Comments are designed as in-file documentation. Comments can be defined using the `//` character sequence. You can also make multi-line comments using the `/*` opener and `*/` closer.
+
+### Imports
+You can use methods and variables from other Jingle source files by using imports. You can import local files by using the `require` keyword. This is only used for files that are in the same project. You can import packages by using the `import` keyword. This will import the stated package from the packages directory.
 
 ## Control Flow
 ### If Statements
