@@ -64,6 +64,17 @@ var version = 2
 var age = 15
 var testScore = 56
 ```
+
+### Floats
+Floats are decimal numbers. They are double precision floats like doubles or reals. They are referred to with the keywords `float` or `flt`.
+
+```
+var chance = 25.7
+var numDifference = 61.24412
+echo(7/2) #=> prints 3.5
+```
+
+
 ### Strings
 String literals are essentially pieces of text. They are practically identical to strings that you would find in any other programming language. However, Jingle's strings currently do not support Unicode characters such as emojis, but this is being worked on. They are referred to with the keywords `string` or `str`.
 
