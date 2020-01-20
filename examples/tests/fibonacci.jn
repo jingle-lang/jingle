@@ -1,4 +1,4 @@
-# fibonacci.rb
+# fibonacci.jn
 
 fn fibonacci(number):
   if number < 2:
