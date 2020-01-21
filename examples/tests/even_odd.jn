@@ -1,7 +1,10 @@
-// Not functional code! Just a preview.
-
 fn even_odd(x):
-  return "Even" if x % 2 == 0 else "Odd"
+  if x % 2 == 0:
+    return "Even"
+  else:
+    return "Odd"
+  end
+end
 
 even_odd(5)
 even_odd(8)
