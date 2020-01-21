@@ -5,7 +5,7 @@ var str1 = "Cake"
 var bool1 = true
 
 // Constants are inferred but immutable.
-con int2 = 6
-con float2 = 3.5
-con str2 = "Bread"
-con bool2 = false
+const int2 = 6
+const float2 = 3.5
+const str2 = "Bread"
+const bool2 = false
