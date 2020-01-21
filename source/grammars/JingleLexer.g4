@@ -106,8 +106,7 @@ SPEECHMARKS : '"' ;
 
 // Keywords
 VAR : 'var' ;
-ARRAY : 'arr' ;
-CONST : 'con';
+CONST : 'const';
 LOCAL : 'loc';
 ECHO : 'echo' ;
 RETURN : 'return' ;
@@ -120,30 +119,20 @@ ELSE : 'else' ;
 ELSEIF : 'elif' ;
 WHILE : 'while' ;
 FOR : 'for' ;
+END : 'end' ;
 TRUE : 'true' ;
 FALSE : 'false' ;
 FUNCTION :  'fn' ;
 CLASS : 'class' ;
 LET : 'let' ;
-BIND : 'bind' ;
 TRAIT : 'trait' ;
 DEFINE : 'def' ;
-PROTOCOL : 'proto' ;
 IMPORT : 'import' ;
 FROM : 'from' ;
-PACKAGE : 'package' ;
 AS : 'as' ;
 BREAK : 'break' ;
-ABSTRACT : 'abstract' ;
-SELECT : 'select' ;
-INPUT : 'input' ;
-EACH : 'each' ;
 NEW : 'new' ;
-CONTINUE : 'continue' ;
-EXPORT : 'export' ;
-INCLUDE : 'include' ;
 REQUIRE : 'require' ;
-SUMMON : 'summon' ;
 
 // Operators
 WALRUS : ':=' ;
@@ -193,13 +182,6 @@ DOT : '.' ;
 ELLIPSIS : '...' ;
 PLUSPLUS : '++' ;
 MINUSMINUS : '--' ;
-
-// Literals
-FLOAT_IDENTIFIER : 'float' ;
-STRING_IDENTIFIER : 'string' ;
-BOOLEAN_IDENTIFIER : 'bool' ;
-NULL_IDENTIFIER : 'null' ;
-CHAR_IDENTIFIER : 'char' ;
 
 INT_LITERAL : '0'|[1-9][0-9]* ;
 FLOAT_LITERAL : '0'|[1-9][0-9]* '.' [0-9]+ ;
