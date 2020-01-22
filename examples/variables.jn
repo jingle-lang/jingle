@@ -9,3 +9,9 @@ const int2 = 6
 const float2 = 3.5
 const str2 = "Bread"
 const bool2 = false
+
+// Lets aren't inferred and immutable
+let int age = 20
+let flt hours = 0.5
+let str egg = "Egg"
+let bool adult = true
