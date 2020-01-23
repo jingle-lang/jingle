@@ -51,6 +51,7 @@ elif a == b:
   echo("a and b are equal")
 else:
   echo("b is bigger")
+end
 ```
 
 ## Types
@@ -99,17 +100,18 @@ var random = "15"
 
 // Constants
 
-con pi = 3.14
+const pi = 3.14
 // These are constants which cannot change value.
-con gravity = 9.8
+const gravity = 9.8
 
 // Locals
 
-// Local variables can only be created inside a code block and can only be accessed from that same block. They are defined using the ':=' symbol.
+// Local variables can only be created inside a code block and can only be accessed from that same block.
 
 fn helloWorld:
-  message := "World"
+  var message = "World"
   echo("Hello #{message}") => Outputs "Hello World"
+end
   
 echo("Hello #{message}") => Returns error because message is not defined as a global variable, only as a local variable.
 ```
