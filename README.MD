@@ -33,8 +33,7 @@
 - [Code of Conduct](../master/docs/CODE_OF_CONDUCT.md)
 
 ## 📜 About <a name = "about"></a>
-Jingle is an object-oriented programming language currently in development. It is dynamically-typed, inferred and structural. "So why would I use this?", I hear you ask. Well, Jingle is written in very simple syntax. This makes it much easier for beginners without adding complexity or removing functionality for advanced programmers. It also has an interpreter with an experimental JVM target.
-
+Jingle is a multi-paradigm, statically-typed programming language currently in development. It makes use of type inferrence and compiles to native LLVM IR, allowing code in Jingle to be fast to run and compile while still retaining small source files and binaries. It currently does not come with a static linker, so outputted object files must be compiled manually.
 
 ## 📔 Examples <a name = "examples"></a>
 Alright, let's look at how this all works. Here are 2 Hello World applications written in both Java & Jingle, with Java being on top and Jingle being on bottom.
