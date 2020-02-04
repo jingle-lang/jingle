@@ -3,8 +3,8 @@ fn squareNum(x):
     echo(x)
 end
 
-squareNum(2) // returns 4
-squareNum(8) // returns 64
-squarenum(17) // return 289
-squareNum(48) // returns 2304
-squareNum(50) // returns 2500
+squareNum(2) # => 4
+squareNum(8) # => 64
+squarenum(17) # => 289
+squareNum(48) # => 2304
+squareNum(50) # => 2500
