@@ -1,16 +1,16 @@
-// Variables are inferred and mutable.
+# Variables are inferred and mutable.
 var int1 = 5
 var float1 = 2.5
 var str1 = "Cake"
 var bool1 = true
 
-// Constants are inferred but immutable.
+# Constants are inferred but immutable.
 const int2 = 6
 const float2 = 3.5
 const str2 = "Bread"
 const bool2 = false
 
-// Lets aren't inferred and immutable
+# Lets aren't inferred and immutable
 let int age = 20
 let flt hours = 0.5
 let str egg = "Egg"
