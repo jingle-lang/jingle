@@ -1,8 +1,8 @@
 var name = "David"
 var age = 20
 
-// Outputs 'Hi! My name is David and I am 20 years old.'
-echo("Hi! My name is " + name + " and I am " + age + " years old.")
+# Outputs 'Hi! My name is David and I am 20 years old.'
+echo "Hi! My name is " + name + " and I am " + age + " years old."
 
-// Alternate data embedding.
-echo("Hi! My name is #{name} and I am #{age} years old.")
+# Alternate data embedding.
+echo "Hi! My name is #{name} and I am #{age} years old."
