@@ -1,6 +1,11 @@
-// Prints Hello World!
-echo("Hello World!")
+# Prints Hello World!
+echo "Hello World!"
 
+# Prints Hello World! using a variable and string interpolation
 var world = "World!"
 
-echo("Hello #{world}")
+echo "Hello #{world}"
+
+# Prints Hello World! using a variable and string concatenation
+
+echo "Hello " + world
