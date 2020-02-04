@@ -7,12 +7,12 @@ end
 # A simple example of a function is below.
 
 fn sayString(string):
-  echo("Hello #{string}!")
-  echo("The string is #{string}.")
+  echo "Hello #{string}!"
+  echo "The string is #{string}."
 end
 
 # Another example below
 
 fn addNums(num1, num2):
   finalNum = num1 + num2
-  echo("#{num1} + #{num2} is #{finalNum}")
+  echo "#{num1} + #{num2} is #{finalNum}"
