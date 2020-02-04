@@ -1,8 +1,8 @@
 fn even_odd(x):
   if x % 2 == 0:
-    return "Even"
+    echo "Even"
   else:
-    return "Odd"
+    echo "Odd"
   end
 end
 
