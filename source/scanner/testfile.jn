@@ -1,0 +1,47 @@
+import "io"
+from "llvm" import "inline"
+require "main.jn"
+
+#+
+var decl
+#-
+
+while x > 50:
+    return "x"
+end
+
+const gravity: float = 5.5
+var pizza = 5
+bind pizza as string # pizza => "5"
+let int pizza = 2
+
+fn domino(hello): 
+    var egg = 5 # var decl
+    var egg2 = 10.5 # var decl
+    var egg3 = egg1 + egg2
+    fn domino2(egg3: int, egg4: str): # func decl
+        var egg = egg + egg2
+        var egg3 = egg3 * egg
+        fn domino3:
+            var egg4 = 1
+            echo egg4
+            echo "egg4"
+        end
+    end
+end
+
+class hello:
+    return "Hello World"
+end
+
+trait testTrait: 
+    import "array"
+    fn testFn:
+        echo 2 + 2
+        echo "egg"
+    end
+end
+
+while 10 == 10:
+    var x = 15
+end
