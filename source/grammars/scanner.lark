@@ -1,0 +1,156 @@
+%import common.WS
+%ignore WS
+%ignore COMMENT
+
+// Top Level Declarations
+start: top_level_decl
+
+top_level_decl: statements?
+statements: statement+
+
+block: COLON statement* END
+
+statement: declaration | expression | import_declaration | conditional_statement
+
+declaration: var_declaration | constant_declaration | function_declaration | class_declaration | bind_declaration | let_declaration | trait_declaration
+
+// Expressions and Types
+expression: assignment | atom | return_exp | comparison
+
+atom: number | IDENTIFIER | vartype | bool_exp | string
+number: decimal_number | float_number | hex_number
+string: /"(?:[^"\\]|\\.)*"/
+decimal_number: DEC_NUMBER opt_vartype
+float_number: FLOAT_NUMBER opt_vartype
+hex_number: HEX_NUMBER opt_vartype
+bool_exp: TRUE | FALSE
+
+return_exp: RETURN expression
+echo_exp: ECHO expression
+
+conditional_statement: if_statement
+
+if_statement: IF comparison block
+else_statement: ELSE block | ELIF if_statement
+while_statement: WHILE comparison block
+
+// Assignments
+assignment: expression assignment_op expression
+assignment_op: ASSIGN|SM_PLUS|SM_MINUS|SM_MULTIPLY|SM_DIVIDE|PLUS|MINUS|MULTIPLY|DIVIDE
+comparison: atom comparison_op atom
+comparison_op: NOTEQUAL | EQUALS | LESSEQUAL | LESSTHAN | GREATEQUAL | GREATERTHAN | MODULUS | PIPE
+var_assignment: IDENTIFIER opt_vartype opt_assignment
+
+// Declarations
+var_declaration: VAR var_assignment
+constant_declaration: CONSTANT var_assignment
+function_declaration: FUNCTION IDENTIFIER ( LPAREN opt_arglist RPAREN )? block
+class_declaration: CLASS IDENTIFIER ( LPAREN opt_arglist RPAREN)? block
+bind_declaration: BIND IDENTIFIER AS opt_typelist
+let_declaration: LET opt_typelist var_assignment
+import_declaration: import_direct | import_from | require_declaration
+import_direct: IMPORT string
+import_from: FROM string IMPORT string
+require_declaration: REQUIRE string
+trait_declaration: TRAIT IDENTIFIER ( LPAREN opt_arglist RPAREN )? block
+
+// Optionals
+vartype: opt_typelist
+opt_vartype: [COLON vartype]
+opt_assignment: [ASSIGN expression]
+opt_typelist: opt_typelist_width | opt_typelist_typed
+opt_typelist_typed: "int" | "float" | "str" | "bool" | "char"
+opt_typelist_width: "int8" | "int16" | "int32" | "int64" | "int128" | "uint8" | "uint16" | "uint32" | "uint64" | "uint128"
+opt_arglist: [arglist]
+
+// Arguments and Para
+arglist: argument (COMMA argument)?
+argument: stararg IDENTIFIER opt_vartype opt_assignment
+stararg: [MULTIPLY]
+
+// Tokens
+TERMINATOR: (/\r?\n[\t ]*/)+
+//COMMENT: /#[^\n]*/ | OPENBLOCKCOMMENT WS CLOSEBLOCKCOMMENT
+COMMENT: HASH /[^\r\n]/*
+       | OPENBLOCKCOMMENT /(.|\n|\r)/* CLOSEBLOCKCOMMENT
+IDENTIFIER: /[a-zA-Z_][a-zA-Z0-9_]*/
+NEWLINE: (TERMINATOR | COMMENT)
+
+//// Symbols
+COLON: ":"
+LPAREN: "("
+RPAREN: ")"
+LBRACK: "["
+RBRACK: "]"
+LBRACE: "{"
+RBRACE: "}"
+COMMA: ","
+ELLIPSIS: "..."
+INCREMENT: "++"
+DECREMENT: "--"
+RIGHTARROW: "->" | "=>"
+LEFTARROW: "<-" | "<="
+DOT: "."
+OPENBLOCKCOMMENT: "#+"
+CLOSEBLOCKCOMMENT: "#-"
+HASH: "#"
+
+//// Operators
+ASSIGN: "="
+SM_PLUS: "+="
+SM_MINUS: "-="
+SM_MULTIPLY: "*="
+SM_DIVIDE: "/="
+PLUS: "+"
+MINUS: "-"
+MULTIPLY: "*"
+DIVIDE: "/"
+WALRUS: ":="
+EQUALS: "=="
+NOTEQUAL: "!="
+LESSEQUAL: "<="
+GREATEQUAL: ">="
+LESSTHAN: "<"
+GREATERTHAN: ">"
+BANG: "!"
+EXPONENT: "^"
+MODULUS: "%"
+VERTICAL: "|"
+ATTTRIBUTE: "@@"
+PIPE: "|>"
+SEMI: ";"
+//AMBERSAND : "&"
+//DECORATOR : "@"
+
+//// Keywords
+TRUE: "true"
+FALSE: "false"
+VAR: "var"
+CONSTANT: "const"
+FUNCTION: "fn"
+CLASS: "class"
+LET: "let"
+BIND: "bind" // Permanent, explicit type casting. Example: var x = 5 (x = 5), bind x as float (x = 5.0)
+TRAIT: "trait"
+END: "end"
+ECHO: "echo"
+IF: "if"
+FOR: "for"
+WHILE: "while"
+ELSE: "else"
+ELIF: "elif"
+RETURN: "return"
+IN: "in"
+AS: "as"
+IMPORT: "import"
+REQUIRE: "require"
+FROM: "from"
+DEFINE: "def"
+OR: "or" | "||"
+AND: "and" | "&&"
+NOT: "not"
+
+//// Types
+DEC_NUMBER: /\d+/
+FLOAT_NUMBER: /\d+[.]\d+/
+HEX_NUMBER: /0[hx][a-fA-F0-9]*/
