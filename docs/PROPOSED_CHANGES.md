@@ -5,4 +5,4 @@ Proposed changes to the language:
 - Encourage 3 main paradigms: object-oriented, functional, imperative
 - Replace comment styles:
   - Single-line comments replace `//` with `#`
-  - Block comments change to `--` to open and close but also keep `/* */`
+  - Remove block comments for now, change to `--` to open and close in future
