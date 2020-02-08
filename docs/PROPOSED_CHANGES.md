@@ -6,3 +6,5 @@ Proposed changes to the language:
 - Replace comment styles:
   - Single-line comments replace `//` with `#`
   - Remove block comments for now, change to `--` to open and close in future
+- Add switch/case/otherwise blocks
+  - Instead of `default`, use keyword `otherwise`
