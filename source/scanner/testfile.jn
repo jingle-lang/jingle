@@ -1,11 +1,30 @@
+###
+### Imports
+###
+
 import "io"
 from "llvm" import "inline"
 require "main.jn"
 
-const gravity: float = 5.5
+###
+### Variable Declaration
+###
+#const gravity: float = 5.5
 var pizza = 5
 bind pizza as string # pizza => "5"
 let int pizza = 2
+
+###
+### Functions
+###
+
+fn testFn1:
+    var random = 15
+end
+
+###
+### Nested Functions
+###
 
 fn domino(hello): 
     var egg = 5 # var decl
@@ -22,14 +41,34 @@ fn domino(hello):
     end
 end
 
+###
+### Classes
+###
+
 class hello:
     return "Hello World"
 end
 
+###
+### Traits
+###
+
 trait testTrait: 
     import "array"
-    fn testFn:
+    fn testFn2:
         echo 2 + 2
         echo "egg"
     end
+end
+
+if x > y:
+    var x = 5
+end
+
+if true:
+    var x = 4
+end
+
+if 5 < 4:
+    var x = 4
 end
