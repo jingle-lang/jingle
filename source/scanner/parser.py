@@ -1,5 +1,6 @@
 # Jingle Parser
 import time
+from lark import Lark, Transformer, Tree, exceptions
 start_time = time.time()
 
 def parseScan():
@@ -15,6 +16,10 @@ def parseScan():
 
 # Singular Parse Testing
 parseScan()
+
+class JingleTransformer(Transformer):
+    def start(self, node):
+        print(node)
 
 # Repeated parse testing
 #parseCounts = 793

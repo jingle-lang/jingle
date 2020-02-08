@@ -12,15 +12,13 @@ statements: statement+
 
 block: COLON statement* END
 
-statement: declaration | expression | import_declaration// | conditional_statement
+statement: declaration | expression | import_declaration | conditional_statement
 
 declaration: var_declaration | constant_declaration | function_declaration | class_declaration | bind_declaration | let_declaration | trait_declaration
 
 // Expressions and Types
 expression: assignment 
        | test
-       | while_statement
-       | if_statement
        | return_exp 
 
 atom: number | IDENTIFIER | bool_exp | string | parenthetical // | vartype
@@ -35,11 +33,12 @@ bool_exp: TRUE | FALSE
 return_exp: RETURN expression
 echo_exp: ECHO expression
 
-// conditional_statement: if_statement
+conditional_statement: if_statement | else_statement | while_statement
 
-if_statement: IF test block
-else_statement: ELSE block | ELIF if_statement
-while_statement: WHILE comparison block
+if_statement: IF comparison_block else_statement?
+else_statement: ELSE block | ELIF comparison_block
+while_statement: WHILE comparison_block
+comparison_block: test block
 
 ?atom_expr: atom_expr LPAREN opt_call_args RPAREN -> func_call
        | atom_expr LBRACK dimensions RBRACK -> array_ref
@@ -128,7 +127,7 @@ trait_declaration: TRAIT IDENTIFIER ( LPAREN opt_arglist RPAREN )? block
 
 // Optionals
 ?vartype: opt_typelist
-?opt_vartype: [COLON vartype]
+?opt_vartype: [DOUBLECOLON vartype]
 ?opt_assignment: [ASSIGN expression]
 ?opt_typelist: opt_typelist_width | opt_typelist_typed
 ?opt_typelist_typed: "int" | "float" | "str" | "bool" | "char"
@@ -158,6 +157,7 @@ NEWLINE: (TERMINATOR | COMMENT)
 
 //// Symbols
 COLON: ":"
+DOUBLECOLON: "::"
 LPAREN: "("
 RPAREN: ")"
 LBRACK: "["
