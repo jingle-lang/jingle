@@ -61,6 +61,10 @@ trait testTrait:
     end
 end
 
+###
+### Conditionals
+###
+
 if x > y:
     var x = 5
 end
