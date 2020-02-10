@@ -12,33 +12,44 @@ statements: statement+
 
 block: COLON statement* END
 
-statement: declaration | expression | import_declaration | conditional_statement
+statement: declaration | expression | import_declaration | conditional_statement | return_exp
 
 declaration: var_declaration | constant_declaration | function_declaration | class_declaration | bind_declaration | let_declaration | trait_declaration
 
 // Expressions and Types
 expression: assignment 
        | test
-       | return_exp 
 
-atom: number | IDENTIFIER | bool_exp | string | parenthetical // | vartype
+atom: number | IDENTIFIER | bool_exp | string | parenthetical | array_type // | vartype
 //comparison_exp: number | string | bool_exp | IDENTIFIER
 number: decimal_number | float_number | hex_number
 string: /"(?:[^"\\]|\\.)*"/
 decimal_number: DEC_NUMBER opt_vartype
 float_number: FLOAT_NUMBER opt_vartype
 hex_number: HEX_NUMBER opt_vartype
+array_type: LBRACK array_comp RBRACK
+array_comp: (test|star_expr) [for_comp | ("," (test|star_expr))+ [","] | ","]
 bool_exp: TRUE | FALSE
 
 return_exp: RETURN expression
 echo_exp: ECHO expression
 
-conditional_statement: if_statement | else_statement | while_statement
+star_expr: "*" expression
+
+conditional_statement: if_statement | else_statement | while_statement | for_statement
 
 if_statement: IF comparison_block else_statement?
 else_statement: ELSE block | ELIF comparison_block
 while_statement: WHILE comparison_block
+for_statement: FOR expr_list IN comp_list_block else_statement?
+for_comp: FOR expr_list IN or_test [comp_iter]
+if_comp: IF test_nocond [comp_iter]
+expr_list: (expression|star_expr) (COMMA (expression|star_expr))* [COMMA]
 comparison_block: test block
+comp_list_block: testlist block
+testlist: test (COMMA test)* [COMMA]
+?test_nocond: or_test
+comp_iter: for_comp | if_comp
 
 ?atom_expr: atom_expr LPAREN opt_call_args RPAREN -> func_call
        | atom_expr LBRACK dimensions RBRACK -> array_ref

@@ -13,6 +13,7 @@ require "main.jn"
 var pizza = 5
 bind pizza as string # pizza => "5"
 let int pizza = 2
+var shoppingList = [1,2,3]
 
 ###
 ### Functions
@@ -61,10 +62,6 @@ trait testTrait:
     end
 end
 
-###
-### Conditionals
-###
-
 if x > y:
     var x = 5
 end
@@ -97,4 +94,18 @@ end
 
 while 5 > 2:
     echo "5 is bigger!"
+end
+
+for 5 in 1,5:
+    echo "hello"
+end
+
+fn ivan:
+    var ivan = "beg"
+    if ivan == "beg":
+        var beg = True
+    end
+    else:
+        var beg = False
+    end
 end
