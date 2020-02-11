@@ -22,6 +22,22 @@
       - [x] Functions
       - [x] Classes
       - [x] Traits
+    - [x] Conditionals
+      - [x] If statements
+      - [x] While loops
+      - [x] For loops (partially complete)
+    - [x] Types
+      - [x] Integers
+      - [x] Floats
+      - [x] Strings
+      - [x] Booleans
+      - [x] Arrays
+    - [x] Statements
+      - [x] Import statements
+      - [x] Echo statements
+      - [x] Return statements
+    - [x] Other language features
+      - [x] Comments
 
 Proposed changes to the language:
 
