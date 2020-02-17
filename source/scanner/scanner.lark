@@ -20,8 +20,8 @@ declaration: var_declaration | constant_declaration | function_declaration | cla
 expression: assignment 
        | test
 
-atom: number | IDENTIFIER | bool_exp | string | parenthetical | array_type // | vartype
-//comparison_exp: number | string | bool_exp | IDENTIFIER
+atom: number | identifier | bool_exp | string | parenthetical | array_type // | vartype
+//comparison_exp: number | string | bool_exp | identifier
 number: decimal_number | float_number | hex_number
 string: /"(?:[^"\\]|\\.)*"/
 decimal_number: DEC_NUMBER opt_vartype
@@ -81,13 +81,13 @@ parenthetical: LPAREN test RPAREN
 //eval_comparison_op: LESSEQUAL | LESSTHAN | GREATEQUAL | GREATERTHAN
 //equal_comparison_op: NOTEQUAL | EQUALS
 
-//comp_val: (integer_result | float_result | string_result | dynamic_result ) IDENTIFIER
+//comp_val: (integer_result | float_result | string_result | dynamic_result ) identifier
 
 
 // Assignments
 assignment: expression assignment_op expression
 assignment_op: ASSIGN|SM_PLUS|SM_MINUS|SM_MULTIPLY|SM_DIVIDE|PLUS|MINUS|MULTIPLY|DIVIDE
-var_assignment: IDENTIFIER opt_vartype opt_assignment
+var_assignment: identifier opt_vartype opt_assignment
 
 integer_result: integer_result (MULTIPLY | INTDIV | MODULUS) integer_result | integer_result (PLUS | MINUS) integer_result | RBRACE integer_result RBRACE | DEC_NUMBER
 float_result: float_result (MULTIPLY | INTDIV | MODULUS) float_result
@@ -119,22 +119,22 @@ dynamic_result: RBRACE dynamic_result RBRACE
        | dynamic_result (PLUS | MINUS) dynamic_result
        | dynamic
 
-dynamic: IDENTIFIER | array_selector 
+dynamic: identifier | array_selector 
 
-array_selector: IDENTIFIER LBRACK ( integer_result | dynamic_result ) RBRACK
+array_selector: identifier LBRACK ( integer_result | dynamic_result ) RBRACK
 
 // Declarations
 var_declaration: VAR var_assignment
 constant_declaration: CONSTANT var_assignment
-function_declaration: FUNCTION IDENTIFIER ( LPAREN opt_arglist RPAREN )? block
-class_declaration: CLASS IDENTIFIER ( LPAREN opt_arglist RPAREN )? block
-bind_declaration: BIND IDENTIFIER AS opt_typelist
+function_declaration: FUNCTION identifier ( LPAREN opt_arglist RPAREN )? block
+class_declaration: CLASS identifier ( LPAREN opt_arglist RPAREN )? block
+bind_declaration: BIND identifier AS opt_typelist
 let_declaration: LET opt_typelist var_assignment
 import_declaration: import_direct | import_from | require_declaration
 import_direct: IMPORT string
 import_from: FROM string IMPORT string
 require_declaration: REQUIRE string
-trait_declaration: TRAIT IDENTIFIER ( LPAREN opt_arglist RPAREN )? block
+trait_declaration: TRAIT identifier ( LPAREN opt_arglist RPAREN )? block
 
 // Optionals
 ?vartype: opt_typelist
@@ -150,10 +150,11 @@ trait_declaration: TRAIT IDENTIFIER ( LPAREN opt_arglist RPAREN )? block
 
 // Arguments and Para
 arglist: argument ( (COMMA argument)* )?
-argument: stararg IDENTIFIER opt_vartype opt_assignment
+argument: stararg identifier opt_vartype opt_assignment
 stararg: [MULTIPLY]
 
 // Tokens
+terminal: TERMINATOR
 TERMINATOR: (/\r?\n[\t ]*/)+
 //COMMENT: /#[^\n]*/ | OPENBLOCKCOMMENT WS CLOSEBLOCKCOMMENT
 COMMENT: HASH /[^\r\n]/*
@@ -163,8 +164,9 @@ COMMENT: HASH /[^\r\n]/*
 //ID_LETTER: ID_LOWER | ID_UPPER
 //ID_DIGIT: "0".."9"
 //IDENTIFIER: ("_"|ID_LETTER) ("_"|ID_LETTER|ID_DIGIT)
+identifier: IDENTIFIER
 IDENTIFIER: /[a-zA-Z_][a-zA-Z0-9_]*/
-NEWLINE: (TERMINATOR | COMMENT)
+NEWLINE: (terminal | COMMENT)
 
 //// Symbols
 COLON: ":"

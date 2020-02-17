@@ -1,10 +1,17 @@
-# Jingle Parser
+###
+###
+###
+
+# Required Imports
+from scanner import Lark_StandAlone
+
+#Optional Imports
 import time
 from lark import Lark, Transformer, Tree, exceptions
 start_time = time.time()
 
+
 def parseScan():
-    from scanner import Lark_StandAlone
     parser = Lark_StandAlone()
     input = open("testfile.jn", "r")
     input = input.read()
@@ -15,17 +22,17 @@ def parseScan():
     print("--- Parsing complete after %s seconds ---" % (final_time))
 
 # Singular Parse Testing
+#
 parseScan()
 
-class JingleTransformer(Transformer):
-    def start(self, node):
-        print(node)
-
 # Repeated parse testing
-#parseCounts = 793
+#
+#parseCounts = 100
 #while parseCounts > 0:
 #    parseScan()
 #    parseCounts = parseCounts - 1
 
+# Infinite parse testing
+#
 #while True:
 #    parseScan()
