@@ -10,8 +10,13 @@ The following list shows how Jingle's design has been affected by other language
 ## Syntax
 - Python
 - Ruby
+- Elixir
+- Javascript
 
 ## Backend
 - Crystal
 - Zig
 - Rust
+- Go
+- Elixir
+- OCaml
