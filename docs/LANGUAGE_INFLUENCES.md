@@ -22,3 +22,4 @@ The following list shows how Jingle's design has been affected by other language
 - Go
 - Elixir
 - OCaml
+- Monkey
