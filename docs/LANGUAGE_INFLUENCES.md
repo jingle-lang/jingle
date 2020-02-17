@@ -12,6 +12,8 @@ The following list shows how Jingle's design has been affected by other language
 - Ruby
 - Elixir
 - Javascript
+- Nim
+- Lox
 
 ## Backend
 - Crystal
