@@ -1,4 +1,4 @@
-## Functions
+# Functions
 - [Overview](https://github.com/jingle-lang/jingle/blob/master/docs/functions.md#overview)
 - Invoking functions
 - Function parameters
@@ -6,7 +6,7 @@
 - Closures
 - Block Arguments?
 
-### Overview
+## Overview
 Just like any other modern programming language, Jingle contains functions. Jingle's functions are first-class, similar to other languages which means that it can be passed as an argument. Functions in Jingle are also treated as objects like everything else.
 
 Functions are defined with the following syntax:
