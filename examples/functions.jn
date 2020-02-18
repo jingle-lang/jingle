@@ -16,3 +16,4 @@ end
 fn addNums(num1, num2):
   finalNum = num1 + num2
   echo "#{num1} + #{num2} is #{finalNum}"
+end
