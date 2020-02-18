@@ -35,15 +35,15 @@ This feature is very useful as code that already has block comments can still be
 ## Reserved words
 If you still want to have a feel of the language's style then you can view Jingle's reserved keywords.
 ```
-and   end     nil
-as    false   not
-bind  fn      or
-break for     require
-class from    return
-const if      this
-def   import  trait
-echo  in      true
-elif  is      var
-else  let     while
+and   end    nil
+as    false  not
+bind  fn     or
+break for    require
+class from   return
+const if     this
+def   import trait
+echo  in     true
+elif  is     var
+else  let    while
 ```
 Obviously all names of _types_ are reserved keywords, such as `int`, `float`, `bool` etc.
