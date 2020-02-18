@@ -1,5 +1,5 @@
 ## Functions
-- Overview
+- [Overview](https://github.com/jingle-lang/jingle/blob/master/docs/functions.md#overview)
 - Invoking functions
 - Function parameters
 - Returning values
