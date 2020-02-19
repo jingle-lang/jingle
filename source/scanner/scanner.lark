@@ -11,8 +11,9 @@ top_level_decl: statements?
 statements: statement+
 
 block: COLON statement* END
+endblock: COLON statement*
 
-statement: declaration | expression | import_declaration | conditional_statement | return_exp
+statement: declaration | expression | import_declaration | return_exp | if_statement | else_statement | while_statement | for_statement
 
 declaration: var_declaration | constant_declaration | function_declaration | class_declaration | bind_declaration | let_declaration | trait_declaration
 
@@ -38,8 +39,8 @@ star_expr: "*" expression
 
 conditional_statement: if_statement | else_statement | while_statement | for_statement
 
-if_statement: IF comparison_block else_statement?
-else_statement: ELSE block | ELIF comparison_block
+if_statement: IF comparison_block
+else_statement: ELSE endblock | ELIF comparison_block
 while_statement: WHILE comparison_block
 for_statement: FOR expr_list IN comp_list_block else_statement?
 for_comp: FOR expr_list IN or_test [comp_iter]
@@ -154,8 +155,7 @@ argument: stararg identifier opt_vartype opt_assignment
 stararg: [MULTIPLY]
 
 // Tokens
-terminal: TERMINATOR
-TERMINATOR: (/\r?\n[\t ]*/)+
+terminal: (/\r?\n[\t ]*/)+
 //COMMENT: /#[^\n]*/ | OPENBLOCKCOMMENT WS CLOSEBLOCKCOMMENT
 COMMENT: HASH /[^\r\n]/*
        | OPENBLOCKCOMMENT /(.|\n|\r)/* CLOSEBLOCKCOMMENT
@@ -166,7 +166,7 @@ COMMENT: HASH /[^\r\n]/*
 //IDENTIFIER: ("_"|ID_LETTER) ("_"|ID_LETTER|ID_DIGIT)
 identifier: IDENTIFIER
 IDENTIFIER: /[a-zA-Z_][a-zA-Z0-9_]*/
-NEWLINE: (terminal | COMMENT)
+newline: (terminal | COMMENT)
 
 //// Symbols
 COLON: ":"
@@ -200,7 +200,7 @@ MULTIPLY: "*"
 DIVIDE: "/"
 INTDIV: "//"
 WALRUS: ":="
-EQUALS: "=="
+EQUALS: "==" | "is"
 NOTEQUAL: "!="
 LESSEQUAL: "<="
 GREATEQUAL: ">="
@@ -244,6 +244,9 @@ DEFINE: "def"
 OR: "or" | "||"
 AND: "and" | "&&"
 NOT: "not"
+NIL: "nil"
+BREAK: "break"
+THIS: "this"
 
 //// Types
 DEC_NUMBER: /\d+/
