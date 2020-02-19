@@ -26,7 +26,7 @@
 - [About](#about)
 - [Examples](https://github.com/jingle-lang/jingle/tree/master/examples)
 - [Getting Started](#getting_started)
-- [Documentation](#https://midoublelo.gitbook.io/jingle-docs/)
+- [Documentation](#docs)
 - [Coming Soon](../master/docs/COMING_SOON.md)
 - [Contributing](../master/docs/CONTRIBUTING.md)
 - [Changelog](../master/docs/CHANGELOG.md)
@@ -39,5 +39,5 @@ Jingle is a multi-paradigm, statically-typed programming language currently in d
 ## Getting Started <a name = "getting_started"></a>
 clone and run
 
-## Documentation
+## Documentation <a name = "docs"></a>
 https://midoublelo.gitbook.io/jingle-docs/
