@@ -1,16 +1,30 @@
-This is a list of examples
+This is a list of examples for Jingle. Their status is listed below. Speeds listed are average speeds over 5 iterations.
 
 - Calculations
   - [x] Parsing
+    - Speed: 0.067 seconds
+  - [ ] Running
 - Even/Odd
   - [x] Parsing
+    - Speed: 0.0704 seconds
+  - [ ] Running
 - Factorial
   - [x] Parsing
+    - Speed: 0.0684 seconds
+  - [ ] Running
 - Fibonacci
   - [x] Parsing
+    - Speed: 0.074 seconds
+  - [ ] Running
 - Generic Lexer Test
   - [x] Parsing
+    - Speed: 0.0698 seconds
+  - [ ] Running
 - Mandelbrot
   - [x] Parsing
+    - Speed: 0.0792 seconds
+  - [ ] Running
 - Square Numbers
   - [x] Parsing
+    - Speed: 0.0682 seconds
+  - [ ] Running
