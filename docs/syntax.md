@@ -97,7 +97,9 @@ end
 | Inclusive Range | `..` | None |
 | Exclusive Range | `...` | None |
 | And | `&&` | `and` |
-| Or | `||` | `or` |
+| Or | Written below* | `or` |
 | Comparison | `<`, `<=`, `>`, `>=` | None |
 | Equality | `==`, `!=` | `is`, None |
 | Assignment | `=` | None |
+
+* Or = `||`, cannot write in table.
