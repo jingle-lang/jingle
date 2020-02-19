@@ -1,0 +1,56 @@
+###
+### Mandelbrot Fractals implemented in Jingle
+###
+
+const XMIN = -2.0
+const XMAX = 1.0
+const YMIN = -1.5
+const YMAX = 1.5
+const WIDTH = 80.0
+const HEIGHT = 40.0
+const THRESHOLD = 1000
+
+fn InMandelbrot(x0, y1, n):
+    var x = 0.0
+    var y = 0.0
+    var xtemp = 0.0
+    while n > 0:
+        xtemp = x*x - y*y + x0
+        y = 2.0*x*y + y0
+        x = xtemp
+        n = n - 1
+        if x*x + y*y > 4.0:
+            return false
+        end
+    end
+    return true
+end
+
+fn Mandel:
+    var dx = (xmax - xmin)/width
+    var dy = (ymax - ymin)/height
+    
+    var y = ymax
+    var x = 0.0
+    
+    while y >= ymin:
+        x = xmin
+        while x < xmax:
+            if InMandelbrot(x,y,threshold):
+                echo "*"
+            else
+                echo "."
+            end
+            
+            x = x + dx
+        end
+        
+        echo "\n"
+        y = y - dy
+    end
+    return 0
+end
+
+fn Main:
+    return Mandel()
+end
