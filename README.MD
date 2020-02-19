@@ -20,10 +20,9 @@
 </p>
 
 <details>
-<summary>📖 Table of Contents</summary>
+<summary>📝 Table of Contents</summary>
 <br />
   
-## 📝 Table of Contents
 - [About](#about)
 - [Examples](#examples)
 - [Getting Started](#getting_started)
