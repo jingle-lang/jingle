@@ -1,12 +1,12 @@
 # Syntax
 
-- Overview
-- Files
-- Comments
-- Reserved words
-- Identifiers
-- Blocks
-- Operators
+- [Overview](https://github.com/jingle-lang/jingle/blob/master/docs/syntax.md#overview)
+- [Files](https://github.com/jingle-lang/jingle/blob/master/docs/syntax.md#files)
+- [Comments](https://github.com/jingle-lang/jingle/blob/master/docs/syntax.md#comments)
+- [Reserved words](https://github.com/jingle-lang/jingle/blob/master/docs/syntax.md#reserved-words)
+- [Identifiers](https://github.com/jingle-lang/jingle/blob/master/docs/syntax.md#identifiers)
+- [Blocks](https://github.com/jingle-lang/jingle/blob/master/docs/syntax.md#blocks)
+- [Operators](https://github.com/jingle-lang/jingle/blob/master/docs/syntax.md#operators)
 
 ## Overview
 Jingle's syntax is influenced by and is designed for users of high-level languages such as Python and Ruby. However, it brings it slightly lower-level in an attempt to make the syntax more streamlined, simple and enjoyable to program and play with.
