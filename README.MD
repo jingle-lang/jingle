@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://raw.githubusercontent.com/exedys/jingle-lang/master/jingle%20logo.png" alt="Jingle Lang"></a>
+ <img width=200px height=200px src="https://raw.githubusercontent.com/exedys/jingle-lang/master/jingle%20logo.png" alt="Jingle Logo"></a>
 </p>
 
 <h3 align="center">Jingle Lang 2020 v0.01-rc1</h3>
@@ -19,6 +19,10 @@
     <br> 
 </p>
 
+<details>
+<summary>📖 Table of Contents</summary>
+<br />
+  
 ## 📝 Table of Contents
 - [About](#about)
 - [Examples](#examples)
@@ -31,6 +35,7 @@
 - [Contributing](../master/docs/CONTRIBUTING.md)
 - [Changelog](../master/docs/CHANGELOG.md)
 - [Code of Conduct](../master/docs/CODE_OF_CONDUCT.md)
+</details>
 
 ## 📜 About <a name = "about"></a>
 Jingle is a multi-paradigm, statically-typed programming language currently in development. It makes use of type inferrence and compiles to native LLVM IR, allowing code in Jingle to be fast to run and compile while still retaining small source files and binaries. It currently does not come with a static linker, so outputted object files must be compiled manually.
