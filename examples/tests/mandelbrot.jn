@@ -38,7 +38,7 @@ fn Mandel:
         while x < xmax:
             if InMandelbrot(x,y,threshold):
                 echo "*"
-            else
+            else:
                 echo "."
             end
             
@@ -48,7 +48,6 @@ fn Mandel:
         echo "\n"
         y = y - dy
     end
-    return 0
 end
 
 fn Main:
