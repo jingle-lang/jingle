@@ -37,75 +37,7 @@
 </details>
 
 ## 📜 About <a name = "about"></a>
-Jingle is a multi-paradigm, statically-typed programming language currently in development. It makes use of type inferrence and compiles to native LLVM IR, allowing code in Jingle to be fast to run and compile while still retaining small source files and binaries. It currently does not come with a static linker, so outputted object files must be compiled manually.
+Jingle is a multi-paradigm, statically-typed programming language currently in development. It makes use of type inferrence and code in Jingle is fast to run and compile while still retaining small source files and binaries. It currently compiles to its own bytecode virtual machine with an LLVM compiler in progress.
 
-## 📔 Examples <a name = "examples"></a>
-Alright, let's look at how this all works. Here are 2 Hello World applications written in both Java & Jingle, with Java being on top and Jingle being on bottom.
-
-```java
-//Java
-
-public class HelloWorld {
-
-  public static void main(String[] args) {
-      System.out.println("Hello, World");
-  }
-  
-}
-
-// Jingle
-echo "Hello, World"
-```
-
-It is a lot easier to read than Java and when using the LLVM compiler is a lot faster. A good example as well is here:
-```python
-# Python
-print("Hello, World")
-
-# Ruby
-puts "Hello, World"
-```
-
-The Jingle code is very similar to both of these, however is much faster.
-
-As you can see, Jingle is a lot simpler and in this case, just makes more sense. Its syntax is more similar to scripting languages rather than convoluted solutions to incredibly simple tasks. View more examples [here](https://github.com/jingle-lang/jingle/wiki/Syntax-Examples-and-Reference).
-
-## 🏁 Getting Started <a name = "getting_started"></a>
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-We recommend usage of a IDE or text editor that supports Jingle. Main ones that are supported are:
-- Eclipse 
-- IntelliJ IDEA
-- Visual Studio Code
-- Sublime Text *(Coming Soon)*
-- Atom *(Coming Soon)*
-
-### Installing
-
-You can get Jingle through our Jingle Packs at getjingle.org. These will include the binaries, offline documentation, examples and Jingle's package manager, JinglePkg. The Jingle Pack will also create a PATH variable so you can use Jingle straight from the Command Prompt straight away. Check if your installation succeeded by running `jingle` into the console. This should show the following:
-```
-Jingle 2019 v0.01-rc1 - (c) Millo Evers
-run "jingle --help" for commands
-``` 
-
-## 🎈 Usage <a name="usage"></a>
-As Jingle is a general-purpose programming language, its intended usage is to be up to the user and for them to use it for whatever they need it for. However, because it is still a very new language, Jingle cannot be used for as many things other languages can be used for. This is mostly because other languages have a lot of frameworks, libraries, plugins, extensions, etc... that allow developers do what they want. However for most plain/raw usage it should suffice. The language targets the JVM however which will help it support pre-existing libraries.
-
-## 🚀 Deployment <a name = "deployment"></a>
-Please read the Jingle documentation for information about deployment & compiliation.
-
-## ✍️ Authors <a name = "authors"></a>
-- [@midoublelo/Millo Evers](https://github.com/midoublelo) - Creator of Jingle
-
-See also the list of [contributors](https://github.com/jingle-lang/jingle/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- My fellow computer science students for helping me test the language out
-- Terrence Parr for ANTLR
-- Federico Tomasseti for his large amount of resources, great newsletter and detailed book on language construction
-- Thorsten Ball for his excellent books Writing a Compiler in Go and Writing an Interpreter in Go
-- Google for the Go language and Mozilla for the Rust language
-- Chris Lattner & Vikram Adve and the rest of the LLVM Developer group for their work on the LLVM
-- The incredible book Compilers Principles, Techniques and Tools by Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman.
+## Documentation
+https://midoublelo.gitbook.io/jingle-docs/
