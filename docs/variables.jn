@@ -1,17 +1,17 @@
-# Variables are inferred and mutable.
+# Variables are can change both type and value.
 var int1 = 5
 var float1 = 2.5
 var str1 = "Cake"
 var bool1 = true
 
-# Constants are inferred but immutable.
+# Constants cannot change value so cannot change type, unless explicitly converted. 
 const int2 = 6
 const float2 = 3.5
 const str2 = "Bread"
 const bool2 = false
 
-# Lets aren't inferred and immutable
-let int age = 20
-let flt hours = 0.5
-let str egg = "Egg"
-let bool adult = true
+# Lets cannot change type but can change value.
+let age = 20
+let hours = 0.5
+let egg = "Egg"
+let adult = true
