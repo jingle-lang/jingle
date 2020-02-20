@@ -15,7 +15,7 @@
 
 ---
 
-<p align="center"> Jingle is a new & simple programming language for modern-day coding that aims to provide speed without the braces.
+<p align="center"> Jingle is a gradually-typed, multi-paradigm programming language that is fast for humans and for computers.
     <br> 
 </p>
 
@@ -34,7 +34,7 @@
 </details>
 
 ## 📜 About <a name = "about"></a>
-Jingle is a multi-paradigm, statically-typed programming language currently in development. It makes use of type inferrence and code in Jingle is fast to run and compile while still retaining small source files and binaries. It currently compiles to its own bytecode virtual machine with an LLVM compiler in progress.
+Jingle is a multi-paradigm, gradually-typed programming language currently in development. It makes use of type inferrence and code in Jingle is fast to run and compile while still retaining small source files and binaries. It currently compiles to its own bytecode virtual machine with an LLVM compiler in progress.
 
 ## Getting Started <a name = "getting_started"></a>
 clone and run
