@@ -16,6 +16,9 @@ This is a list of examples for Jingle. Their status is listed below. Speeds list
   - [x] Parsing
     - Speed: 0.074 seconds
   - [ ] Running
+- 5000 Line Stress Test
+  - [x] Parsing
+    - Speed: 2.5222 seconds
 - Generic Lexer Test
   - [x] Parsing
     - Speed: 0.0698 seconds
