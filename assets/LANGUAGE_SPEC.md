@@ -1,3 +1,4 @@
+# OUTDATED! Do not use until updated!
 # Jingle Language Specification
 ## Introduction
 Welcome to the Jingle programming language specification.
