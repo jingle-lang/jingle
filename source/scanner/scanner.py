@@ -2011,6 +2011,6 @@ MEMO = (
 )
 Shift = 0
 Reduce = 1
-def Lark_StandAlone(transformer=None, postlex=None):
+def LALRScanner(transformer=None, postlex=None):
   namespace = {'Rule': Rule, 'TerminalDef': TerminalDef}
   return Lark.deserialize(DATA, namespace, MEMO, transformer=transformer, postlex=postlex)
