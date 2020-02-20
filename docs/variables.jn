@@ -1,4 +1,4 @@
-# Variables are can change both type and value.
+# Variables can change both type and value.
 var int1 = 5
 var float1 = 2.5
 var str1 = "Cake"
