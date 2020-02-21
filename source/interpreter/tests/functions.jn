@@ -1,5 +1,3 @@
-var a = 5
-
 fn func(b,c):
   var a = 4
   echo a + b * c
