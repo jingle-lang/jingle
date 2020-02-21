@@ -1,5 +1,5 @@
 fn squareNum(x):
-    x = (x*x)
+    var x = x * x
     echo x
 end
 
