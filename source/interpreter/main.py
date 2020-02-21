@@ -20,7 +20,7 @@ if __name__ == '__main__':
     _visitor = visitor.Visitor()
     result = _visitor.visit(tree, global_env)
 
-    print(f'\njingle result => {result}\n')
+    print(f'\njingle => {result}\n')
     final_time = time.time() - start_time
     final_time = round(final_time, 3)
     print("--- Complete after %s seconds ---" % (final_time))
