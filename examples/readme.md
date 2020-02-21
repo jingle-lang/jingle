@@ -1,33 +1,35 @@
-This is a list of examples for Jingle. Their status is listed below. Speeds listed are average speeds over 5 iterations.
+This is a list of examples for Jingle. Their status is listed below. Parsing speeds listed are average speeds over 5 iterations. Evaluating speeds listed are average speeds over 10 iterations.
 
-- Calculations
+- [ ] Calculations
   - [x] Parsing
     - Speed: 0.067 seconds
-  - [ ] Running
-- Even/Odd
+  - [ ] Evaluating
+- [ ] Even/Odd
   - [x] Parsing
     - Speed: 0.0704 seconds
-  - [ ] Running
-- Factorial
+  - [ ] Evaluating
+- [ ] Factorial
   - [x] Parsing
     - Speed: 0.0684 seconds
-  - [ ] Running
-- Fibonacci
+  - [ ] Evaluating
+- [ ] Fibonacci
   - [x] Parsing
     - Speed: 0.074 seconds
-  - [ ] Running
-- 5000 Line Stress Test
+  - [ ] Evaluating
+- [ ] 5000 Line Stress Test
   - [x] Parsing
     - Speed: 2.5222 seconds
-- Generic Lexer Test
+  - [ ] Evaluating
+- [ ] Generic Lexer Test
   - [x] Parsing
     - Speed: 0.0698 seconds
-  - [ ] Running
-- Mandelbrot
+  - [ ] Evaluating
+- [ ] Mandelbrot
   - [x] Parsing
     - Speed: 0.0792 seconds
-  - [ ] Running
-- Square Numbers
+  - [ ] Evaluating
+- [x] Square Numbers
   - [x] Parsing
-    - Speed: 0.0682 seconds
-  - [ ] Running
+    - Speed: 0.0682 seconds (main parser)
+  - [x] Evaluating
+    - Speed: 0.0329 (subset parser)
