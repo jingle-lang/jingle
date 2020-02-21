@@ -1,0 +1,4 @@
+echo ( 2 + 4 ) * 4
+
+var a = 4
+echo a
