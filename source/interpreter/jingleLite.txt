@@ -1,0 +1,40 @@
+?program: [(state)+]
+
+// statement
+?state: expr
+      | function
+      | assignment
+      | return_state
+function: "fn" new_symbol "(" [parameter ("," parameter)*] ")" ":" program "end"
+assignment: "var" new_symbol "=" expr
+return_state: "echo" expr
+
+// expression
+?expr: term
+     | addition
+     | substraction
+     | function_call
+addition: expr "+" term
+substraction: expr "-" term
+function_call: symbol "(" [expr ("," expr)*] ")"
+
+?term: fact
+     | multiplication
+     | division
+multiplication: term "*" fact
+division: term "/" fact
+
+?fact: number
+     | symbol
+     | priority
+?priority: "(" expr ")"
+symbol: WORD
+number: SIGNED_NUMBER
+
+new_symbol: WORD
+parameter: WORD
+
+%import common.WORD
+%import common.SIGNED_NUMBER
+%import common.WS
+%ignore WS

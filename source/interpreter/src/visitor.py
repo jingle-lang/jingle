@@ -63,7 +63,7 @@ class Visitor():
         right = self.visit(tree.children[1], env)
         return left * right
 
-    def division(self, tree, env):
+    def divisiton(self, tree, env):
         left = self.visit(tree.children[0], env)
         right = self.visit(tree.children[1], env)
         return left / right
