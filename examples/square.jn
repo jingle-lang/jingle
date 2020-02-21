@@ -1,6 +1,6 @@
 fn squareNum(x):
     x = (x*x)
-    echo(x)
+    echo x
 end
 
 squareNum(2) # => 4
