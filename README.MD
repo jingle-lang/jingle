@@ -15,7 +15,7 @@
 
 ---
 
-<p align="center"> Jingle is a gradually-typed, multi-paradigm programming language that is fast for humans and for computers.
+<p align="center"> Jingle is a gradually-typed, multi-paradigm programming language designed for humans and machines.
     <br> 
 </p>
 
