@@ -34,7 +34,10 @@ number: SIGNED_NUMBER
 new_symbol: WORD
 parameter: WORD
 
+COMMENT: /#[^\n]*/
+
 %import common.WORD
 %import common.SIGNED_NUMBER
 %import common.WS
 %ignore WS
+%ignore COMMENT
