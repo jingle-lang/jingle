@@ -7,3 +7,17 @@ Usage:
 1. Choose a test file
 2. Run `python main.py <test file>`
 3. Hope it works!
+
+- Types
+  - [x] Integers
+  - [x] Floats
+  - [ ] Strings
+  - [ ] Booleans
+  - [ ] Nil
+- Features
+  - [x] Variables
+  - [x] Functions
+  - [ ] Comments
+  - [ ] Classes
+  - [x] Printing to console
+  - [ ] Returning values
