@@ -17,7 +17,7 @@ Usage:
 - Features
   - [x] Variables
   - [x] Functions
-  - [ ] Comments
+  - [x] Comments (still untested)
   - [ ] Classes
   - [x] Printing to console
   - [ ] Returning values
