@@ -37,7 +37,11 @@
 Jingle is a multi-paradigm, gradually-typed programming language currently in development. It makes use of type inferrence and code in Jingle is fast to run and compile while still retaining small source files and binaries. It currently compiles to its own bytecode virtual machine with an LLVM compiler in progress.
 
 ## Getting Started <a name = "getting_started"></a>
-clone and run
+For the interpreter:
+  - Clone the project
+  - Open the `interpreter`folder
+  - Run the `main.py`file followed by a source file
+  - Hope it works
 
 ## Documentation <a name = "docs"></a>
 https://midoublelo.gitbook.io/jingle-docs/
