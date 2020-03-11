@@ -3,16 +3,16 @@
 ###
 
 # Required Imports
-from scanner import LALRScanner
+from scanner import LALRParser # Remember to update this in generated parser!
 
 #Optional Imports
 import time
-#from lark import Lark, Transformer, Tree, exceptions
+from lark import Lark, Transformer, Tree, Discard, v_args, UnexpectedInput, exceptions
 start_time = time.time()
 
 
 def parseScan():
-    parser = LALRScanner()
+    parser = Lark_StandAlone()
     input = open("testfile.jn", "r")
     input = input.read()
     tree = parser.parse(input)

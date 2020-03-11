@@ -15,13 +15,13 @@ endblock: COLON statement*
 
 statement: declaration | expression | import_declaration | return_exp | if_statement | else_statement | while_statement | for_statement
 
-declaration: var_declaration | constant_declaration | function_declaration | class_declaration | bind_declaration | let_declaration | trait_declaration
+declaration: var_declaration | constant_declaration | function_declaration | class_declaration | let_declaration | usertype_declaration // bind_declaration
 
 // Expressions and Types
 expression: assignment 
        | test
 
-atom: number | identifier | bool_exp | string | parenthetical | array_type // | vartype
+atom: number | identifier | bool_exp | string | parenthetical | array_type | range_type // | vartype
 //comparison_exp: number | string | bool_exp | identifier
 number: decimal_number | float_number | hex_number
 string: /"(?:[^"\\]|\\.)*"/
@@ -30,6 +30,9 @@ float_number: FLOAT_NUMBER opt_vartype
 hex_number: HEX_NUMBER opt_vartype
 array_type: LBRACK array_comp RBRACK
 array_comp: (test|star_expr) [for_comp | ("," (test|star_expr))+ [","] | ","]
+range_type: inclusive_range | exclusive_range
+inclusive_range: ".."
+exclusive_range: "..."
 bool_exp: TRUE | FALSE
 
 return_exp: RETURN expression
@@ -129,20 +132,22 @@ var_declaration: VAR var_assignment
 constant_declaration: CONSTANT var_assignment
 function_declaration: FUNCTION identifier ( LPAREN opt_arglist RPAREN )? block
 class_declaration: CLASS identifier ( LPAREN opt_arglist RPAREN )? block
-bind_declaration: BIND identifier AS opt_typelist
-let_declaration: LET opt_typelist var_assignment
+//bind_declaration: bind_decl_as | bind_decl_var
+//bind_decl_var: BIND identifier opt_assignment
+//bind_decl_as: BIND identifier AS opt_typelist
+let_declaration: LET var_assignment
 import_declaration: import_direct | import_from | require_declaration
 import_direct: IMPORT string
 import_from: FROM string IMPORT string
 require_declaration: REQUIRE string
-trait_declaration: TRAIT identifier ( LPAREN opt_arglist RPAREN )? block
+usertype_declaration: TYPEDEF identifier ( LPAREN opt_arglist RPAREN )? block
 
 // Optionals
 ?vartype: opt_typelist
 ?opt_vartype: [DOUBLECOLON vartype]
 ?opt_assignment: [ASSIGN expression]
 ?opt_typelist: opt_typelist_width | opt_typelist_typed
-?opt_typelist_typed: "int" | "float" | "str" | "bool" | "char"
+?opt_typelist_typed: "int" | "float" | "str" | "bool" | "char" | "any"
 ?opt_typelist_width: "int8" | "int16" | "int32" | "int64" | "int128" | "uint8" | "uint16" | "uint32" | "uint64" | "uint128"
 ?opt_arglist: [arglist]
 ?opt_call_args: [call_args]
@@ -226,7 +231,7 @@ FUNCTION: "fn"
 CLASS: "class"
 LET: "let"
 BIND: "bind" // Permanent, explicit type casting. Example: var x = 5 (x = 5), bind x as float (x = 5.0)
-TRAIT: "trait"
+TYPEDEF: "type"
 END: "end"
 ECHO: "echo"
 IF: "if"
