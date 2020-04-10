@@ -1,7 +1,10 @@
-fn factorial(n):
-  if n <= 0:
-    echo 1
-  else:
-    echo n * factorial(n-1)
-  end
+fn main() int:
+    var fact:int = 1
+    var n:int = 1
+    while n < 10:
+       fact = fact * n
+       echo fact
+       n = n + 1
+    end
+    return 0
 end
