@@ -1,9 +1,17 @@
+# checker.py
+
 from collections import ChainMap
 from .errors import error
 from .ast import *
 from .typesys import Type, FloatType, IntType, CharType, BoolType
 
 class CheckProgramVisitor(NodeVisitor):
+    '''
+    Program checking class.   This class uses the visitor pattern as described
+    in ast.py.   You need to define methods of the form visit_NodeName()
+    for each kind of AST node that you want to process.  You may need to
+    adjust the method names here if you've picked different AST node names.
+    '''
     def __init__(self):
         # Initialize the symbol table
         self.symbols = { }
@@ -290,7 +298,7 @@ def main():
     from .parser import parse
 
     if len(sys.argv) < 2:
-        sys.stderr.write('Usage: python3 -m compiler.checker filename\n')
+        sys.stderr.write('Usage: python3 -m jingle.checker filename\n')
         raise SystemExit(1)
 
     ast = parse(open(sys.argv[1]).read())

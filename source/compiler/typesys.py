@@ -1,8 +1,8 @@
-# gone/typesys.py
+# typesys.py
 '''
-Gone Type System
+Jingle Type System
 ================
-This file implements basic features of the Gone type system.  There is
+This file implements basic features of the Jingle type system.  There is
 a lot of flexibility possible here, but the best strategy might be to
 not overthink the problem.  At least not at first.  Here are the
 minimal basic requirements:

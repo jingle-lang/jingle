@@ -1,4 +1,9 @@
 # compile.py
+#
+# Compiles Jingle code to a standalone executable using Clang.  This
+# requires the clang compiler to be installed on your machine.  You
+# might have to fiddle with some of the path settings and other details
+# to make this work.
 
 import subprocess
 import sys
@@ -16,7 +21,7 @@ CLANG = 'clang'
 
 def main():
     if len(sys.argv) != 2:
-        sys.stderr.write("Usage: python3 -m gone.compile filename\n")
+        sys.stderr.write("Usage: python3 -m jingle.compile filename\n")
         raise SystemExit(1)
 
     source = open(sys.argv[1]).read()

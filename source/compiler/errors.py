@@ -1,4 +1,5 @@
 # errors.py
+
 import sys
 
 _num_errors = 0

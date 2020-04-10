@@ -1,4 +1,4 @@
-# gone/ircode.py
+# ircode.py
 '''
 Project 4
 =========
@@ -192,7 +192,7 @@ class GenerateCode(ast.NodeVisitor):
         self.label_count = 0
 
         # Special function to collect all global statements
-        init_function = Function("__gone_init", [], IR_TYPE_MAPPING['int'])
+        init_function = Function("__jn_init", [], IR_TYPE_MAPPING['int'])
 
         self.functions = [ init_function ]
 
@@ -414,7 +414,7 @@ class GenerateCode(ast.NodeVisitor):
         self.functions.append(func)
 
         if func.name == "main":
-            func.name = "__gone_main"
+            func.name = "__jn_main"
 
         # And switch the current function to the new one
         old_code = self.code

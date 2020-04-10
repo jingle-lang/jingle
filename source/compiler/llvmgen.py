@@ -1,18 +1,5 @@
-# gone/llvmgen.py
-'''
-Project 5 : Generate LLVM
-=========================
-In this project, you're going to translate the intermediate code
-into LLVM IR.    Once you're done, your code will be runnable.  It
-is strongly advised that you do *all* of the steps of Exercise 5
-prior to starting this project.   Don't rush into it.
+# llvmgen.py
 
-For Project 5, you are going to emit all of the LLVM instructions into
-a single function main().  This is a temporary shim to get things to
-work before we implement further support for user-defined functions later.
-
-Further instructions are contained in the comments below.
-'''
 from collections import ChainMap
 from functools import partialmethod
 
@@ -331,7 +318,7 @@ def main():
     import sys
 
     if len(sys.argv) != 2:
-        sys.stderr.write("Usage: python3 -m gone.llvmgen filename\n")
+        sys.stderr.write("Usage: python3 -m jingle.llvmgen filename\n")
         raise SystemExit(1)
 
     source = open(sys.argv[1]).read()

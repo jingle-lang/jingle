@@ -1,6 +1,6 @@
 /* jnruntime.c
 
-   This file contains runtime support functions for the Gone language
+   This file contains runtime support functions for Jingle
    as well as boot-strapping code related to getting the main program
    to run.
 */
@@ -27,11 +27,11 @@ void _print_byte(char c) {
 /* Bootstrapping code for a stand-alone executable */
 
 #ifdef NEED_MAIN
-extern void __gone_init(void);
-extern int __gone_main(void);
+extern void __jn_init(void);
+extern int __jn_main(void);
 
 int main() {
-  __gone_init();
-  return __gone_main();
+  __jn_init();
+  return __jn_main();
 }
 #endif

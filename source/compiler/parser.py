@@ -1,11 +1,6 @@
-# gone/parser.py
+# parser.py
 '''
-Project 2:  Write a parser
-==========================
-In this project, you write the basic shell of a parser for Gone.  A
-formal BNF of the language follows.  Your task is to write parsing
-rules and build the AST for this grammar using SLY.  The following
-grammar is partial.  More features get added in later projects.
+Jingle Grammar
 
 program : block
         | empty
@@ -89,36 +84,15 @@ datatype : ID
 
 empty    :
 
-To do the project, follow the instructions contained below.
 '''
 
-# ----------------------------------------------------------------------
-# parsers are defined using SLY.  You inherit from the Parser class
-#
-# See http://sly.readthedocs.io/en/latest/
-# ----------------------------------------------------------------------
 from sly import Parser
-
-# ----------------------------------------------------------------------
-# The following import loads a function error(lineno,msg) that should be
-# used to report all error messages issued by your parser.  Unit tests and
-# other features of the compiler will rely on this function.  See the
-# file errors.py for more documentation about the error handling mechanism.
 from .errors import error
-
-# ----------------------------------------------------------------------
-# Import the lexer class.  It's token list is needed to validate and
-# build the parser object.
-from .tokenizer import GoneLexer
-
-# ----------------------------------------------------------------------
-# Get the AST nodes.
-# Read instructions in ast.py
+from .scanner import JingleLexer
 from .ast import *
 
-class GoneParser(Parser):
-    # Same token set as defined in the lexer
-    tokens = GoneLexer.tokens
+class JingleParser(Parser):
+    tokens = JingleLexer.tokens
 
     # ----------------------------------------------------------------------
     # Operator precedence table.   Operators must follow the same
@@ -400,8 +374,8 @@ def parse(source):
     '''
     Parse source code into an AST. Return the top of the AST tree.
     '''
-    lexer = GoneLexer()
-    parser = GoneParser()
+    lexer = JingleLexer()
+    parser = JingleParser()
     ast = parser.parse(lexer.tokenize(source))
     return ast
 
@@ -412,7 +386,7 @@ def main():
     import sys
 
     if len(sys.argv) != 2:
-        sys.stderr.write('Usage: python3 -m gone.parser filename\n')
+        sys.stderr.write('Usage: python3 -m jingle.parser filename\n')
         raise SystemExit(1)
 
     # Parse and create the AST

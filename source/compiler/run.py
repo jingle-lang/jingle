@@ -1,12 +1,8 @@
-# gone/run.py
+# run.py
 #
-# Project 5:
-# ----------
-# Runs a Gone program in a LLVM JIT.   This requires that the
-# Gone runtime support library (jnruntime.c) be compiled into a shared
+# Runs a Jingle program in a LLVM JIT.   This requires that the
+# Jingle runtime support library (jnruntime.c) be compiled into a shared
 # object and placed in the same directory as this file.
-#
-# Note:  This project will require minor modification in Project 8
 
 import os
 import os.path
@@ -36,14 +32,13 @@ def run(llvm_ir):
 
     # Execute the main() function
     #
-    # !!! Note: Requires modification in Project 8 (see below)
     main_ptr = engine.get_function_address('main')
     main_func = ctypes.CFUNCTYPE(None)(main_ptr)
     main_func()
 
-    # Project 8:  Modify the above code to execute the Gone __init()
-    # function that initializes global variables.  Then add code below
-    # that executes the Gone main() function.
+    # Modify the above code to execute the Jingle __init() function
+    # that initializes global variables.  Then add code below
+    # that executes the Jingle main() function.
 
 def main():
     from .errors import errors_reported
@@ -51,7 +46,7 @@ def main():
     import sys
 
     if len(sys.argv) != 2:
-        sys.stderr.write("Usage: python3 -m gone.run filename\n")
+        sys.stderr.write("Usage: python3 -m jingle.run filename\n")
         raise SystemExit(1)
 
     source = open(sys.argv[1]).read()

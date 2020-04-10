@@ -1,3 +1,5 @@
+# ast.py
+
 # DO NOT MODIFY
 class AST(object):
     _nodes = { }
@@ -186,6 +188,12 @@ class NodeVisitor(object):
 
 # DO NOT MODIFY
 def flatten(top):
+    '''
+    Flatten the entire parse tree into a list for the purposes of
+    debugging and testing.  This returns a list of tuples of the
+    form (depth, node) where depth is an integer representing the
+    parse tree depth and node is the associated AST node.
+    '''
     class Flattener(NodeVisitor):
         def __init__(self):
             self.depth = 0
