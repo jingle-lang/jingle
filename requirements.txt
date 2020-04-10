@@ -1,1 +1,3 @@
 lark-parser
+sly
+llvmlite
