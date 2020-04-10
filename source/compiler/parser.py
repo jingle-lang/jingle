@@ -106,39 +106,6 @@ class JingleParser(Parser):
         ('right', 'UNARY')
     )
 
-    # ----------------------------------------------------------------------
-    # YOUR TASK.   Translate the BNF in the string below into a collection
-    # of parser functions.  For example, a rule such as :
-    #
-    #   program : statements
-    #
-    # Gets turned into a Python method like this:
-    #
-    # @_('statements')
-    # def program(self, p):
-    #      return Program(p.statements)
-    #
-    # For symbols such as '(' or '+', you'll need to replace with the name
-    # of the corresponding token such as LPAREN or PLUS.
-    #
-    # In the body of each rule, create an appropriate AST node and return it
-    # as shown above.
-    #
-    # For the purposes of lineno number tracking, you should assign a line number
-    # to each AST node as appropriate.  To do this, I suggest pulling the
-    # line number off of any nearby terminal symbol.  For example:
-    #
-    # @_('PRINT expr')
-    # def print_statement(self, p):
-    #     return PrintStatement(p.expr, lineno=p.lineno)
-    #
-    # STARTING OUT
-    # ============
-    # The following grammar rules should give you an idea of how to start.
-    # Try running this file on the input Tests/parsetest0.g
-    #
-    # Afterwards, add features by looking at the code in Tests/parsetest1-6.g
-
     @_("statements")
     def block(self, p):
         return p.statements
@@ -211,7 +178,7 @@ class JingleParser(Parser):
     def func_params(self, p):
         return []
 
-    @_('ID datatype')
+    @_('ID COLON datatype')
     def func_param(self, p):
         return FuncParameter(p.ID, p.datatype, lineno=p.lineno)
 

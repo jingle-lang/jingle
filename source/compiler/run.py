@@ -40,6 +40,8 @@ def run(llvm_ir):
     # that initializes global variables.  Then add code below
     # that executes the Jingle main() function.
 
+    # llvmlite.binding.load_library_permanently(filename)
+
 def main():
     from .errors import errors_reported
     from .llvmgen import compile_llvm
