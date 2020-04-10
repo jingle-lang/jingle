@@ -1,9 +1,18 @@
-# fibonacci.jn
+const LAST = 30
 
-fn fibonacci(number):
-  if number < 2:
-    echo number
-  else:
-    echo fibonacci(number - 1) + fibonacci(number - 2)
-  end
+fn fibonacci(n: int) int:
+    if n > 1:
+        return fibonacci(n-1) + fibonacci(n-2)
+    end else:
+        return 1
+    end
+end
+
+fn main() int:
+    var n:int = 0
+    while n < LAST:
+        echo fibonacci(n)
+        n = n + 1
+     end
+     return 0
 end
