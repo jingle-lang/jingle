@@ -1,10 +1,9 @@
-fn squareNum(x):
-    var x = x * x
-    echo x
+fn square(x: float) float:
+    x = x * x
+    return x
 end
 
-squareNum(2) # => 4
-squareNum(8) # => 64
-squarenum(17) # => 289
-squareNum(48) # => 2304
-squareNum(50) # => 2500
+fn main() int:
+    echo square(60.5)
+    return 0
+end
