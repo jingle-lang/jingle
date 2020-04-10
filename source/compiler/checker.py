@@ -1,122 +1,9 @@
-# gone/checker.py
-'''
-*** Do not start this project until you have fully completed Exercise 3. ***
-
-Overview
---------
-In this project you need to perform semantic checks on your program.
-This problem is multifaceted and complicated.  To make it somewhat
-less brain exploding, you need to take it slow and in small parts.
-The basic gist of what you need to do is as follows:
-
-1.  Names and symbols:
-
-    All identifiers must be defined before they are used.  This
-    includes variables, constants, and typenames.  For example, this
-    kind of code generates an error:
-
-       a = 3;              // Error. 'a' not defined.
-       var a int;
-
-2.  Types of literals and constants
-
-    All literal symbols are implicitly typed and must be assigned a
-    type of "int", "float", or "char".  This type is used to set
-    the type of constants.  For example:
-
-       const a = 42;         // Type "int"
-       const b = 4.2;        // Type "float"
-       const c = 'a';        // Type "char""
-
-3.  Operator type checking
-
-    Binary operators only operate on operands of a compatible type.
-    Otherwise, you get a type error.  For example:
-
-        var a int = 2;
-        var b float = 3.14;
-
-        var c int = a + 3;    // OK
-        var d int = a + b;    // Error.  int + float
-        var e int = b + 4.5;  // Error.  int = float
-
-    In addition, you need to make sure that only supported
-    operators are allowed.  For example:
-
-        var a char = 'a';        // OK
-        var b char = 'a' + 'b';  // Error (unsupported op +)
-
-4.  Assignment.
-
-    The left and right hand sides of an assignment operation must be
-    declared as the same type.
-
-        var a int;
-        a = 4 + 5;     // OK
-        a = 4.5;       // Error. int = float
-
-    Values can only be assigned to variable declarations, not
-    to constants.
-
-        var a int;
-        const b = 42;
-
-        a = 37;        // OK
-        b = 37;        // Error. b is const
-
-Implementation Strategy:
-------------------------
-You're going to use the NodeVisitor class defined in gone/ast.py to
-walk the parse tree.   You will be defining various methods for
-different AST node types.  For example, if you have a node BinOp,
-you'll write a method like this:
-
-      def visit_BinOp(self, node):
-          ...
-
-To start, make each method simply print out a message:
-
-      def visit_BinOp(self, node):
-          print('visit_BinOp:', node)
-          self.visit(node.left)
-          self.visit(node.right)
-
-This will at least tell you that the method is firing.  Try some
-simple code examples and make sure that all of your methods
-are actually running when you walk the parse tree.
-
-Testing
--------
-The files Tests/checktest0-7.g contain different things you need
-to check for.  Specific instructions are given in each test file.
-
-General thoughts and tips
--------------------------
-The main thing you need to be thinking about with checking is program
-correctness.  Does this statement or operation that you're looking at
-in the parse tree make sense?  If not, some kind of error needs to be
-generated.  Use your own experiences as a programmer as a guide (think
-about what would cause an error in your favorite programming
-language).
-
-One challenge is going to be the management of many fiddly details.
-You've got to track symbols, types, and different sorts of capabilities.
-It's not always clear how to best organize all of that.  So, expect to
-fumble around a bit at first.
-'''
-
 from collections import ChainMap
 from .errors import error
 from .ast import *
 from .typesys import Type, FloatType, IntType, CharType, BoolType
 
 class CheckProgramVisitor(NodeVisitor):
-    '''
-    Program checking class.   This class uses the visitor pattern as described
-    in ast.py.   You need to define methods of the form visit_NodeName()
-    for each kind of AST node that you want to process.  You may need to
-    adjust the method names here if you've picked different AST node names.
-    '''
     def __init__(self):
         # Initialize the symbol table
         self.symbols = { }
@@ -403,7 +290,7 @@ def main():
     from .parser import parse
 
     if len(sys.argv) < 2:
-        sys.stderr.write('Usage: python3 -m gone.checker filename\n')
+        sys.stderr.write('Usage: python3 -m compiler.checker filename\n')
         raise SystemExit(1)
 
     ast = parse(open(sys.argv[1]).read())
