@@ -1,55 +1,50 @@
-###
-### Mandelbrot Fractals implemented in Jingle
-###
+const xmin = -2.0
+const xmax = 1.0
+const ymin = -1.5
+const ymax = 1.5
+const width = 80.0
+const height = 40.0
+const threshold = 1000
 
-const X_MIN = -2.0
-const X_MAX = 1.0
-const Y_MIN = -1.5
-const Y_MAX = 1.5
-const WIDTH = 80.0
-const HEIGHT = 40.0
-const THRESHOLD = 1000
-
-fn InMandelbrot(x0: float, y1: float, n: int) do
-    var x = 0.0
-    var y = 0.0
-    var xtemp = 0.0
-    while n > 0 do
+fn in_mandelbrot(x0: float, y0: float, n: int) bool:
+    var x:float = 0.0
+    var y:float = 0.0
+    var xtemp:float
+    while n > 0:
         xtemp = x*x - y*y + x0
         y = 2.0*x*y + y0
         x = xtemp
         n = n - 1
-        if x*x + y*y > 4.0 do
+        if x*x + y*y > 4.0:
             return false
         end
     end
     return true
 end
 
-fn Mandel() do
-    var dx = (X_MAX - X_MIN)/width
-    var dy = (Y_MAX - Y_MAX)/height
-    
-    var y = Y_MAX
-    var x = 0.0
-    
-    while y >= Y_MIN do
-        x = X_MAX
-        while x < X_MAX do
-            if InMandelbrot(x,y,threshold) do
-                echo "*"
-            else do
-                echo "."
-            end
-            
-            x = x + dx
-        end
-        
-        echo "\n"
-        y = y - dy
-    end
+fn mandel() int:
+     var dx:float = (xmax - xmin)/width
+     var dy:float = (ymax - ymin)/height
+
+     var y:float = ymax
+     var x:float
+
+     while y >= ymin:
+         x = xmin
+         while x < xmax:
+             if in_mandelbrot(x,y,threshold):
+                echo '*'
+             end else:
+                echo '.'
+             end
+             x = x + dx
+         end
+         echo '\n'
+         y = y - dy
+     end
+     return 0
 end
 
-fn Main() do
-    return Mandel()
+fn main() int:
+    return mandel()
 end
