@@ -1,14 +1,3 @@
-# gone/ast.py
-'''
-Abstract Syntax Tree (AST) objects.
-
-This file defines classes for different kinds of nodes of an Abstract
-Syntax Tree.  During parsing, you will create these nodes and connect
-them together.  In general, you will have a different AST node for
-each kind of grammar rule.  A few sample AST nodes can be found at the
-top of this file.  You will need to add more on your own.
-'''
-
 # DO NOT MODIFY
 class AST(object):
     _nodes = { }
@@ -46,33 +35,6 @@ class AST(object):
         argstr = ', '.join(f'{name}={type(val).__name__ if isinstance(val, AST) else repr(val)}'
                            for name, val in zip(self._fields, vals))
         return f'{type(self).__name__}({argstr})'
-
-# ----------------------------------------------------------------------
-# Specific AST nodes.
-#
-# For each of these nodes, you need to add the appropriate _fields = []
-# specification that indicates what fields are to be stored.  Just as
-# an example, for a binary operator, you might store the operator, the
-# left expression, and the right expression like this:
-#
-#    class Expression(AST):
-#          pass
-#
-#    class BinOp(AST):
-#          op: str
-#          left: Expression
-#          right: Expression
-#
-# In the parser.py file, you're going to create nodes using code
-# similar to this:
-#
-#    class GoneParser(Parser):
-#        ...
-#        @_('expr PLUS expr')
-#        def expr(self, p):
-#            return BinOp(p[1], p.expr0, p.expr1)
-#
-# ----------------------------------------------------------------------
 
 # Abstract AST nodes
 class Statement(AST):
@@ -190,27 +152,6 @@ class WriteLocation(Statement):
 
 # DO NOT MODIFY
 class NodeVisitor(object):
-    '''
-    Class for visiting nodes of the parse tree.  This is modeled after
-    a similar class in the standard library ast.NodeVisitor.  For each
-    node, the visit(node) method calls a method visit_NodeName(node)
-    which should be implemented in subclasses.  The generic_visit() method
-    is called for all nodes where there is no matching visit_NodeName() method.
-
-    Here is a example of a visitor that examines binary operators:
-
-        class VisitOps(NodeVisitor):
-            visit_BinOp(self,node):
-                print('Binary operator', node.op)
-                self.visit(node.left)
-                self.visit(node.right)
-            visit_UnaryOp(self,node):
-                print('Unary operator', node.op)
-                self.visit(node.expr)
-
-        tree = parse(txt)
-        VisitOps().visit(tree)
-    '''
     def visit(self, node):
         '''
         Execute a method of the form visit_NodeName(node) where
@@ -245,12 +186,6 @@ class NodeVisitor(object):
 
 # DO NOT MODIFY
 def flatten(top):
-    '''
-    Flatten the entire parse tree into a list for the purposes of
-    debugging and testing.  This returns a list of tuples of the
-    form (depth, node) where depth is an integer representing the
-    parse tree depth and node is the associated AST node.
-    '''
     class Flattener(NodeVisitor):
         def __init__(self):
             self.depth = 0
