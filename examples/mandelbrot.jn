@@ -10,35 +10,35 @@ const WIDTH = 80.0
 const HEIGHT = 40.0
 const THRESHOLD = 1000
 
-fn InMandelbrot(x0, y1, n):
+fn InMandelbrot(x0: float, y1: float, n: int) do
     var x = 0.0
     var y = 0.0
     var xtemp = 0.0
-    while n > 0:
+    while n > 0 do
         xtemp = x*x - y*y + x0
         y = 2.0*x*y + y0
         x = xtemp
         n = n - 1
-        if x*x + y*y > 4.0:
+        if x*x + y*y > 4.0 do
             return false
         end
     end
     return true
 end
 
-fn Mandel:
+fn Mandel() do
     var dx = (X_MAX - X_MIN)/width
     var dy = (Y_MAX - Y_MAX)/height
     
     var y = Y_MAX
     var x = 0.0
     
-    while y >= Y_MIN:
+    while y >= Y_MIN do
         x = X_MAX
-        while x < X_MAX:
-            if InMandelbrot(x,y,threshold):
+        while x < X_MAX do
+            if InMandelbrot(x,y,threshold) do
                 echo "*"
-            else:
+            else do
                 echo "."
             end
             
@@ -50,6 +50,6 @@ fn Mandel:
     end
 end
 
-fn Main:
+fn Main() do
     return Mandel()
 end
