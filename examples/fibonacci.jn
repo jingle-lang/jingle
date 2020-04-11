@@ -9,7 +9,7 @@ fn fibonacci(n: int) int:
 end
 
 fn main() int:
-    var n:int = 0
+    var n: int = 0
     while n < LAST:
         echo fibonacci(n)
         n = n + 1

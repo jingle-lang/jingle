@@ -1,6 +1,6 @@
 fn main() int:
-    var fact:int = 1
-    var n:int = 1
+    var fact: int = 1
+    var n: int = 1
     while n < 10:
        fact = fact * n
        echo fact
