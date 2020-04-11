@@ -19,6 +19,7 @@ OP_CODES = ChainMap(
         '-': 'SUB',
         '*': 'MUL',
         '/': 'DIV',
+        '%': 'MOD',
         '&&': 'AND',
         '||': 'OR',
         'echo': 'PRINT',

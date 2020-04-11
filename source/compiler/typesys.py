@@ -13,7 +13,7 @@ minimal basic requirements:
 
 '''
 
-ARITHM_BIN_OPS = ["+", "-", "*", "/"]
+ARITHM_BIN_OPS = ["+", "-", "*", "/", "%"]
 ARITHM_UNARY_OPS = ["+", "-"]
 
 REL_BIN_OPS = ["<", "<=", ">", ">=", "==", "!="]

@@ -266,6 +266,7 @@ class JingleParser(Parser):
        'expression GE expression',
        'expression EQ expression',
        'expression NE expression',
+       'expression MOD expression',
        'expression AND expression',
        'expression OR expression')
     def expression(self, p):

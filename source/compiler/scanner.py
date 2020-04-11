@@ -18,7 +18,7 @@ class JingleLexer(Lexer):
         'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'ASSIGN', 'SEMI', 'COMMA',
 
         # Bool operators
-        'LE', 'LT', 'GE', 'GT', 'EQ', 'NE', 'AND', 'OR', 'NOT',
+        'LE', 'LT', 'GE', 'GT', 'EQ', 'NE', 'AND', 'OR', 'NOT', 'MOD',
 
         # Other symbols
         'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE', 'COLON',
@@ -43,6 +43,7 @@ class JingleLexer(Lexer):
     LT = r'<'
     GE = r'>='
     GT = r'>'
+    MOD = r'%'
     EQ = r'=='
     NE = r'!='
     AND = r'&&'

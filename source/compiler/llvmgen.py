@@ -214,6 +214,13 @@ class GenerateLLVM(object):
     def emit_DIVF(self, left, right, target):
         self.temps[target] = self.builder.fdiv(self.temps[left], self.temps[right], name=target)
 
+    # Binary % operator
+    def emit_MODI(self, left, right, target):
+        self.temps[target] = self.builder.srem(self.temps[left], self.temps[right], name=target)
+
+    def emit_MODF(self, left, right, target):
+        self.temps[target] = self.builder.frem(self.temps[left], self.temps[right], name=target)
+
     # Print statements
     def emit_PRINT(self, source, runtime_name):
         self.builder.call(self.runtime[runtime_name], [self.temps[source]])
