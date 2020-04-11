@@ -1,0 +1,13 @@
+# E = Even
+# O = Odd
+
+fn main() int:
+    var num: float = 5.0
+    var eq: float = num % 2.0
+    if eq == 0.0:
+        echo 'E'
+    end else:
+        echo 'O'
+    end
+    return 0
+end
