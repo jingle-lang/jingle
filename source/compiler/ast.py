@@ -73,6 +73,9 @@ class FloatLiteral(Literal):
 class CharLiteral(Literal):
     value : str
 
+#class StringLiteral(Literal):
+#    value : str
+
 class BoolLiteral(Literal):
     value : str
 

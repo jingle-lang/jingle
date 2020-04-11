@@ -15,7 +15,7 @@ class JingleLexer(Lexer):
         'INTEGER', 'FLOAT', 'CHAR', 'BOOL',
 
         # Operators
-        'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'ASSIGN', 'SEMI', 'COMA',
+        'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'ASSIGN', 'SEMI', 'COMMA',
 
         # Bool operators
         'LE', 'LT', 'GE', 'GT', 'EQ', 'NE', 'AND', 'OR', 'NOT',
@@ -31,7 +31,7 @@ class JingleLexer(Lexer):
         self.lineno += token.value.count('\n')
         return None
 
-    @_(r'//.*')
+    @_(r'#.*')
     def LINE_COMMENT(self, token):
         return None
 
@@ -55,7 +55,7 @@ class JingleLexer(Lexer):
     DIVIDE = r'/'
     ASSIGN = r'='
     SEMI = r';'
-    COMA = r','
+    COMMA = r','
     LPAREN = r'\('
     RPAREN = r'\)'
 
@@ -68,6 +68,8 @@ class JingleLexer(Lexer):
     INTEGER = r'(0x[0-9ABCDEF]+)|(0b[01]+)|(0o[0-5]+)|\d+'
 
     CHAR = r"'((\\n)|(\\x[0-9a-f]{2})|(\\')|(\\\\)|.)'"
+
+    #STRING = r'\"(\\.|[^\"])*\"'
 
     BOOL = r'(true)|(false)'
 
@@ -98,7 +100,7 @@ class JingleLexer(Lexer):
 # ----------------------------------------------------------------------
 #                DO NOT CHANGE ANYTHING BELOW THIS PART
 #
-# Use this main program to test/debug your lexer.  Run it using the -m option
+# Use this main program to test/debug the lexer.  Run it using the -m option
 #
 #    bash % python3 -m jingle.scanner filename.jn
 #

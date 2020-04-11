@@ -9,7 +9,7 @@ an LLVM dependency.
 
 To run a program use:
 
-    python3 -m jingle.vm someprogram.g
+    python3 -m jingle.vm someprogram.jn
 
 '''
 import sys
@@ -29,15 +29,16 @@ class Interpreter(object):
         # Registers
         self.registers = { }
 
+    def run_MOVI(self, value, target):
+        self.registers[target] = value
+    run_MOVF = run_MOVI
+    run_MOVB = run_MOVI
+
     def execute(self, code):
         for inst, *args in code:
             getattr(self, f'run_{inst}')(*args)
         
     # Interpreter opcodes
-    def run_MOVI(self, value, target):
-        self.registers[target] = value
-    run_MOVF = run_MOVI
-    run_MOVB = run_MOVI
 
     def run_ADDI(self, left, right, target):
         self.registers[target] = self.registers[left] + self.registers[right]

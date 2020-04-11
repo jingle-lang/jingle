@@ -22,7 +22,7 @@ statement :  const_declaration
 
 func_declaration : FN ID LPAREN func_params RPAREN datatype COLON block END
 
-func_params : func_param COMA func_params
+func_params : func_param COMMA func_params
             | func_param
             | empty
 
@@ -64,7 +64,7 @@ expression :  + expression
 
 func_call : ID LPAREN arguments RPAREN 
 
-arguments : arguments COMA argument
+arguments : arguments COMMA argument
           | argument
           | empty
 
@@ -75,6 +75,7 @@ literal : INTEGER
         | FLOAT
         | CHAR
         | BOOL
+        | STRING
 
 location : ID
          ;
@@ -165,7 +166,7 @@ class JingleParser(Parser):
     def func_declaration(self, p):
         return FuncDeclaration(p.ID, p.func_params, p.datatype, p.block, lineno=p.lineno)
 
-    @_('func_params COMA func_param')
+    @_('func_params COMMA func_param')
     def func_params(self, p):
         p.func_params.append(p.func_param)
         return p.func_params
@@ -192,7 +193,7 @@ class JingleParser(Parser):
     def func_call(self, p):
         return FuncCall(p.ID, p.arguments, lineno=p.lineno)
 
-    @_('arguments COMA argument')
+    @_('arguments COMMA argument')
     def arguments(self, p):
         p.arguments.append(p.argument)
         return p.arguments
@@ -305,6 +306,10 @@ class JingleParser(Parser):
     @_('CHAR')
     def literal(self, p):
         return CharLiteral(eval(p.CHAR), lineno=p.lineno)
+
+    #@_('STRING')
+    #def literal(self, p):
+    #    return StringLiteral(eval(p.STRING), lineno=p.lineno)
 
     @_('BOOL')
     def literal(self, p):

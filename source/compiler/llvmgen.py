@@ -7,7 +7,7 @@ from functools import partialmethod
 
 from llvmlite.ir import (
     Module, IRBuilder, Function, IntType, DoubleType, VoidType, Constant,
-    GlobalVariable, FunctionType
+    GlobalVariable, FunctionType, ArrayType
     )
 
 # Declare the LLVM type objects that you want to use for the low-level
@@ -19,6 +19,8 @@ from llvmlite.ir import (
 int_type    = IntType(32)         # 32-bit integer
 float_type  = DoubleType()        # 64-bit float
 byte_type   = IntType(8)          # 8-bit integer
+#string_type = IntType(8)
+# string_type = ArrayType(IntType(8),1)
 
 void_type   = VoidType()          # Void type.  This is a special type
                                   # used for internal functions returning
@@ -28,46 +30,12 @@ LLVM_TYPE_MAPPING = {
     'I': int_type,
     'F': float_type,
     'B': byte_type,
+    #'S': string_type,
     None: void_type
 }
 
-# The following class is going to generate the LLVM instruction stream.
-# The basic features of this class are going to mirror the experiments
-# you tried in Exercise 5.  The execution model is somewhat similar
-# to the visitor class.
-#
-# Given a sequence of instruction tuples such as this:
-#
-#         code = [
-#              ('MOVI', 1, 'R1'),
-#              ('MOVI', 2, 'R2')
-#              ('ADDI', 'R1', 'R2', 'R3')
-#              ('PRINTI', 'R3')
-#              ...
-#         ]
-#
-#    The class executes methods self.emit_opcode(args).  For example:
-#
-#             self.emit_MOVI(1, 'R1')
-#             self.emit_MOVI(2, 'R2')
-#             self.emit_ADDI('R1', 'R2', 'R3')
-#             self.emit_PRINTI('R3')
-#
-#    Internally, you'll need to track variables, constants and other
-#    objects being created.  Use a Python dictionary to emulate
-#    storage.
-
 class GenerateLLVM(object):
     def __init__(self):
-        # Perform the basic LLVM initialization.  You need the following parts:
-        #
-        #    1.  A top-level Module object
-        #    2.  A Function instance in which to insert code
-        #    3.  A Builder instance to generate instructions
-        #
-        # Note: For project 5, we don't have any user-defined
-        # functions so we're just going to emit all LLVM code into a top
-        # level function void main() { ... }.   This will get changed later.
 
         self.module = Module('module')
 
@@ -101,6 +69,10 @@ class GenerateLLVM(object):
         self.runtime['_print_byte'] = Function(self.module,
                                                 FunctionType(void_type, [byte_type]),
                                                 name="_print_byte")
+
+        #self.runtime['_print_string'] = Function(self.module,
+        #                                        FunctionType(void_type, [string_type]),
+        #                                        name="_print_string")
 
     def generate_code(self, ir_function):
         # Given a sequence of SSA intermediate code tuples, generate LLVM
@@ -163,8 +135,7 @@ class GenerateLLVM(object):
         return block
 
     # ----------------------------------------------------------------------
-    # Opcode implementation.   You must implement the opcodes.  A few
-    # sample opcodes have been given to get you started.
+    # Opcode implementation.
     # ----------------------------------------------------------------------
 
     # Creation of literal values.  Simply define as LLVM constants.
@@ -174,6 +145,7 @@ class GenerateLLVM(object):
     emit_MOVI = partialmethod(emit_MOV, val_type=int_type)
     emit_MOVF = partialmethod(emit_MOV, val_type=float_type)
     emit_MOVB = partialmethod(emit_MOV, val_type=byte_type)
+    #emit_MOVS = partialmethod(emit_MOV, val_type=string_type)
 
     # Allocation of GLOBAL variables.  Declare as global variables and set to
     # a sensible initial value.
@@ -185,6 +157,7 @@ class GenerateLLVM(object):
     emit_VARI = partialmethod(emit_VAR, var_type=int_type)
     emit_VARF = partialmethod(emit_VAR, var_type=float_type)
     emit_VARB = partialmethod(emit_VAR, var_type=byte_type)
+    #emit_VARS = partialmethod(emit_VAR, var_type=string_type)
 
     # Allocation of LOCAL variables.  Declare as local variables and set to
     # a sensible initial value.
@@ -194,6 +167,7 @@ class GenerateLLVM(object):
     emit_ALLOCI = partialmethod(emit_ALLOC, var_type=int_type)
     emit_ALLOCF = partialmethod(emit_ALLOC, var_type=float_type)
     emit_ALLOCB = partialmethod(emit_ALLOC, var_type=byte_type)
+    #emit_ALLOCS = partialmethod(emit_ALLOC, var_type=string_type)
 
     # Load/store instructions for variables.  Load needs to pull a
     # value from a global variable and store in a temporary. Store
@@ -203,12 +177,14 @@ class GenerateLLVM(object):
 
     emit_LOADF = emit_LOADI
     emit_LOADB = emit_LOADI
+    emit_LOADS = emit_LOADI
 
     def emit_STOREI(self, source, target):
         self.builder.store(self.temps[source], self.vars[target])
 
     emit_STOREF = emit_STOREI
     emit_STOREB = emit_STOREI
+    emit_STORES = emit_STOREI
 
     # Binary + operator
     def emit_ADDI(self, left, right, target):
@@ -245,6 +221,7 @@ class GenerateLLVM(object):
     emit_PRINTI = partialmethod(emit_PRINT, runtime_name="_print_int")
     emit_PRINTF = partialmethod(emit_PRINT, runtime_name="_print_float")
     emit_PRINTB = partialmethod(emit_PRINT, runtime_name="_print_byte")
+    #emit_PRINTS = partialmethod(emit_PRINT, runtime_name="_print_string")
 
     def emit_CMPI(self, operator, left, right, target):
         tmp = self.builder.icmp_signed(operator, self.temps[left], self.temps[right], 'tmp')

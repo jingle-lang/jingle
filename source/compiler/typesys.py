@@ -11,11 +11,6 @@ minimal basic requirements:
 2. Types have to be comparable. (e.g., int != float).
 3. Types support different operators (e.g., +, -, *, /, etc.)
 
-To deal with all this initially, I'd recommend representing types
-as simple strings.  Make tables that represent the capabilities
-of different types. Make some utility functions that check operators.
-KEEP IT SIMPLE. REPEAT. SIMPLE.
-
 '''
 
 ARITHM_BIN_OPS = ["+", "-", "*", "/"]
@@ -99,6 +94,17 @@ class CharType(Type):
                 return BoolType
 
         return None
+
+#class StringType(Type):
+#    name = "str"
+
+#    @classmethod
+#    def binop_type(cls, op, right_type):
+#        if issubclass(right_type, StringType):
+#            if op in REL_BIN_OPS:
+#                return BoolType
+
+#        return None
 
 
 class BoolType(Type):

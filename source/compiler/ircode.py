@@ -1,12 +1,14 @@
 # ircode.py
 
 from collections import ChainMap
+from llvmlite.ir import (Constant, ArrayType, IntType)
 from . import ast
 
 IR_TYPE_MAPPING = {
     'int': 'I',
     'float': 'F',
     'char': 'B',
+    #'str': 'S',
     'bool': 'I'
 }
 
@@ -123,6 +125,19 @@ class GenerateCode(ast.NodeVisitor):
         # This is just to remember where the literal was put in
         node.register = target
 
+    #def visit_StringLiteral(self, node):
+    #    target = self.new_register()
+    #    op_code = get_op_code('mov', 'str')
+    #    node.value = int(''.join(str(ord(c)) for c in node.value))
+        # node.value = node.value[1:-1]
+        # n = len(node.value)+1
+        # buf = bytearray((' ' * n).encode('ascii'))
+        # buf[-1] = 0
+        # buf[:-1] = node.value.encode('utf8')
+        # node.value = Constant(ArrayType(IntType(8), n), buf),ArrayType(IntType(8), n)
+    #    self.code.append((op_code, node.value, target))
+    #    node.register = target
+
     def visit_BoolLiteral(self, node):
         target = self.new_register()
         op_code = get_op_code('mov', 'bool')
@@ -180,8 +195,6 @@ class GenerateCode(ast.NodeVisitor):
         else:
             # The plus unary operator produces no extra code
             node.register = node.right.register
-
-    # CHALLENGE:  Figure out some more sane way to refactor the above code
 
     def visit_EchoStatement(self, node):
         self.visit(node.value)

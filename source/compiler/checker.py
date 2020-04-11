@@ -3,7 +3,7 @@
 from collections import ChainMap
 from .errors import error
 from .ast import *
-from .typesys import Type, FloatType, IntType, CharType, BoolType
+from .typesys import Type, FloatType, IntType, CharType, BoolType #, StringType
 
 class CheckProgramVisitor(NodeVisitor):
     '''
@@ -99,6 +99,9 @@ class CheckProgramVisitor(NodeVisitor):
     def visit_CharLiteral(self, node):
         node.type = CharType
 
+    #def visit_StringLiteral(self, node):
+    #    node.type = StringType
+
     def visit_BoolLiteral(self, node):
         node.type = BoolType
 
@@ -168,7 +171,7 @@ class CheckProgramVisitor(NodeVisitor):
             loc_name = node.location.name
 
             if isinstance(self.symbols[loc_name], ConstDeclaration):
-                # Basically, if we are writting a to a location that was
+                # Basically, if we are writing a to a location that was
                 # declared as a constant, then this is an error
                 error(node.lineno, f"Cannot write to constant '{loc_name}'")
                 return

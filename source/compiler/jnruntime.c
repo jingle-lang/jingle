@@ -17,12 +17,20 @@ void _print_float(double x) {
   printf("%f\n", x);
 }
 
-
 // __declspec(dllexport)    // Uncomment on Windows
 void _print_byte(char c) {
   printf("%c", c);
   fflush(stdout);
 }
+
+/*
+__declspec(dllexport)    // Uncomment on Windows
+void _print_string(char c) {
+  printf("%c\n", c);
+  printf("%d", c);
+  fflush(stdout);
+}
+*/
 
 /* Bootstrapping code for a stand-alone executable */
 
