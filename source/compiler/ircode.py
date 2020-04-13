@@ -5,11 +5,11 @@ from llvmlite.ir import (Constant, ArrayType, IntType)
 from . import ast
 
 IR_TYPE_MAPPING = {
-    'int': 'I',
-    'float': 'F',
-    'char': 'B',
+    'Int': 'I',
+    'Float': 'F',
+    'Char': 'B',
     #'str': 'S',
-    'bool': 'I'
+    'Bool': 'I'
 }
 
 OP_CODES = ChainMap(
@@ -76,7 +76,7 @@ class GenerateCode(ast.NodeVisitor):
         self.label_count = 0
 
         # Special function to collect all global statements
-        init_function = Function("__jn_init", [], IR_TYPE_MAPPING['int'])
+        init_function = Function("__jn_init", [], IR_TYPE_MAPPING['Int'])
 
         self.functions = [ init_function ]
 
@@ -107,20 +107,20 @@ class GenerateCode(ast.NodeVisitor):
 
     def visit_IntegerLiteral(self, node):
         target = self.new_register()
-        op_code = get_op_code('mov', 'int')
+        op_code = get_op_code('mov', 'Int')
         self.code.append((op_code, node.value, target))
         # Save the name of the register where the value was placed
         node.register = target
 
     def visit_FloatLiteral(self, node):
         target = self.new_register()
-        op_code = get_op_code('mov', 'float')
+        op_code = get_op_code('mov', 'Float')
         self.code.append((op_code, node.value, target))
         node.register = target
 
     def visit_CharLiteral(self, node):
         target = self.new_register()
-        op_code = get_op_code('mov', 'char')
+        op_code = get_op_code('mov', 'Char')
         # We treat chars as their ascii value
         self.code.append((op_code, ord(node.value), target))
         # This is just to remember where the literal was put in
@@ -141,7 +141,7 @@ class GenerateCode(ast.NodeVisitor):
 
     def visit_BoolLiteral(self, node):
         target = self.new_register()
-        op_code = get_op_code('mov', 'bool')
+        op_code = get_op_code('mov', 'Bool')
         # We treat chars as their ascii value
         value = 1 if node.value == "true" else 0
         self.code.append((op_code, value, target))

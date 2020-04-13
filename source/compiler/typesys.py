@@ -45,7 +45,7 @@ class Type():
         return None
 
 class FloatType(Type):
-    name = "float"
+    name = "Float"
 
     @classmethod
     def binop_type(cls, op, right_type):
@@ -65,7 +65,7 @@ class FloatType(Type):
         return None
 
 class IntType(Type):
-    name = "int"
+    name = "Int" or "Integer"
 
     @classmethod
     def binop_type(cls, op, right_type):
@@ -85,7 +85,7 @@ class IntType(Type):
         return None
 
 class CharType(Type):
-    name = "char"
+    name = "Char"
 
     @classmethod
     def binop_type(cls, op, right_type):
@@ -108,7 +108,7 @@ class CharType(Type):
 
 
 class BoolType(Type):
-    name = "bool"
+    name = "Bool"
 
     @classmethod
     def binop_type(cls, op, right_type):

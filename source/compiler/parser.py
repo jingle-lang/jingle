@@ -20,7 +20,7 @@ statement :  const_declaration
           |  func_declaration
           |  ret_statement
 
-func_declaration : FN ID LPAREN func_params RPAREN datatype COLON block END
+func_declaration : FN ID LPAREN func_params RPAREN ARROW datatype COLON block END
 
 func_params : func_param COMMA func_params
             | func_param
@@ -162,7 +162,7 @@ class JingleParser(Parser):
 
     ##########################################
 
-    @_('FN ID LPAREN func_params RPAREN datatype COLON block END')
+    @_('FN ID LPAREN func_params RPAREN ARROW datatype COLON block END')
     def func_declaration(self, p):
         return FuncDeclaration(p.ID, p.func_params, p.datatype, p.block, lineno=p.lineno)
 

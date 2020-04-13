@@ -21,7 +21,7 @@ class JingleLexer(Lexer):
         'LE', 'LT', 'GE', 'GT', 'EQ', 'NE', 'AND', 'OR', 'NOT', 'MOD',
 
         # Other symbols
-        'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE', 'COLON',
+        'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE', 'COLON', 'ARROW'
     }
 
     ignore = ' \t\r'
@@ -49,6 +49,7 @@ class JingleLexer(Lexer):
     AND = r'&&'
     OR = r'\|\|'
     NOT = r'!'
+    ARROW = r'->'
 
     PLUS = r'\+'
     MINUS = r'-'
