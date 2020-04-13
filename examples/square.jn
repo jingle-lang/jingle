@@ -1,9 +1,9 @@
-fn square(x: float) float:
+fn square(x: Float) -> Float:
     x = x * x
     return x
 end
 
-fn main() int:
+fn main() -> Int:
     echo square(60.5)
     return 0
 end

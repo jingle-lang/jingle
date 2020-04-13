@@ -1,6 +1,6 @@
-const LAST = 30
+const count = 50
 
-fn fibonacci(n: int) int:
+fn fibonacci(n: Int) -> Int:
     if n > 1:
         return fibonacci(n-1) + fibonacci(n-2)
     end else:
@@ -8,9 +8,9 @@ fn fibonacci(n: int) int:
     end
 end
 
-fn main() int:
-    var n: int = 0
-    while n < LAST:
+fn main() -> Int:
+    var n: Int = 0
+    while n < count:
         echo fibonacci(n)
         n = n + 1
      end
