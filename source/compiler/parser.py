@@ -62,7 +62,7 @@ expression :  + expression
            | literal
            | func_call
 
-func_call : ID LPAREN arguments RPAREN 
+func_call : ID LPAREN arguments RPAREN
 
 arguments : arguments COMMA argument
           | argument
