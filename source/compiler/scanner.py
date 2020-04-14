@@ -6,7 +6,7 @@ class JingleLexer(Lexer):
 
     tokens = {
         # Keywords
-        'ECHO', 'CONST', 'ELSE', 'EXTERN', 'FN', 'IF', 'RETURN', 'WHILE', 'VAR', 'END',
+        'ECHO', 'CONST', 'ELSE', 'FN', 'IF', 'RETURN', 'WHILE', 'VAR', 'END',
 
         # Identifiers
         'ID',
@@ -15,13 +15,13 @@ class JingleLexer(Lexer):
         'INTEGER', 'FLOAT', 'CHAR', 'BOOL',
 
         # Operators
-        'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'ASSIGN', 'SEMI', 'COMMA',
+        'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'ASSIGN', 'COMMA',
 
         # Bool operators
         'LE', 'LT', 'GE', 'GT', 'EQ', 'NE', 'AND', 'OR', 'NOT', 'MOD',
 
         # Other symbols
-        'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE', 'COLON', 'ARROW'
+        'LPAREN', 'RPAREN', 'COLON', 'ARROW'
     }
 
     ignore = ' \t\r'
@@ -56,13 +56,10 @@ class JingleLexer(Lexer):
     TIMES = r'\*'
     DIVIDE = r'/'
     ASSIGN = r'='
-    SEMI = r';'
     COMMA = r','
     LPAREN = r'\('
     RPAREN = r'\)'
 
-    LBRACE = r'{'
-    RBRACE = r'}'
     COLON = r':'
 
     FLOAT = r'(((\d+\.\d*)|(\.\d+))([eE][+-]?\d+)?)|(\d+[eE][+-]?\d+)'
@@ -80,7 +77,6 @@ class JingleLexer(Lexer):
         keywords = {
             'const',
             'else',
-            'extern',
             'fn',
             'if',
             'echo',
