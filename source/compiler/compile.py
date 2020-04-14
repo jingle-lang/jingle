@@ -9,6 +9,7 @@ import subprocess
 import sys
 import os.path
 import tempfile
+import llvmlite.binding as llvm
 
 from .llvmgen import compile_llvm
 from .errors import errors_reported
@@ -26,6 +27,9 @@ def main():
 
     source = open(sys.argv[1]).read()
     llvm_code = compile_llvm(source)
+
+    # Optimizations
+
     if not errors_reported():
         with tempfile.NamedTemporaryFile(suffix='.ll') as f:
             f.write(llvm_code.encode('utf-8'))
