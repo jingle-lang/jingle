@@ -29,6 +29,29 @@ def run(llvm_ir):
 
     # Optimizations
     mod.verify()
+    pmb = llvm.create_pass_manager_builder()
+    pmb.opt_level = 2
+    pmb.size_level = 1
+    pm = llvm.create_module_pass_manager()
+    pmb.populate(pm)
+    pm.add_constant_merge_pass()
+    pm.add_dead_arg_elimination_pass()
+    pm.add_function_attrs_pass()
+    pm.add_global_dce_pass()
+    pm.add_global_optimizer_pass()
+    pm.add_ipsccp_pass()
+    pm.add_dead_code_elimination_pass()
+    pm.add_dead_arg_elimination_pass()
+    pm.add_cfg_simplification_pass()
+    pm.add_gvn_pass()
+    pm.add_instruction_combining_pass()
+    pm.add_licm_pass()
+    pm.add_sccp_pass()
+    pm.add_sroa_pass()
+    pm.add_type_based_alias_analysis_pass()
+    pm.add_basic_alias_analysis_pass()
+    mod.verify()
+    pm.run(mod)
 
     engine = llvm.create_mcjit_compiler(mod, target_machine)
 
@@ -37,10 +60,6 @@ def run(llvm_ir):
     main_ptr = engine.get_function_address('main')
     main_func = ctypes.CFUNCTYPE(None)(main_ptr)
     main_func()
-
-    # Modify the above code to execute the Jingle __init() function
-    # that initializes global variables.  Then add code below
-    # that executes the Jingle main() function.
 
     # llvmlite.binding.load_library_permanently(filename)
 

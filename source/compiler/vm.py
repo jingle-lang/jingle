@@ -4,7 +4,7 @@ Virtual Machine
 ===========
 
 This is a virtual machine than can run Jingle programs directly from the
-generated IR code.  This can be used to check results without requiring 
+generated IR code.  This can be used to check results without requiring
 an LLVM dependency.
 
 To run a program use:
@@ -37,7 +37,7 @@ class Interpreter(object):
     def execute(self, code):
         for inst, *args in code:
             getattr(self, f'run_{inst}')(*args)
-        
+
     # Interpreter opcodes
 
     def run_ADDI(self, left, right, target):
@@ -89,6 +89,7 @@ class Interpreter(object):
 # ----------------------------------------------------------------------
 
 def main():
+    import sys
     from .ircode import compile_ircode
     from .errors import errors_reported
 
@@ -104,3 +105,12 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
+
+        
+        
+        

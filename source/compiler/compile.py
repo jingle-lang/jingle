@@ -9,7 +9,6 @@ import subprocess
 import sys
 import os.path
 import tempfile
-import llvmlite.binding as llvm
 
 from .llvmgen import compile_llvm
 from .errors import errors_reported
@@ -20,6 +19,42 @@ _rtlib = os.path.join(os.path.dirname(__file__), 'jnruntime.c')
 # clang installation
 CLANG = 'clang'
 
+# Optimizations
+def Optimizer(source):
+    import llvmlite.binding as llvm
+    llvm.initialize()
+    llvm.initialize_native_target()
+    llvm.initialize_native_asmprinter()
+
+    llvm_module = llvm.parse_assembly(str(source))
+    llvm_module.verify()
+
+    pmb = llvm.create_pass_manager_builder()
+    pmb.opt_level = 2
+    pmb.size_level = 1
+    pm = llvm.create_module_pass_manager()
+    pmb.populate(pm)
+    pm.add_constant_merge_pass()
+    pm.add_dead_arg_elimination_pass()
+    pm.add_function_attrs_pass()
+    pm.add_global_dce_pass()
+    pm.add_global_optimizer_pass()
+    pm.add_ipsccp_pass()
+    pm.add_dead_code_elimination_pass()
+    pm.add_dead_arg_elimination_pass()
+    pm.add_cfg_simplification_pass()
+    pm.add_gvn_pass()
+    pm.add_instruction_combining_pass()
+    pm.add_licm_pass()
+    pm.add_sccp_pass()
+    pm.add_sroa_pass()
+    pm.add_type_based_alias_analysis_pass()
+    pm.add_basic_alias_analysis_pass()
+    llvm_module.verify()
+    pm.run(llvm_module)
+    
+    print(str(llvm_module))
+
 def main():
     if len(sys.argv) != 2:
         sys.stderr.write("Usage: python3 -m jingle.compile filename\n")
@@ -27,8 +62,7 @@ def main():
 
     source = open(sys.argv[1]).read()
     llvm_code = compile_llvm(source)
-
-    # Optimizations
+    Optimizer(llvm_code)
 
     if not errors_reported():
         with tempfile.NamedTemporaryFile(suffix='.ll') as f:

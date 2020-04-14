@@ -7,7 +7,7 @@ from functools import partialmethod
 
 from llvmlite.ir import (
     Module, IRBuilder, Function, IntType, DoubleType, VoidType, Constant,
-    GlobalVariable, FunctionType, ArrayType
+    GlobalVariable, FunctionType
     )
 
 # Declare the LLVM type objects that you want to use for the low-level

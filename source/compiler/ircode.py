@@ -1,7 +1,6 @@
 # ircode.py
 
 from collections import ChainMap
-from llvmlite.ir import (Constant, ArrayType, IntType)
 from . import ast
 
 IR_TYPE_MAPPING = {

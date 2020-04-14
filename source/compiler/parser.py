@@ -28,7 +28,7 @@ func_params : func_param COMMA func_params
 
 func_param : ID datatype
 
-ret_statement : RETURN expression 
+ret_statement : RETURN expression
 
 const_declaration : CONST ID = expression ;
 
