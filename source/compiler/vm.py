@@ -89,7 +89,6 @@ class Interpreter(object):
 # ----------------------------------------------------------------------
 
 def main():
-    import sys
     from .ircode import compile_ircode
     from .errors import errors_reported
 
@@ -105,12 +104,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-        
-        
-        
