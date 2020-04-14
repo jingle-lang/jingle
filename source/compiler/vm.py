@@ -85,7 +85,7 @@ class Interpreter(object):
     run_STOREB = run_STOREI
 
 # ----------------------------------------------------------------------
-#                       DO NOT MODIFY ANYTHING BELOW       
+#                       DO NOT MODIFY ANYTHING BELOW
 # ----------------------------------------------------------------------
 
 def main():
