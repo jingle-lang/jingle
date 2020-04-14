@@ -26,6 +26,8 @@ def run(llvm_ir):
     target = llvm.Target.from_default_triple()
     target_machine = target.create_target_machine()
     mod = llvm.parse_assembly(llvm_ir)
+
+    # Optimizations
     mod.verify()
 
     engine = llvm.create_mcjit_compiler(mod, target_machine)
