@@ -66,19 +66,19 @@ Installation:
   2. Install dependencies with `pip -r requirements.txt`
   
 Compile to a native executable
-  1. Run the following command `python3 -m compiler.compile <filename>`
+  1. Run the following command `python3 -m jingle.compile <filename>`
   2. Run the generated executable
 
 Generate LLVM bytecode
-  1. Run the following command `python3 -m compiler.llvmgen <filename>`
+  1. Run the following command `python3 -m jingle.llvmgen <filename>`
   2. LLVM bytecode will be printed out
 
 Execute in an LLVM JIT
-  1. Run the following command `python3 -m compiler.run <filename>`
+  1. Run the following command `python3 -m jingle.run <filename>`
   2. Result will be printed
 
 Execute a file on the virtual machine
-  1. Run the following command `python3 -m compiler.vm <filename>`
+  1. Run the following command `python3 -m jingle.vm <filename>`
   2. Result will be printed
 
 ## Documentation <a name = "docs"></a>
