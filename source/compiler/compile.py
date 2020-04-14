@@ -31,8 +31,13 @@ def main():
             f.write(llvm_code.encode('utf-8'))
             f.flush()
             # subprocess.check_output([CLANG,  f.name, _rtlib])
+            head, tail = os.path.split(sys.argv[1])
+            if len(head) < 1:
+                head = "local folder"
+            output_name = os.path.splitext(sys.argv[1])[0]+".exe"
 
-            subprocess.check_output([CLANG, '-DNEED_MAIN', f.name, _rtlib])
+            subprocess.check_output([CLANG, '-o', output_name, '-DNEED_MAIN', f.name, _rtlib])
+            print("Wrote "+output_name+" to "+head)
 
 if __name__ == '__main__':
     main()
