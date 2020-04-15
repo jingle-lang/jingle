@@ -11,6 +11,7 @@ import os.path
 import tempfile
 import time
 from colorama import Fore
+import llvmlite.binding as llvm
 
 from .llvmgen import compile_llvm
 from .errors import errors_reported
@@ -24,7 +25,6 @@ start_time = time.time()
 
 # Optimizations
 def Optimizer(source):
-    import llvmlite.binding as llvm
     llvm.initialize()
     llvm.initialize_native_target()
     llvm.initialize_native_asmprinter()
@@ -69,8 +69,8 @@ def main():
 
     source = open(sys.argv[1]).read()
     llvm_code = compile_llvm(source)
-    #Optimizer(llvm_code)
-    print(str(llvm_code))
+    Optimizer(llvm_code)
+    #print(str(llvm_code))
 
     if not errors_reported():
         with tempfile.NamedTemporaryFile(suffix='.ll') as f:
@@ -79,7 +79,10 @@ def main():
             head, tail = os.path.split(sys.argv[1])
             if len(head) < 1:
                 head = "local folder"
-            output_name = os.path.splitext(sys.argv[1])[0]+".exe"
+            if os == "nt":
+                output_name = os.path.splitext(sys.argv[1])[0]+".exe"
+            else:
+                output_name = os.path.splitext(sys.argv[1])[0]
 
             subprocess.check_output([CLANG, '-o', output_name, '-DNEED_MAIN', f.name, _rtlib])
             if not errors_reported():
@@ -87,7 +90,7 @@ def main():
             print(f"\nWrote '{output_name}' to '{head}'")
             final_time = time.time() - start_time
             final_time = round(final_time, 3)
-            print(f"--- Compilation completed after {final_time} seconds ---") 
-
+            print(f"--- Compilation completed after {final_time} seconds ---")
+            
 if __name__ == '__main__':
     main()

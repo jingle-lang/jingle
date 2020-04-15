@@ -53,6 +53,7 @@ def run(llvm_ir):
     mod.verify()
     pm.run(mod)
 
+    llvm.check_jit_execution()
     engine = llvm.create_mcjit_compiler(mod, target_machine)
 
     # Execute the main() function
