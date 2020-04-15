@@ -73,8 +73,8 @@ class FloatLiteral(Literal):
 class CharLiteral(Literal):
     value : str
 
-#class StringLiteral(Literal):
-#    value : str
+class StringLiteral(Literal):
+    value : str
 
 class BoolLiteral(Literal):
     value : str
@@ -126,6 +126,9 @@ class FuncDeclaration(Statement):
 
 class ReturnStatement(Statement):
     value: Expression
+
+#class ImportStatement(Statement):
+#    value: Expression
 
 class SimpleType(DataType):
     name : str

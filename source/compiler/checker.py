@@ -3,14 +3,14 @@
 from collections import ChainMap
 from .errors import error
 from .ast import *
-from .typesys import Type, FloatType, IntType, CharType, BoolType #, StringType
+from .typesys import Type, FloatType, IntType, CharType, BoolType, StringType
+from colorama import Fore
+#from llvmlite.binding import load_library_permanently
 
 class CheckProgramVisitor(NodeVisitor):
     '''
     Program checking class.   This class uses the visitor pattern as described
-    in ast.py.   You need to define methods of the form visit_NodeName()
-    for each kind of AST node that you want to process.  You may need to
-    adjust the method names here if you've picked different AST node names.
+    in ast.py.
     '''
     def __init__(self):
         # Initialize the symbol table
@@ -42,7 +42,7 @@ class CheckProgramVisitor(NodeVisitor):
         # Before anything, if we are declaring a variable with a name that is
         # a typename, then we must fail
         if node.name in self.keywords:
-            error(node.lineno, f"Name '{node.name}' is not a legal name for variable declaration")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} identifier '{node.name}' is not allowed for variable declaration; it is likely the name of a type")
             return
 
         if node.name not in self.symbols:
@@ -64,17 +64,17 @@ class CheckProgramVisitor(NodeVisitor):
                             self.symbols[node.name] = node
                         else:
                             error(node.lineno,
-                                  f"Declaring variable '{node.name}' of type '{node.datatype.type.name}' but assigned expression of type '{node.value.type.name}'")
+                                  f"{Fore.RED}[Type] ->{Fore.RESET} Declaring variable '{node.name}' of type '{node.datatype.type.name}' but assigned expression of type '{node.value.type.name}'")
                 else:
                     # There is no initialization, so we have everything needed
                     # to save it into our symbols table
                     node.type = node.datatype.type
                     self.symbols[node.name] = node
             else:
-                error(node.lineno, f"Unknown type '{node.datatype.name}'")
+                error(node.lineno, f"{Fore.RED}[Type] ->{Fore.RESET} Unknown type '{node.datatype.name}'")
         else:
             prev_lineno = self.symbols[node.name].lineno
-            error(node.lineno, f"Name '{node.name}' has already been defined at line {prev_lineno}")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Name '{node.name}' has already been defined at line {prev_lineno}")
 
     def visit_ConstDeclaration(self, node):
         # For a declaration, you'll need to check that it isn't already defined.
@@ -86,7 +86,7 @@ class CheckProgramVisitor(NodeVisitor):
             self.symbols[node.name] = node
         else:
             prev_lineno = self.symbols[node.name].lineno
-            error(node.lineno, f"Name '{node.name}' has already been defined at line {prev_lineno}")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Name '{node.name}' has already been defined at line {prev_lineno}")
 
     def visit_IntegerLiteral(self, node):
         # For literals, you'll need to assign a type to the node and allow it to
@@ -99,8 +99,8 @@ class CheckProgramVisitor(NodeVisitor):
     def visit_CharLiteral(self, node):
         node.type = CharType
 
-    #def visit_StringLiteral(self, node):
-    #    node.type = StringType
+    def visit_StringLiteral(self, node):
+        node.type = StringType
 
     def visit_BoolLiteral(self, node):
         node.type = BoolType
@@ -117,7 +117,7 @@ class CheckProgramVisitor(NodeVisitor):
                 self.visit(node.true_block)
                 self.visit(node.false_block)
             else:
-                error(node.lineno, f"'Condition must be of type 'bool' but got type '{cond_type.name}'")
+                error(node.lineno, f"{Fore.RED}[Logic] ->{Fore.RESET} Condition must be of type 'bool' but got type '{cond_type.name}'")
 
     def visit_WhileStatement(self, node):
         self.visit(node.condition)
@@ -127,7 +127,7 @@ class CheckProgramVisitor(NodeVisitor):
             if issubclass(node.condition.type, BoolType):
                 self.visit(node.body)
             else:
-                error(node.lineno, f"'Condition must be of type 'bool' but got type '{cond_type.name}'")
+                error(node.lineno, f"{Fore.RED}[Logic] ->{Fore.RESET} Condition must be of type 'bool' but got type '{cond_type.name}'")
 
     def visit_BinOp(self, node):
         # For operators, you need to visit each operand separately.  You'll
@@ -142,7 +142,7 @@ class CheckProgramVisitor(NodeVisitor):
             if not op_type:
                 left_tname = node.left.type.name
                 right_tname = node.right.type.name
-                error(node.lineno, f"Binary operation '{left_tname} {node.op} {right_tname}' not supported")
+                error(node.lineno, f"{Fore.RED}[Logic] ->{Fore.RESET} Binary operation '{left_tname} {node.op} {right_tname}' not allowed")
 
             node.type = op_type
 
@@ -155,7 +155,7 @@ class CheckProgramVisitor(NodeVisitor):
             op_type = node.right.type.unaryop_type(node.op)
             if not op_type:
                 right_tname = node.right.type.name
-                error(node.lineno, f"Unary operation '{node.op} {right_tname}' not supported")
+                error(node.lineno, f"{Fore.RED}[Logic] ->{Fore.RESET} Unary operation '{node.op} {right_tname}' not allowed")
 
             node.type = op_type
 
@@ -173,7 +173,7 @@ class CheckProgramVisitor(NodeVisitor):
             if isinstance(self.symbols[loc_name], ConstDeclaration):
                 # Basically, if we are writing a to a location that was
                 # declared as a constant, then this is an error
-                error(node.lineno, f"Cannot write to constant '{loc_name}'")
+                error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Cannot write to constant '{loc_name}'")
                 return
 
             # If both have type information, then the type checking worked on
@@ -183,7 +183,7 @@ class CheckProgramVisitor(NodeVisitor):
                 node.type = node.value.type
             else:
                 error(node.lineno,
-                      f"Cannot assign type '{node.value.type.name}' to variable '{node.location.name}' of type '{node.location.type.name}'")
+                      f"{Fore.RED}[Type] ->{Fore.RESET} Cannot assign type '{node.value.type.name}' to variable '{node.location.name}' of type '{node.location.type.name}'")
 
     def visit_ReadLocation(self, node):
         # Associate a type name such as "int" with a Type object
@@ -193,7 +193,7 @@ class CheckProgramVisitor(NodeVisitor):
     def visit_SimpleLocation(self, node):
         if node.name not in self.symbols:
             node.type = None
-            error(node.lineno, f"Name '{node.name}' was not defined")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Name '{node.name}' was not defined")
         else:
             node.type = self.symbols[node.name].type
 
@@ -201,7 +201,7 @@ class CheckProgramVisitor(NodeVisitor):
         # Associate a type name such as "int" with a Type object
         node.type = Type.get_by_name(node.name)
         if node.type is None:
-            error(node.lineno, f"Invalid type '{node.name}'")
+            error(node.lineno, f"{Fore.RED}[Type] ->{Fore.RESET} Invalid type '{node.name}'")
 
     def visit_FuncParameter(self, node):
         self.visit(node.datatype)
@@ -214,14 +214,18 @@ class CheckProgramVisitor(NodeVisitor):
         if self.expected_ret_type:
             self.current_ret_type.add(node.value.type)
             if node.value.type and node.value.type != self.expected_ret_type:
-                error(node.lineno, f"Function returns '{self.expected_ret_type.name}' but return statement value is of type '{node.value.type.name}'")
+                error(node.lineno, f"{Fore.RED}[Type] ->{Fore.RESET} Function returns '{self.expected_ret_type.name}' but return statement value is of type '{node.value.type.name}'")
         else:
-            error(node.lineno, "Return statement must be within a function")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Return statement must be within a function")
+
+    #def visit_ImportStatement(self, node):
+    #    self.visit(node.value)
+    #    load_library_permanently(node.value)
 
     def visit_FuncDeclaration(self, node):
         if node.name in self.functions:
             prev_def = self.functions[node.name].lineno
-            error(node.lineno, f"Function '{node.name}' already defined at line {prev_def}")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Function '{node.name}' already defined at line {prev_def}")
 
         self.visit(node.params)
 
@@ -229,7 +233,7 @@ class CheckProgramVisitor(NodeVisitor):
         param_names = [param.name for param in node.params]
         param_names_ok = len(param_names) == len(set(param_names))
         if not param_names_ok:
-            error(node.lineno, "Duplicate parameter names at function definition")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Duplicate parameter names at function definition")
 
         self.visit(node.datatype)
         ret_type_ok = node.datatype.type is not None
@@ -237,7 +241,7 @@ class CheckProgramVisitor(NodeVisitor):
         # Before visiting the function, body, we must change the symbol table
         # to a new one
         if self.temp_symbols:
-            error(node.lineno, f"Illegal nested function declaration '{node.name}'")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Illegal nested function declaration '{node.name}'")
         else:
             self.temp_symbols = self.symbols
             self.symbols = ChainMap(
@@ -254,11 +258,11 @@ class CheckProgramVisitor(NodeVisitor):
             self.visit(node.body)
 
             if not self.current_ret_type:
-                error(node.lineno, f"Function '{node.name}' has no return statement")
+                error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Function '{node.name}' has no return statement")
             elif self.current_ret_type != {self.expected_ret_type}:
                 wrong_types = ", ".join(map(str, self.current_ret_type - {self.expected_ret_type}))
                 error(node.lineno,
-                      f"Function '{node.name}' returns more types than expected!")
+                      f"{Fore.RED}[Runtime] ->{Fore.RESET} Function '{node.name}' returns more types than expected!")
 
             self.symbols = self.temp_symbols
             self.temp_symbols = { }
@@ -267,7 +271,7 @@ class CheckProgramVisitor(NodeVisitor):
 
     def visit_FuncCall(self, node):
         if node.name not in self.functions:
-            error(node.lineno, f"Function '{node.name}' is not declared")
+            error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Function '{node.name}' is not declared")
         else:
             # We must check that the argument list matches the function
             # parameters definition
@@ -277,7 +281,7 @@ class CheckProgramVisitor(NodeVisitor):
             func = self.functions[node.name]
             expected_types = tuple([param.type.name for param in func.params])
             if arg_types != expected_types:
-                error(node.lineno, f"Function '{node.name}' expects {expected_types}, but was called with {arg_types}")
+                error(node.lineno, f"{Fore.RED}[Runtime] ->{Fore.RESET} Function '{node.name}' expects {expected_types}, but was called with {arg_types}")
 
             # The type of the function call is the return type of the function
             node.type = func.datatype.type

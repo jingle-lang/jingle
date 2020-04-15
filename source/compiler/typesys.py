@@ -65,7 +65,7 @@ class FloatType(Type):
         return None
 
 class IntType(Type):
-    name = "Int" or "Integer"
+    name = "Int"
 
     @classmethod
     def binop_type(cls, op, right_type):
@@ -95,16 +95,16 @@ class CharType(Type):
 
         return None
 
-#class StringType(Type):
-#    name = "str"
+class StringType(Type):
+    name = "Str"
 
-#    @classmethod
-#    def binop_type(cls, op, right_type):
-#        if issubclass(right_type, StringType):
-#            if op in REL_BIN_OPS:
-#                return BoolType
+    @classmethod
+    def binop_type(cls, op, right_type):
+        if issubclass(right_type, StringType):
+            if op in REL_BIN_OPS:
+                return BoolType
 
-#        return None
+        return None
 
 
 class BoolType(Type):

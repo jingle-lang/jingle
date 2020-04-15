@@ -1,18 +1,19 @@
 # scanner.py
 from .errors import error
 from sly import Lexer
+from colorama import Fore
 
 class JingleLexer(Lexer):
 
     tokens = {
         # Keywords
-        'ECHO', 'CONST', 'ELSE', 'FN', 'IF', 'RETURN', 'WHILE', 'VAR', 'END',
+        'CONST', 'ECHO', 'ELSE', 'FN', 'IF', 'RETURN', 'WHILE', 'VAR', 'END', #'IMPORT',
 
         # Identifiers
-        'ID',
+        'ID', # 'NAME',
 
         # Literals
-        'INTEGER', 'FLOAT', 'CHAR', 'BOOL',
+        'INTEGER', 'FLOAT', 'CHAR', 'BOOL', 'STRING',
 
         # Operators
         'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'ASSIGN', 'COMMA',
@@ -68,18 +69,21 @@ class JingleLexer(Lexer):
 
     CHAR = r"'((\\n)|(\\x[0-9a-f]{2})|(\\')|(\\\\)|.)'"
 
-    #STRING = r'\"(\\.|[^\"])*\"'
+    STRING = r'\"(\\.|[^\"])*\"'
 
-    BOOL = r'(true)|(false)'
+    BOOL = r'(True)|(False)'
+
+    #NAME = r'\"(\\.|[^\"])*\"'
 
     @_(r'[a-zA-Z_][a-zA-Z0-9_]*')
     def ID(self, t):
         keywords = {
             'const',
             'else',
+            'echo',
             'fn',
             'if',
-            'echo',
+            #'import',
             'return',
             'while',
             'var',
@@ -92,7 +96,7 @@ class JingleLexer(Lexer):
     # ----------------------------------------------------------------------
     # Bad character error handling
     def error(self, t):
-        error(self.lineno,"Illegal character %r" % t.value[0])
+        error(self.lineno,f"{Fore.RED}[Parse] ->{Fore.RESET} Illegal character %r" % t.value[0])
         self.index += 1
 
 # ----------------------------------------------------------------------

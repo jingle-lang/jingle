@@ -1,7 +1,7 @@
 # errors.py
 
 import sys
-from colorama import init, Fore, Back, Style
+from colorama import init, Fore
 init()
 
 _num_errors = 0
@@ -12,9 +12,9 @@ def error(lineno, message, filename=None):
     '''
     global _num_errors
     if not filename:
-        errmsg = f"{Fore.RED}Error:{Style.RESET_ALL} {message}, line {lineno}"
+        errmsg = f"{Fore.RED}Error:{Fore.RESET} {message}, line {lineno}"
     else:
-        errmsg = f"{Fore.RED}Error:{Style.RESET_ALL} {message}, line {lineno}, file {filename}"
+        errmsg = f"{Fore.RED}Error:{Fore.RESET} {message}, line {lineno} in file {filename}"
 
     print(errmsg, file=sys.stderr)
     _num_errors += 1

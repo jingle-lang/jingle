@@ -19,6 +19,7 @@ statement :  const_declaration
           |  while_statement
           |  func_declaration
           |  ret_statement
+          |  import_statement
 
 func_declaration : FN ID LPAREN func_params RPAREN ARROW datatype COLON block END
 
@@ -29,6 +30,8 @@ func_params : func_param COMMA func_params
 func_param : ID datatype
 
 ret_statement : RETURN expression
+
+import_statement : IMPORT NAME
 
 const_declaration : CONST ID = expression ;
 
@@ -91,6 +94,7 @@ from sly import Parser
 from .errors import error
 from .scanner import JingleLexer
 from .ast import *
+from colorama import Fore
 
 class JingleParser(Parser):
     tokens = JingleLexer.tokens
@@ -160,6 +164,10 @@ class JingleParser(Parser):
     def statement(self, p):
         return p.ret_statement
 
+    #@_('import_statement')
+    #def statement(self, p):
+    #    return p.import_statement
+
     ##########################################
 
     @_('FN ID LPAREN func_params RPAREN ARROW datatype COLON block END')
@@ -186,6 +194,10 @@ class JingleParser(Parser):
     @_("RETURN expression")
     def ret_statement(self, p):
         return ReturnStatement(p.expression, lineno=p.lineno)
+
+    #@_("IMPORT NAME")
+    #def import_statement(self, p):
+    #    return ImportStatement(p.NAME, lineno=p.lineno)
 
     ##########################################
 
@@ -308,9 +320,9 @@ class JingleParser(Parser):
     def literal(self, p):
         return CharLiteral(eval(p.CHAR), lineno=p.lineno)
 
-    #@_('STRING')
-    #def literal(self, p):
-    #    return StringLiteral(eval(p.STRING), lineno=p.lineno)
+    @_('STRING')
+    def literal(self, p):
+        return StringLiteral(eval(p.STRING), lineno=p.lineno)
 
     @_('BOOL')
     def literal(self, p):
@@ -335,7 +347,7 @@ class JingleParser(Parser):
     # bad input.  p is the offending token or None if end-of-file (EOF).
     def error(self, p):
         if p:
-            error(p.lineno, "Syntax error in input at token '%s'" % p.value)
+            error(p.lineno, f"{Fore.RED}[Parse] ->{Fore.RESET} Syntax error in input at token '%s'" % p.value)
         else:
             error('EOF','Syntax error. No more input.')
 

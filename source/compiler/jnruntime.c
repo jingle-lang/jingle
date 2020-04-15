@@ -23,14 +23,11 @@ void _print_byte(char c) {
   fflush(stdout);
 }
 
-/*
 __declspec(dllexport)    // Uncomment on Windows
-void _print_string(char c) {
-  printf("%c\n", c);
-  printf("%d", c);
+void _print_string(c) {
+  printf("%c", c);
   fflush(stdout);
 }
-*/
 
 /* Bootstrapping code for a stand-alone executable */
 

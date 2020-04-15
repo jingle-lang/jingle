@@ -7,7 +7,7 @@ from functools import partialmethod
 
 from llvmlite.ir import (
     Module, IRBuilder, Function, IntType, DoubleType, VoidType, Constant,
-    GlobalVariable, FunctionType
+    GlobalVariable, FunctionType, ArrayType
     )
 
 # Declare the LLVM type objects that you want to use for the low-level
@@ -19,8 +19,8 @@ from llvmlite.ir import (
 int_type    = IntType(32)         # 32-bit integer
 float_type  = DoubleType()        # 64-bit float
 byte_type   = IntType(8)          # 8-bit integer
-#string_type = IntType(8)
-# string_type = ArrayType(IntType(8),1)
+string_type = IntType(8)
+#string_type = ArrayType(IntType(8),1)
 
 void_type   = VoidType()          # Void type.  This is a special type
                                   # used for internal functions returning
@@ -30,7 +30,7 @@ LLVM_TYPE_MAPPING = {
     'I': int_type,
     'F': float_type,
     'B': byte_type,
-    #'S': string_type,
+    'S': string_type,
     None: void_type
 }
 
@@ -70,9 +70,9 @@ class GenerateLLVM(object):
                                                 FunctionType(void_type, [byte_type]),
                                                 name="_print_byte")
 
-        #self.runtime['_print_string'] = Function(self.module,
-        #                                        FunctionType(void_type, [string_type]),
-        #                                        name="_print_string")
+        self.runtime['_print_string'] = Function(self.module,
+                                                FunctionType(void_type, [string_type]),
+                                                name="_print_string")
 
     def generate_code(self, ir_function):
         # Given a sequence of SSA intermediate code tuples, generate LLVM
@@ -145,7 +145,7 @@ class GenerateLLVM(object):
     emit_MOVI = partialmethod(emit_MOV, val_type=int_type)
     emit_MOVF = partialmethod(emit_MOV, val_type=float_type)
     emit_MOVB = partialmethod(emit_MOV, val_type=byte_type)
-    #emit_MOVS = partialmethod(emit_MOV, val_type=string_type)
+    emit_MOVS = partialmethod(emit_MOV, val_type=string_type)
 
     # Allocation of GLOBAL variables.  Declare as global variables and set to
     # a sensible initial value.
@@ -157,7 +157,7 @@ class GenerateLLVM(object):
     emit_VARI = partialmethod(emit_VAR, var_type=int_type)
     emit_VARF = partialmethod(emit_VAR, var_type=float_type)
     emit_VARB = partialmethod(emit_VAR, var_type=byte_type)
-    #emit_VARS = partialmethod(emit_VAR, var_type=string_type)
+    emit_VARS = partialmethod(emit_VAR, var_type=string_type)
 
     # Allocation of LOCAL variables.  Declare as local variables and set to
     # a sensible initial value.
@@ -167,7 +167,7 @@ class GenerateLLVM(object):
     emit_ALLOCI = partialmethod(emit_ALLOC, var_type=int_type)
     emit_ALLOCF = partialmethod(emit_ALLOC, var_type=float_type)
     emit_ALLOCB = partialmethod(emit_ALLOC, var_type=byte_type)
-    #emit_ALLOCS = partialmethod(emit_ALLOC, var_type=string_type)
+    emit_ALLOCS = partialmethod(emit_ALLOC, var_type=string_type)
 
     # Load/store instructions for variables.  Load needs to pull a
     # value from a global variable and store in a temporary. Store
@@ -228,7 +228,7 @@ class GenerateLLVM(object):
     emit_PRINTI = partialmethod(emit_PRINT, runtime_name="_print_int")
     emit_PRINTF = partialmethod(emit_PRINT, runtime_name="_print_float")
     emit_PRINTB = partialmethod(emit_PRINT, runtime_name="_print_byte")
-    #emit_PRINTS = partialmethod(emit_PRINT, runtime_name="_print_string")
+    emit_PRINTS = partialmethod(emit_PRINT, runtime_name="_print_string")
 
     def emit_CMPI(self, operator, left, right, target):
         tmp = self.builder.icmp_signed(operator, self.temps[left], self.temps[right], 'tmp')

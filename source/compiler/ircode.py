@@ -1,13 +1,14 @@
 # ircode.py
 
 from collections import ChainMap
+from llvmlite.ir import Constant, ArrayType, IntType
 from . import ast
 
 IR_TYPE_MAPPING = {
     'Int': 'I',
     'Float': 'F',
     'Char': 'B',
-    #'str': 'S',
+    'Str': 'S',
     'Bool': 'I'
 }
 
@@ -125,24 +126,23 @@ class GenerateCode(ast.NodeVisitor):
         # This is just to remember where the literal was put in
         node.register = target
 
-    #def visit_StringLiteral(self, node):
-    #    target = self.new_register()
-    #    op_code = get_op_code('mov', 'str')
-    #    node.value = int(''.join(str(ord(c)) for c in node.value))
-        # node.value = node.value[1:-1]
-        # n = len(node.value)+1
-        # buf = bytearray((' ' * n).encode('ascii'))
-        # buf[-1] = 0
-        # buf[:-1] = node.value.encode('utf8')
-        # node.value = Constant(ArrayType(IntType(8), n), buf),ArrayType(IntType(8), n)
-    #    self.code.append((op_code, node.value, target))
-    #    node.register = target
+    def visit_StringLiteral(self, node):
+        target = self.new_register()
+        op_code = get_op_code('mov', 'Str')
+
+        #str_data =  bytearray((node.value + "\x00").encode('utf-8'))
+        #str_data_array = ArrayType(IR_TYPE_MAPPING['Char'], len(node.value))
+        #node.value = str_data_array
+
+        node.value = int(''.join(str(ord(c)) for c in node.value))
+        self.code.append((op_code, node.value, target))
+        node.register = target
 
     def visit_BoolLiteral(self, node):
         target = self.new_register()
         op_code = get_op_code('mov', 'Bool')
         # We treat chars as their ascii value
-        value = 1 if node.value == "true" else 0
+        value = 1 if node.value == "True" else 0
         self.code.append((op_code, value, target))
         # This is just to remember where the literal was put in
         node.register = target
