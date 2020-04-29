@@ -7,7 +7,7 @@ class JingleLexer(Lexer):
 
     tokens = {
         # Keywords
-        'CONST', 'ECHO', 'ELSE', 'FN', 'IF', 'RETURN', 'WHILE', 'VAR', 'END', #'IMPORT',
+        'LET', 'ECHO', 'ELSE', 'FN', 'IF', 'RETURN', 'WHILE', 'VAR', 'END', #'IMPORT',
 
         # Identifiers
         'ID', # 'NAME',
@@ -78,7 +78,7 @@ class JingleLexer(Lexer):
     @_(r'[a-zA-Z_][a-zA-Z0-9_]*')
     def ID(self, t):
         keywords = {
-            'const',
+            'let',
             'else',
             'echo',
             'fn',
@@ -124,4 +124,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

@@ -33,7 +33,7 @@ ret_statement : RETURN expression
 
 import_statement : IMPORT NAME
 
-const_declaration : CONST ID = expression ;
+const_declaration : LET ID = expression ;
 
 var_declaration : VAR ID datatype ;
                 | VAR ID datatype = expression ;
@@ -246,7 +246,7 @@ class JingleParser(Parser):
 
     ##########################################
 
-    @_('CONST ID ASSIGN expression')
+    @_('LET ID ASSIGN expression')
     def const_declaration(self, p):
         return ConstDeclaration(p[1], p.expression, lineno=p.lineno)
 
