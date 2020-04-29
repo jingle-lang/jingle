@@ -1,8 +1,5 @@
-# E = Even
-# O = Odd
-
 fn main() -> Int:
-    var num: Float = 4233.0
+    var num: Float = 723.0
     var eq: Float = num % 2.0
     if eq == 0.0:
         echo 'E'

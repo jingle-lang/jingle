@@ -1,4 +1,4 @@
-/* mandel.jn */
+/* mandelbrot.jn */
 
 const xmin = -2.0
 const xmax = 1.0
@@ -18,10 +18,10 @@ fn in_mandelbrot(x0: Float, y0: Float, n: Int) -> Bool:
         x = xtemp
         n = n - 1
         if x*x + y*y > 4.0:
-            return false
+            return False
         end
     end
-    return true
+    return True
 end
 
 fn mandel() -> Int:

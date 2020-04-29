@@ -1,4 +1,4 @@
-const count = 30
+let count = 20
 
 fn fibonacci(n: Int) -> Int:
     if n > 1:

@@ -4,6 +4,6 @@ fn square(x: Float) -> Float:
 end
 
 fn main() -> Int:
-    echo square(60.5)
+    echo square(1648.0)
     return 0
 end
