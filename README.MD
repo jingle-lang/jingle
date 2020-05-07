@@ -38,7 +38,7 @@ Jingle is a gradually-typed programming language currently in development. Code 
 
 Here is an example that calculates the Fibonacci numbers to give you a quick look at the language:
 ```elixir
-const count = 30
+let count = 30
 
 fn fibonacci(n: Int) -> Int:
     if n > 1:
