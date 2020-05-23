@@ -1,3 +1,7 @@
+/* Homework assignment that I completed
+   in Jingle. It may not have many
+   features, but it can still be useful! */
+
 fn addUp(startNum: Int, endNum: Int) -> Int:
     var counter: Int = startNum + 1
     var total: Int = startNum
