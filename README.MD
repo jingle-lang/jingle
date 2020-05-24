@@ -15,7 +15,7 @@
 
 ---
 
-<p align="center"> Jingle is a gradually-typed, multi-paradigm programming language designed for humans and machines.
+<p align="center"> Jingle is a statically-typed, multi-paradigm programming language designed for humans and machines on the LLVM.
     <br> 
 </p>
 
@@ -34,7 +34,7 @@
 </details>
 
 ## 📜 About <a name = "about"></a>
-Jingle is a gradually-typed programming language currently in development. Code in Jingle is fast to run and compile while still retaining small source files and binaries. It compiles to machine code via the LLVM using the LLVMlite library but it can also use its bytecode virtual machine to run files at slower speeds but without the need of the large LLVM dependency.
+Jingle is a statically-typed programming language currently in development. Code in Jingle is fast to run and compile while still retaining small source files and binaries. It compiles to machine code via the LLVM using the LLVMlite library but it can also use its bytecode virtual machine to run files at slower speeds but without the need of the large LLVM dependency.
 
 Here is an example that calculates the Fibonacci numbers to give you a quick look at the language:
 ```elixir
