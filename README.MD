@@ -15,7 +15,7 @@
 
 ---
 
-<p align="center"> Jingle is a statically-typed, multi-paradigm programming language designed for humans and machines on the LLVM.
+<p align="center"> Jingle is a statically-typed, multi-paradigm programming language designed for humans and machines running on the LLVM.
     <br> 
 </p>
 
