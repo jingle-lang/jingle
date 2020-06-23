@@ -1,0 +1,9 @@
+fn square(x: Float) -> Float:
+    x = x * x
+    return x
+end
+
+fn main() -> Int:
+    echo square(1648.0)
+    return 0
+end

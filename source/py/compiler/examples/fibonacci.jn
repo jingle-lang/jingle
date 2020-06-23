@@ -1,0 +1,18 @@
+let count = 20
+
+fn fibonacci(n: Int) -> Int:
+    if n > 1:
+        return fibonacci(n-1) + fibonacci(n-2)
+    end else:
+        return 1
+    end
+end
+
+fn main() -> Int:
+    var n: Int = 0
+    while n < count:
+        echo fibonacci(n)
+        n = n + 1
+     end
+     return 0
+end

@@ -1,10 +1,17 @@
-fn main() -> Int:
-    var fact: Int = 1
-    var n: Int = 1
-    while n < 10:
-       fact = fact * n
-       echo fact
-       n = n + 1
+/*
+Returns the factorial of x
+*/
+
+fn factorial(x: Integer) -> Integer:
+    if (x == 0):
+        return 1
+    end else:
+        return factorial(x - 1) * x
     end
-    return 0
+    return 1
+end
+
+fn main():
+    let num = 5
+    echo(factorial(num))
 end

@@ -1,18 +1,15 @@
-let count = 20
+/*
+This returns the n'th Fibonacci number.
+*/
 
-fn fibonacci(n: Int) -> Int:
-    if n > 1:
-        return fibonacci(n-1) + fibonacci(n-2)
-    end else:
-        return 1
-    end
+fn fib(n: Integer) -> Integer:
+  if (n < 2):
+      return n
+  end
+  return fib(n - 2) + fib(n - 1)
 end
 
-fn main() -> Int:
-    var n: Int = 0
-    while n < count:
-        echo fibonacci(n)
-        n = n + 1
-     end
-     return 0
+fn main():
+    let iter = 40 # Change this to choose the n'th Fibonacci number.
+    echo(fib(iter))
 end

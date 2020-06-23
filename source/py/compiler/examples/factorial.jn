@@ -1,0 +1,10 @@
+fn main() -> Int:
+    var fact: Int = 1
+    var n: Int = 1
+    while n < 10:
+       fact = fact * n
+       echo fact
+       n = n + 1
+    end
+    return 0
+end
