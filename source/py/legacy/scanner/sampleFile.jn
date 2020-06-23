@@ -1,0 +1,108 @@
+###
+### Imports
+###
+
+import "io"
+from "llvm" import "inline"
+require "main.jn"
+
+###
+### Variable Declaration
+###
+const gravity::float = 5.5
+var pizza = 5
+bind pizza as string # pizza => "5"
+let pizza = 2
+var shoppingList = [1,2,3]
+
+###
+### Functions
+###
+
+fn testFn1:
+    var random = 15
+end
+
+###
+### Nested Functions
+###
+
+fn domino(hello): 
+    var egg = 5 # var decl
+    var egg2 = 10.5 # var decl
+    var egg3 = egg1 + egg2
+    fn domino2(egg3::int, egg4::str): # func decl
+        var egg = egg + egg2
+        var egg3 = egg3 * egg
+        fn domino3:
+            var egg4 = 1
+            echo egg4
+            echo "egg4"
+        end
+    end
+end
+
+###
+### Classes
+###
+
+class hello:
+    return "Hello World"
+end
+
+###
+### Traits
+###
+
+trait testTrait: 
+    import "array"
+    fn testFn2:
+        echo 2 + 2
+        echo "egg"
+    end
+end
+
+if x > y:
+    var x = 5
+end
+
+if true:
+    var x = 4
+end
+
+if 5 < 4:
+    var x = 4
+    fn eggy(x):
+        var x = x - 2
+    end
+end
+
+fn fib(n):
+    if n < 0:
+        echo "Incorrect Input"
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fib(n-1)+fib(n-2)
+    end
+end
+
+while 5 > 2:
+    echo "5 is bigger!"
+end
+
+for 5 in 1..5:
+    echo "hello"
+end
+
+fn ivan:
+    var ivan = "beg"
+    if ivan == "beg":
+        var beg = True
+    end
+    else:
+        var beg = False
+    end
+end

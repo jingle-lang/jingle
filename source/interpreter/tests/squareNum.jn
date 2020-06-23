@@ -1,6 +1,0 @@
-fn SquareNum(x):
-    var x = x * x
-    echo x
-end
-
-echo SquareNum(3)
