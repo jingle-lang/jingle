@@ -1,4 +1,4 @@
-This is a list of examples for Jingle.
+This is a list of examples for Jingle (Python Compiler).
 
 - Mandelbrot Set (50 lines)
 - Fibonacci Numbers (18 lines)
