@@ -1,0 +1,24 @@
+/*
+Hello
+*/
+
+interface Test<A>:
+    fn test() -> String
+end
+
+class Implementor:
+    let a: String
+    init(a)
+end
+
+impl Test<Integer> for Implementor:
+    fn test() -> String = this.a
+end
+
+fn bounded<T: Test<Integer>>(a: T):
+    echo(a.test())
+end
+
+fn main():
+    bounded(Implementor("Hello"))
+end

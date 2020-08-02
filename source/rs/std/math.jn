@@ -1,0 +1,72 @@
+///
+/// Math Constants
+///
+
+// let pi = 3.14159
+
+///
+/// The following functions are usable and stable.
+///
+
+/// Returns the maximum of the 2 given values.
+fn max<T: Number>(a: T, b: T) -> T:
+    if (a > b) a else b
+end
+
+/// Returns the minimum of the 2 given value.
+fn min<T: Number>(a: T, b: T) -> T:
+    if (a < b) a else b
+end
+
+///
+/// The following functions are usable, stable,
+/// and designated to be moved to a new module.
+///
+
+///
+/// The following functions are usuable but unstable.
+///
+/// For example, a lot of functions should use Floats,
+/// but are using Integers for the time being or are
+/// the incorrect bit width and should be standardized
+/// to the 'Integer' type.
+///
+
+/// Returns the n'th Fibonacci number.
+fn fib(n: i64) -> i64:
+    if (n < 2):
+        return n
+    end
+    return fib(n - 2) + fib(n - 1)
+end
+
+/// Returns the factorial of x
+fn fact(x: i64) -> i64:
+    if (x == 0):
+        return 1
+    end else:
+        return fact(x - 1) * x
+    end
+    return 1
+end
+
+fn areaOfTrapezoid(base1: i64, base2: i64, height: i64) -> i64:
+    var area = ((base1 + base2) / 2) * height
+    return area
+end
+
+///
+/// The following functions are unusable and unstable.
+///
+
+fn even(n: i64) -> Bool:
+    if (n == 0) return true
+    odd(n - 1)
+end
+
+fn odd(n: i64) -> Bool:
+    even(n - 1)
+end
+
+extern fn sqrt(x: f64) -> f64
+extern fn pow(x: f64, k: f64) -> f64

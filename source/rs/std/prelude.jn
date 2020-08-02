@@ -1,0 +1,36 @@
+using std::intrinsics::puts
+using std::intrinsics::quick_exit
+using std::string::ToString
+
+export std::collections::Array
+export std::string::String
+
+fn echo(a: ToString) = puts(a.to_string().ptr)
+
+fn cast<T>(value: T) -> T = value
+
+fn try_cast<T, V>(value: T) -> Opt<V>:
+    if (value is V) Opt::<V>:Some(value)
+    else Opt::<V>:None()
+end
+
+fn panic(msg: String):
+    echo("Jingle => Panicked at: " + msg)
+    echo("Jingle => Exiting.")
+    quick_exit(1i32)
+end
+
+enum Opt<T>:
+    case Some(let value: T)
+    case None
+
+    fn map<M>(map_fn: (T): M) -> Opt<M>:
+        if (this is Opt::<T>:Some) return Opt::<M>:Some(map_fn(this.value))
+        Opt::<M>:None()
+    end
+end
+
+enum Res<T, E>:
+    case Ok(let value: T)
+    case Err(let err: E)
+end

@@ -1,0 +1,12 @@
+/*
+ok
+*/
+
+fn main():
+    if (true):
+        let str = "ok"
+        echo(str)
+    end else:
+        let str = "ok"
+    end
+end

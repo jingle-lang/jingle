@@ -1,0 +1,81 @@
+using std::intrinsics::*
+
+/// Returns the size of a type, in bytes. Equivalent to C's sizeof()
+public fn size_of<T>() -> i64 = jingle_get_type_size::<T>()
+
+/// This interface allows implementing custom behavior
+/// right before a value is freed by the GC.
+/// This can be used for multiple purposes like
+/// RAII locks or freeing memory not tracked by gelix.
+///
+/// Since gelix's GC uses reference counting, a value
+/// is immediately deallocated once unreachable.
+///
+/// A note for enums: If both an enum and a child case
+/// implement this interface, the order is:
+/// enum.free() -> enum_case.free() -> deallocation
+interface Free:
+    /// This method is called before a value is deallocated.
+    /// When implemented on aggregate value types like classes,
+    /// this method is called on the class first, then all fields.
+    fn free()
+end
+
+/// Allocates on the heap, where the amount
+/// of bytes allocated is the size of the type parameter times `size`.
+/// The returned pointer is not memory-managed, use Gc if you need it to be.
+public fn allocate<T>(size: i64) -> *T:
+    var ptr = if (size == 0) 0 else malloc(size_of::<T>() * size)
+    jingle_int_to_ptr::<T>(ptr)
+end
+
+/// Will run the given value's destructor, causing it to be deallocated
+/// immediately. Can be very unsafe - does not check for dangling references!
+///
+/// Mainly intended to be used with extern classes or raw pointers,
+/// as they require manual memory management.
+fn drop<T: IsPointer>(value: T) = jingle_free_type(value)
+
+/// Will increment the reference count on a value by 1.
+/// Will cause memory leaks if not careful!
+public fn inc_ref<T>(value: T):
+    jingle_inc_ref(value)
+end
+
+/// Will decrement the reference count on a value by 1.
+/// Will cause use-after-free bugs if not careful!
+public fn dec_ref<T>(value: T):
+    jingle_dec_ref(value)
+end
+
+/// Will simply load the given value.
+fn load_value<T>(value: *T) -> T = jingle_load_value(value)
+/// Will simply load the given value, with an index.
+fn load_value_index<T>(value: *T, index: i64) -> T = jingle_load_value(index_ptr(value, index))
+
+/// Will write the given value to the pointer at the given address.
+fn write_value<T>(ptr: *T, value: T) = jingle_write_ptr(ptr, value)
+/// Will write the given value to the pointer at the given address, with an index.
+fn write_value_index<T>(ptr: *T, index: i64, value: T) = jingle_write_ptr(index_ptr(ptr, index), value)
+
+fn index_ptr<T>(value: *T, index: i64) -> *T = jingle_gep(value, index)
+
+/// Copies elements in memory at `src` to `dst`,
+/// copying from index 0 until `len`.
+/// Does not do any memory safety checks.
+public fn copy_ptr<T>(src: *T, dst: *T, len: i64):
+    loop (i from 0 to len):
+        write_value_index(dst, i, load_value_index(src, i))
+    end
+end
+
+/// A wrapper intended for extern classes to allow them to be automatically managed.
+/// Whenever this wrapper gets GC'd, it will free its inner value as well.
+class Gc<T>:
+    let inner: T
+    init(inner)
+end
+
+impl Free for Gc<T>:
+    fn free() = free(this.inner)
+end

@@ -1,0 +1,13 @@
+/*
+ok
+*/
+
+fn main():
+    let test = Test()
+    test.str = "ok"
+    echo(test.str)
+end
+
+class Test:
+    var str = "fail"
+end

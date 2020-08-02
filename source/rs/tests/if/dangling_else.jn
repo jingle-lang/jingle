@@ -1,0 +1,19 @@
+/*
+ok
+*/
+
+fn main():
+    if (true)
+        if (false)
+            echo("bad")
+        end
+        else echo("ok")
+    end
+
+    if (false)
+        if (true)
+            echo("bad")
+        end
+        else echo("bad")
+    end
+end

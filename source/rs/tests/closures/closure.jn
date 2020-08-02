@@ -1,0 +1,12 @@
+/*
+40
+*/
+
+fn main():
+    echo(test())
+end
+
+fn test() -> i64:
+    let func = (a: i64, b: i64): i64 -> a * b
+    func(5, 8)
+end

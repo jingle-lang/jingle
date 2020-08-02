@@ -1,0 +1,148 @@
+using std::intrinsics::*
+using std::math::max
+using std::memory::*
+using std::ops::Add
+
+/// A UTF-8 string.
+/// Currently, strings are null-terminated.
+class String:
+
+    var length: usize
+    var capacity: usize
+    var ptr: *i8
+
+    /// Init an empty string with the given capacity.
+    /// Will allocate the amount given on the heap (malloc),
+    /// capacity of 0 results in no allocation until first insertion.
+    init(capacity):
+        this.ptr = allocate::<i8>(capacity)
+        this.length = 0
+    end
+
+    /// Simply init a string out of raw parts.
+    /// Rarely useful, unless dealing with low-level code.
+    init(length, capacity, ptr)
+
+    /// The length of the string, in bytes.
+    /// Note that byte length in UTF-8 does not
+    /// equal the amount of characters in the string.
+    fn len() -> i64:
+        // Subtract the null terminator
+        max(this.length - 1, 0)
+    end
+
+    /// Clears the string, setting the len to 0
+    /// and writing a null terminator to the first
+    /// index of its pointer.
+    fn clear():
+        if (this.length == 0) return
+        let null_char = load_value_index(this.ptr, this.length - 1)
+        write_value(this.ptr, null_char)
+        this.length = 1
+    end
+
+    /// Appends the given string to itself.
+    /// Will not modify the other string.
+    /// Returns itself for easy chaining.
+    fn append(other: String) -> String:
+        this.reserve(other.length)
+        copy_ptr(other.ptr, index_ptr(this.ptr, this.length), other.length)
+        this.length = this.length + other.len()
+        this
+    end
+
+    /// Allocate enough memory to hold `amount` more elements.
+    /// If the string already has the needed capacity, this does nothing.
+    fn reserve(amount: usize):
+        if (this.capacity > (this.length + amount)) return
+        this.capacity = this.length + amount
+        let new_ptr = allocate::<i8>(this.capacity)
+        copy_ptr(this.ptr, new_ptr, this.length)
+        drop(this.ptr)
+        this.ptr = new_ptr
+    end
+end
+
+impl Free for String:
+    fn free():
+        drop(this.ptr)
+    end
+end
+
+impl ToString for String:
+    fn to_string() -> String = this
+end
+
+impl Add<ToString, String> for String:
+    fn add(other: ToString) -> String:
+        let other = other.to_string()
+        // +1 to account for the null terminator
+        let new = String(this.len() + other.len() + 1)
+        new.append(this)
+        new.append(other)
+    end
+end
+
+// An interface for types that can be represented as a string.
+// Note that generally, ToString should not expose the implementation
+// of the type, but instead be information relevant to the user.
+//
+// For example, a 'Person' class might return its name and age
+// in a human-readable format.
+interface ToString:
+    fn to_string() -> String
+end
+
+impl ToString for Bool:
+    fn to_string() -> String:
+        if (this) "true"
+        else "false"
+    end
+end
+
+/// Simply creates a buffer and writes to it with sprintf.
+fn sprintf_buf<T: Primitive>(buf_len: usize, format: String, value: T) -> String:
+    var buffer = String(buf_len)
+    buffer.length = snprintf(buffer.ptr, buf_len, format.ptr, value)
+    buffer
+end
+
+impl ToString for i64:
+    fn to_string() -> String = sprintf_buf(21, "%ld", this)
+end
+
+impl ToString for i32:
+    fn to_string() -> String = sprintf_buf(12, "%d", this)
+end
+
+impl ToString for i16:
+    fn to_string() -> String = sprintf_buf(6, "%d", this)
+end
+
+impl ToString for i8:
+    fn to_string() -> String = sprintf_buf(4, "%d", this)
+end
+
+impl ToString for u64:
+    fn to_string() -> String = sprintf_buf(21, "%u", this)
+end
+
+impl ToString for u32:
+    fn to_string() -> String = sprintf_buf(12, "%u", this)
+end
+
+impl ToString for u16:
+    fn to_string() -> String = sprintf_buf(6, "%u", this)
+end
+
+impl ToString for u8:
+    fn to_string() -> String = sprintf_buf(4, "%u", this)
+end
+
+impl ToString for f64:
+    fn to_string() -> String = sprintf_buf(40, "%g", this)
+end
+
+impl ToString for f32:
+    fn to_string() -> String = sprintf_buf(40, "%g", this)
+end

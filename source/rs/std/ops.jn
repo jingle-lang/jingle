@@ -1,0 +1,94 @@
+/// An interface that allows overriding the behavior of the '+' operator on a type.
+/// Implementing this interface will cause the following translation:
+/// (a + b) -> (a.add(b))
+///
+/// Just like adding numbers, this operator should not modify either of its
+/// parameters. It should instead return a new object independent of either.
+///
+/// The recommended way to use this operator is exclusively on or other things
+/// that can be easily modified, like a 3D vector, matrix or string.
+/// Using it for adding to a collection, for example,
+/// is not recommended as doing so can be confusing to read.
+interface Add<O, T>:
+    fn add(other: O) -> T
+end
+
+/// An interface that allows overriding the behavior of the '-' operator on a type.
+/// Implementing this interface will cause the following translation:
+/// (a - b) -> (a.sub(b))
+///
+/// Just like subtracting numbers, this operator should not modify either of its
+/// parameters. It should instead return a new object independent of either.
+///
+/// The recommended way to use this operator is exclusively on numbers, like a
+/// 3D vector or a matrix.
+/// Using it for removing from a collection, for example,
+/// is not recommended as doing so can be confusing to read.
+interface Sub<O, T>:
+    fn sub(other: O) -> T
+end
+
+/// An interface that allows overriding the behavior of the '*' operator on a type.
+/// Implementing this interface will cause the following translation:
+/// (a * b) -> (a.mul(b))
+///
+/// Just like multiplying numbers, this operator should not modify either of its
+/// parameters. It should instead return a new object independent of either.
+///
+/// The recommended way to use this operator is exclusively on numbers, like a
+/// 3D vector or a matrix.
+/// Using it for repeating a string, for example,
+/// is not recommended as doing so can be confusing to read.
+interface Mul<O, T>:
+    fn mul(other: O) -> T
+end
+
+/// An interface that allows overriding the behavior of the '/' operator on a type.
+/// Implementing this interface will cause the following translation:
+/// (a / b) -> (a.div(b))
+///
+/// Just like dividing numbers, this operator should not modify either of its
+/// parameters. It should instead return a new object independent of either.
+///
+/// The recommended way to use this operator is exclusively on numbers, like a
+/// 3D vector or a matrix.
+interface Div<O, T>:
+    fn div(other: O) -> T
+end
+
+/// An interface that allows overriding the behavior of the '==' and '!=' operators on a type.
+/// Implementing this interface will cause the following translations:
+/// (a == b) -> (a.equal(b))
+/// (a != b) -> (!a.equal(b))
+///
+/// This comparison should not modify parameters.
+///
+/// Generally, equality should always mean that (a == b) and (a != b) are strictly inverse.
+/// Additionally, it should be symmetric: ((a == b) == (b == a))
+/// As well as transitive: (a == b && a == c) means (b == c).
+/// These constraints are recommended, but not enforced.
+interface Equal<O>:
+    fn equal(other: O) -> Bool
+end
+
+/// An interface that allows overriding the behavior of the 'a[T]' index operator on a type.
+/// Implementing this interface will cause the following translation:
+/// (a[243]) -> (a.index_get(243))
+///
+/// This operation should not modify parameters.
+///
+/// If no suitable element is found at the given index, panicking is appropriate.
+interface IndexGet<I, T>:
+    fn index_get(index: I) -> T
+end
+
+/// An interface that allows overriding the behavior of the 'a[T] = ...' index operator on a type.
+/// Implementing this interface will cause the following translation:
+/// (a[243] = 5) -> (a.index_set(243, 5))
+///
+/// This operation should not modify the index.
+///
+/// If no suitable element is found at the given index, panicking is appropriate.
+interface IndexSet<I, T>:
+    fn index_set(index: I, value: T)
+end

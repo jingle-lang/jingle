@@ -1,0 +1,13 @@
+/*
+5
+24
+*/
+
+fn main() {
+    var arr = Array::<i64>(2)
+    arr.push(75)
+    arr.push(24)
+    arr[0] = 5
+    echo(arr[0])
+    echo(arr[1])
+}
