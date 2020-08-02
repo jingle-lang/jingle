@@ -1,0 +1,51 @@
+/* mandelbrot.jn */
+
+const xmin = -2.0
+const xmax = 1.0
+const ymin = -1.5
+const ymax = 1.5
+const width = 80.0
+const height = 40.0
+const threshold = 1000
+
+fn in_mandelbrot(x0: Float, y0: Float, n: Int) -> Boolean:
+    var x: Float = 0.0
+    var y: Float = 0.0
+    var xtemp: Float
+    while n > 0:
+        xtemp = (x * x) - (y * y) + x0
+        y = (2.0 * x * y) + y0
+        x = xtemp
+        n = n - 1
+        if (x * x) + (y * y) > 4.0:
+            return false
+        end
+    end
+    return true
+end
+
+fn mandel() -> Int:
+    var dx: Float = (xmax - xmin) / width
+    var dy: Float = (ymax - ymin) / height
+
+    var y: Float = ymax
+    var x: Float
+
+    while y >= ymin:
+        x = xmin
+        while x < xmax:
+            if in_mandelbrot(x, y, threshold):
+                echo '*'
+            else:
+                echo '.'
+            end
+            x = x + dx
+        end
+        echo '\n'
+        y = y - dy
+    end
+end
+
+fn main() -> Int:
+    return mandel()
+end

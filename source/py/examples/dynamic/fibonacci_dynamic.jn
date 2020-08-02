@@ -1,0 +1,17 @@
+const last = 50
+
+fn fibonacci(n):
+    if n > 1:
+        return fibonacci(n-1) + fibonacci(n-2)
+    end else:
+        return 1
+    end
+end
+
+fn main():
+    var n = 0
+    while n < last:
+        echo fibonacci(n)
+        n = n + 1
+     end
+end

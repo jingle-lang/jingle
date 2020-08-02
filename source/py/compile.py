@@ -7,7 +7,7 @@
 
 import subprocess
 import sys
-import os.path
+import os
 import tempfile
 import time
 from colorama import Fore
@@ -79,7 +79,7 @@ def main():
             head, tail = os.path.split(sys.argv[1])
             if len(head) < 1:
                 head = "local folder"
-            if os == "nt":
+            if os.name == "nt":
                 output_name = os.path.splitext(sys.argv[1])[0]+".exe"
             else:
                 output_name = os.path.splitext(sys.argv[1])[0]

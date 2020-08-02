@@ -1,8 +1,0 @@
-fn func(b,c):
-  var a = 4
-  echo a + b * c
-end
-
-var c = func(2,4)
-
-echo c

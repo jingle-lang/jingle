@@ -1,0 +1,8 @@
+fn square(x):
+    x = x * x
+    return x
+end
+
+fn main():
+    echo square(60.5)
+end

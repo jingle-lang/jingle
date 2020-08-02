@@ -1,0 +1,9 @@
+fn main():
+    var num = 4233.0
+    var eq = num % 2.0
+    if eq == 0.0:
+        echo "Even"
+    end else:
+        echo "Odd"
+    end
+end
