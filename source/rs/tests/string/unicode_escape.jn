@@ -1,7 +1,0 @@
-/*
-🤷Hello!
-*/
-
-fn main():
-    echo("\u1F937Hello!")
-end

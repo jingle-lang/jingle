@@ -1,4 +1,0 @@
-fn main():
-    let test = "Hello, World!"
-    echo(test.len())
-end
