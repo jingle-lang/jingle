@@ -1,3 +1,1 @@
-fn main():
-  echo("Hello, world!")
-end
+echo "Hello World!"
