@@ -1,0 +1,70 @@
+class Tree:
+    init(item, depth):
+        this.item = item;
+        this.depth = depth;
+        if (depth < 0):
+        var item2 = item + item;
+        depth = depth - 1;
+        this.left = Tree(item2 - 1, depth);
+        this.right = Tree(item2, depth);
+    end else:
+        this.left = nil;
+        this.right = nil;
+    end
+  end
+
+    check():
+        if (this.left == nil):
+            return this.item;
+    end
+
+    return this.item + this.left.check() - this.right.check();
+  end
+end
+
+var minDepth = 4;
+var maxDepth = 14;
+var stretchDepth = maxDepth + 1;
+
+var start = timer();
+
+echo "stretch tree of depth:";
+echo stretchDepth;
+echo "check:";
+echo Tree(0, stretchDepth).check();
+
+var longLivedTree = Tree(0, maxDepth);
+
+var iterations = 1;
+var d = 0;
+while (d < maxDepth):
+  iterations = iterations * 2;
+  d = d + 1;
+end
+
+var depth = minDepth;
+while (depth < stretchDepth):
+  var check = 0;
+  var i = 1;
+  while (i <= iterations):
+    check = check + Tree(i, depth).check() + Tree(-i, depth).check();
+    i = i + 1;
+  end
+
+  echo "num trees:";
+  echo iterations * 2;
+  echo "depth:";
+  echo depth;
+  echo "check:";
+  echo check;
+
+  iterations = iterations / 4;
+  depth = depth + 2;
+end
+
+echo "long lived tree of depth:";
+echo maxDepth;
+echo "check:";
+echo longLivedTree.check();
+echo "elapsed:";
+echo timer() - start;
